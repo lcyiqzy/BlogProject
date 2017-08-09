@@ -1,4 +1,4 @@
-package bolgProject.manager.listener;
+package blogProject.manager.listener;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
