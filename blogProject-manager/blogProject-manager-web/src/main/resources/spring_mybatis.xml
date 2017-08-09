@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--配置阿里巴巴德鲁伊数据连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/blogProject"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="initialSize" value="5"></property>
+	</bean>
+
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!--配置mybatis的配置文件位置 -->
+		<property name="configLocation" value="classpath:mybatis/mybatis_config.xml"></property>
+		<!-- 配置数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定所有mapperxml的位置 -->
+		<property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"></property>
+
+	</bean>
+
+	<!-- 将所有mapper接口的实现类自动加入到ioc容器中 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="blogProject.manager.dao"></property>
+	</bean>
+
+</beans>
