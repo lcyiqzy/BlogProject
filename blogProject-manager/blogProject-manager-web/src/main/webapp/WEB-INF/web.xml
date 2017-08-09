@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="2.5" >
 	
 	<listener >
-	<listener-class>bolgProject.manager.listener.MyAppListener</listener-class>
+	<listener-class>blogProject.manager.listener.MyAppListener</listener-class>
 	</listener>
 
 	<context-param>

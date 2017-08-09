@@ -12,8 +12,8 @@
 		<property name="initialSize" value="5"></property>
 	</bean>
 
-	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!--配置mybatis的配置文件位置 -->
+	 <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 配置mybatis的配置文件位置 -->
 		<property name="configLocation" value="classpath:mybatis/mybatis_config.xml"></property>
 		<!-- 配置数据源 -->
 		<property name="dataSource" ref="dataSource"></property>
@@ -25,6 +25,6 @@
 	<!-- 将所有mapper接口的实现类自动加入到ioc容器中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	<property name="basePackage" value="blogProject.manager.dao"></property>
-	</bean>
+	</bean> 
 
 </beans>

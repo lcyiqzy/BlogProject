@@ -41,7 +41,7 @@
 		<!-- 只要是数据库对应的pojo，我们都以T开头 -->
 		<!-- 指定要逆向的每一张表,用户表 -->
 		
-		<table tableName="xxx" domainObjectName="xxx"></table>
+		<table tableName="t_test" domainObjectName="tTest"></table>
 		
 	</context>
 </generatorConfiguration>
