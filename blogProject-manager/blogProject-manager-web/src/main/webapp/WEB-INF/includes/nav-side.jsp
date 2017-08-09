@@ -6,7 +6,7 @@
 
 			<li><a class="active-menu" href="index.jsp"><i
 					class="fa fa-dashboard"></i> 主页面</a></li>
-			<li><a href="usermanager.jsp"><i class="fa fa-desktop"></i>
+			<li><a href="/WEB-INF/views/usermanager.jsp"><i class="fa fa-desktop"></i>
 					用户管理</a></li>
 
 			<li><a href="#"><i class="fa fa-sitemap"></i> 权限管理<span
