@@ -1,255 +1,376 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+	pageEncoding="UTF-8"%>
+<!doctype html>
 
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta content="" name="description" />
-<meta content="webthemez" name="author" />
-<title>后台管理系统</title>
-<!-- Bootstrap Styles-->
-<link href="assets/css/bootstrap.css" rel="stylesheet" />
-<!-- FontAwesome Styles-->
-<link href="assets/css/font-awesome.css" rel="stylesheet" />
-<!-- Morris Chart Styles-->
-<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-<!-- Custom Styles-->
-<link href="assets/css/custom-styles.css" rel="stylesheet" />
-<link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
+<title>轻博客-电台后台管理系统</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!-- VENDOR CSS -->
+<link rel="stylesheet"
+	href="${ctp}/assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${ctp}/assets/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="${ctp}/assets/vendor/linearicons/style.css">
+<link rel="stylesheet"
+	href="${ctp}/assets/vendor/chartist/css/chartist-custom.css">
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="${ctp}/assets/css/main.css">
 </head>
 
 <body>
-    <div id="wrapper">
-        <%@ include file="/WEB-INF/includes/nav-top.jsp"%>
-        <!--/. NAV TOP  -->
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+        <%@ include file="/WEB-INF/includes/navbar.jsp" %>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<%@ include file="/WEB-INF/includes/leftsidebar.jsp" %>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<!-- OVERVIEW -->
+					<div class="panel panel-headline">
+						<div class="panel-heading">
+							<h3 class="panel-title">每周概述</h3>
+							<p class="panel-subtitle">Period: July 14, 2017 - July 21,
+								2017</p>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-book"></i></span>
+										<p>
+											<span class="number">1,252</span> <span class="title">总文章数</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-shopping-bag"></i></span>
+										<p>
+											<span class="number">203</span> <span class="title">总音频数</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-user"></i></span>
+										<p>
+											<span class="number">274,678</span> <span class="title">总注册数</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<span class="icon"><i class="fa fa-eye"></i></span>
+										<p>
+											<span class="number">74,678</span> <span class="title">周访问量</span>
+										</p>
+									</div>
+								</div>
+							</div>
+<!-- 							<div class="row"> -->
+<!-- 								<div class="col-md-9"> -->
+<!-- 									<div id="headline-chart" class="ct-chart"></div> -->
+<!-- 								</div> -->
+<!-- 								<div class="col-md-3"> -->
+<!-- 									<div class="weekly-summary text-right"> -->
+<!-- 										<span class="number">2,315</span> <span class="percentage"><i -->
+<!-- 											class="fa fa-caret-up text-success"></i> 12%</span> <span -->
+<!-- 											class="info-label">Total Sales</span> -->
+<!-- 									</div> -->
+<!-- 									<div class="weekly-summary text-right"> -->
+<!-- 										<span class="number">$5,758</span> <span class="percentage"><i -->
+<!-- 											class="fa fa-caret-up text-success"></i> 23%</span> <span -->
+<!-- 											class="info-label">Monthly Income</span> -->
+<!-- 									</div> -->
+<!-- 									<div class="weekly-summary text-right"> -->
+<!-- 										<span class="number">$65,938</span> <span class="percentage"><i -->
+<!-- 											class="fa fa-caret-down text-danger"></i> 8%</span> <span -->
+<!-- 											class="info-label">Total Income</span> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+						</div>
+					</div>
+					<!-- END OVERVIEW -->
+					<div class="row">
+						<div class="col-md-6">
+							<!-- RECENT PURCHASES -->
+							<!-- END RECENT PURCHASES -->
+						</div>
+						<div class="col-md-6">
+							<!-- MULTI CHARTS -->
+							<!-- END MULTI CHARTS -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-7">
+							<!-- TODO LIST -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">To-Do List</h3>
+									<div class="right">
+										<button type="button" class="btn-toggle-collapse">
+											<i class="lnr lnr-chevron-up"></i>
+										</button>
+										<button type="button" class="btn-remove">
+											<i class="lnr lnr-cross"></i>
+										</button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<ul class="list-unstyled todo-list">
+										<li><label class="control-inline fancy-checkbox">
+												<input type="checkbox"><span></span>
+										</label>
+											<p>
+												<span class="title">Restart Server</span> <span
+													class="short-description">Dynamically integrate
+													client-centric technologies without cooperative resources.</span>
+												<span class="date">Oct 9, 2016</span>
+											</p>
+											<div class="controls">
+												<a href="#"><i
+													class="icon-software icon-software-pencil"></i></a> <a href="#"><i
+													class="icon-arrows icon-arrows-circle-remove"></i></a>
+											</div></li>
+										<li><label class="control-inline fancy-checkbox">
+												<input type="checkbox"><span></span>
+										</label>
+											<p>
+												<span class="title">Retest Upload Scenario</span> <span
+													class="short-description">Compellingly implement
+													clicks-and-mortar relationships without highly efficient
+													metrics.</span> <span class="date">Oct 23, 2016</span>
+											</p>
+											<div class="controls">
+												<a href="#"><i
+													class="icon-software icon-software-pencil"></i></a> <a href="#"><i
+													class="icon-arrows icon-arrows-circle-remove"></i></a>
+											</div></li>
+										<li><label class="control-inline fancy-checkbox">
+												<input type="checkbox"><span></span>
+										</label>
+											<p>
+												<strong>Functional Spec Meeting</strong> <span
+													class="short-description">Monotonectally formulate
+													client-focused core competencies after parallel
+													web-readiness.</span> <span class="date">Oct 11, 2016</span>
+											</p>
+											<div class="controls">
+												<a href="#"><i
+													class="icon-software icon-software-pencil"></i></a> <a href="#"><i
+													class="icon-arrows icon-arrows-circle-remove"></i></a>
+											</div></li>
+									</ul>
+								</div>
+							</div>
+							<!-- END TODO LIST -->
+						</div>
+						<div class="col-md-5">
+							<!-- TIMELINE -->
+							<div class="panel panel-scrolling">
+								<div class="panel-heading">
+									<h3 class="panel-title">Recent User Activity</h3>
+									<div class="right">
+										<button type="button" class="btn-toggle-collapse">
+											<i class="lnr lnr-chevron-up"></i>
+										</button>
+										<button type="button" class="btn-remove">
+											<i class="lnr lnr-cross"></i>
+										</button>
+									</div>
+								</div>
+								<div class="panel-body">
+									<ul class="list-unstyled activity-list">
+										<li><img src="assets/img/user1.png" alt="Avatar"
+											class="img-circle pull-left avatar">
+											<p>
+												<a href="#">Michael</a> has achieved 80% of his completed
+												tasks <span class="timestamp">20 minutes ago</span>
+											</p></li>
+										<li><img src="assets/img/user2.png" alt="Avatar"
+											class="img-circle pull-left avatar">
+											<p>
+												<a href="#">Daniel</a> has been added as a team member to
+												project <a href="#">System Update</a> <span
+													class="timestamp">Yesterday</span>
+											</p></li>
+										<li><img src="assets/img/user3.png" alt="Avatar"
+											class="img-circle pull-left avatar">
+											<p>
+												<a href="#">Martha</a> created a new heatmap view <a
+													href="#">Landing Page</a> <span class="timestamp">2
+													days ago</span>
+											</p></li>
+										<li><img src="assets/img/user4.png" alt="Avatar"
+											class="img-circle pull-left avatar">
+											<p>
+												<a href="#">Jane</a> has completed all of the tasks <span
+													class="timestamp">2 days ago</span>
+											</p></li>
+										<li><img src="assets/img/user5.png" alt="Avatar"
+											class="img-circle pull-left avatar">
+											<p>
+												<a href="#">Jason</a> started a discussion about <a href="#">Weekly
+													Meeting</a> <span class="timestamp">3 days ago</span>
+											</p></li>
+									</ul>
+									<button type="button"
+										class="btn btn-primary btn-bottom center-block">Load
+										More</button>
+								</div>
+							</div>
+							<!-- END TIMELINE -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">
+				</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script>
+	$(function() {
+		var data, options;
 
-        <%@ include file="/WEB-INF/includes/nav-side.jsp"%>
-        <!-- /. NAV SIDE  -->
+		// headline charts
+		data = {
+			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+			series: [
+				[23, 29, 24, 40, 25, 24, 35],
+				[14, 25, 18, 34, 29, 38, 44],
+			]
+		};
 
-        <div id="page-wrapper">
-            <div class="header">
-                <h1 class="page-header">
-                    管理员 <small>欢迎来到后台管理系统</small>
-                </h1>
-                <!--                        <ol class="breadcrumb"> -->
-                <!--                      <li><a href="#">Home</a></li> -->
-                <!--                      <li><a href="#">Dashboard</a></li> -->
-                <!--                      <li class="active">Data</li> -->
-                <!--                    </ol>  -->
+		options = {
+			height: 300,
+			showArea: true,
+			showLine: false,
+			showPoint: false,
+			fullWidth: true,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+		};
 
-            </div>
-            <div id="page-inner">
-
-                <!-- /. ROW  -->
-
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="board">
-                            <div class="panel panel-primary">
-                                <div class="number">
-                                    <h3>
-                                        <h3>44,023</h3>
-                                        <small>日访问量</small>
-                                    </h3>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-eye fa-5x red"></i>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="board">
-                            <div class="panel panel-primary">
-                                <div class="number">
-                                    <h3>
-                                        <h3>32,850</h3>
-                                        <small>在线人数</small>
-                                    </h3>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-user fa-5x blue"></i>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="board">
-                            <div class="panel panel-primary">
-                                <div class="number">
-                                    <h3>
-                                        <h3>56,150</h3>
-                                        <small>文章数量</small>
-                                    </h3>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-book fa-5x green"></i>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="board">
-                            <div class="panel panel-primary">
-                                <div class="number">
-                                    <h3>
-                                        <h3>89,645</h3>
-                                        <small>音频数量</small>
-                                    </h3>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-comments fa-5x yellow"></i>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body easypiechart-panel">
-                                <h4>Profit</h4>
-                                <div class="easypiechart" id="easypiechart-blue"
-                                    data-percent="82">
-                                    <span class="percent">82%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body easypiechart-panel">
-                                <h4>Sales</h4>
-                                <div class="easypiechart" id="easypiechart-orange"
-                                    data-percent="55">
-                                    <span class="percent">55%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body easypiechart-panel">
-                                <h4>Customers</h4>
-                                <div class="easypiechart" id="easypiechart-teal"
-                                    data-percent="84">
-                                    <span class="percent">84%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-body easypiechart-panel">
-                                <h4>No. of Visits</h4>
-                                <div class="easypiechart" id="easypiechart-red"
-                                    data-percent="46">
-                                    <span class="percent">46%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--/.row-->
-
-                <div class="copyrights">
-                    Collect from <a href="http://www.cssmoban.com/">企业网站模板</a>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Line Chart</div>
-                            <div class="panel-body">
-                                <div id="morris-line-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-7">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Bar Chart Example</div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+		new Chartist.Line('#headline-chart', data, options);
 
 
+		// visits trend charts
+		data = {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+			series: [{
+				name: 'series-real',
+				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+			}, {
+				name: 'series-projection',
+				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+			}]
+		};
 
-                <div class="row">
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Area Chart</div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Donut Chart Example</div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
+		options = {
+			fullWidth: true,
+			lineSmooth: false,
+			height: "270px",
+			low: 0,
+			high: 'auto',
+			series: {
+				'series-projection': {
+					showArea: true,
+					showPoint: false,
+					showLine: false
+				},
+			},
+			axisX: {
+				showGrid: false,
 
-                </div>
-                <div class="row">
-                    <div class="col-md-12"></div>
-                </div>
-                <!-- /. ROW  -->
-                <footer>
-                    <p></p>
+			},
+			axisY: {
+				showGrid: false,
+				onlyInteger: true,
+				offset: 0,
+			},
+			chartPadding: {
+				left: 20,
+				right: 20
+			}
+		};
 
-                </footer>
-            </div>
-            <!-- /. PAGE INNER  -->
-        </div>
-        <!-- /. PAGE WRAPPER  -->
-    </div>
-    <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-    <!-- Morris Chart Js -->
-    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
+		new Chartist.Line('#visits-trends-chart', data, options);
 
 
-    <script src="assets/js/easypiechart.js"></script>
-    <script src="assets/js/easypiechart-data.js"></script>
+		// visits chart
+		data = {
+			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+			series: [
+				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+			]
+		};
 
-    <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+		options = {
+			height: 300,
+			axisX: {
+				showGrid: false
+			},
+		};
 
-    <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
+		new Chartist.Bar('#visits-chart', data, options);
 
 
-    <!-- Chart Js -->
-    <script type="text/javascript" src="assets/js/Chart.min.js"></script>
-    <script type="text/javascript" src="assets/js/chartjs.js"></script>
+		// real-time pie chart
+		var sysLoad = $('#system-load').easyPieChart({
+			size: 130,
+			barColor: function(percent) {
+				return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+			},
+			trackColor: 'rgba(245, 245, 245, 0.8)',
+			scaleColor: false,
+			lineWidth: 5,
+			lineCap: "square",
+			animate: 800
+		});
 
+		var updateInterval = 3000; // in milliseconds
+
+		setInterval(function() {
+			var randomVal;
+			randomVal = getRandomInt(0, 100);
+
+			sysLoad.data('easyPieChart').update(randomVal);
+			sysLoad.find('.percent').text(randomVal);
+		}, updateInterval);
+
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+	});
+	</script>
 </body>
 
 </html>
