@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/usermanager")
 public class UserController {
-
+    
+    
+    
     @RequestMapping("/users")
     public String userList() {
         return "usermanager/user";
