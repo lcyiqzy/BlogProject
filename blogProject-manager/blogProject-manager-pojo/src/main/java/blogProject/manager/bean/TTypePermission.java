@@ -1,6 +1,7 @@
 package blogProject.manager.bean;
 
 public class TTypePermission {
+
     private Integer type;
 
     private Integer permission;
@@ -20,4 +21,10 @@ public class TTypePermission {
     public void setPermission(Integer permission) {
         this.permission = permission;
     }
+
+    @Override
+    public String toString() {
+        return "TTypePermission [type=" + type + ", permission=" + permission + "]";
+    }
+
 }

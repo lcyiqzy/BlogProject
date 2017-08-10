@@ -3,6 +3,7 @@ package blogProject.manager.bean;
 import java.util.Date;
 
 public class TMessage {
+
     private Integer id;
 
     private String messageContent;
@@ -52,4 +53,11 @@ public class TMessage {
     public void setMessageDate(Date messageDate) {
         this.messageDate = messageDate;
     }
+
+    @Override
+    public String toString() {
+        return "TMessage [id=" + id + ", messageContent=" + messageContent + ", messageSenderId=" + messageSenderId
+                + ", messageReceiverId=" + messageReceiverId + ", messageDate=" + messageDate + "]";
+    }
+
 }
