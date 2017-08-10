@@ -7,19 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import blogProject.manager.bean.TUser;
-import blogProject.manager.service.UserService;
+import blogProject.manager.service.TUserService;
 
 @Controller
 @RequestMapping("/usermanager")
 public class UserController {
     
     @Autowired
-    UserService userService;
+    TUserService userService;
     
     @RequestMapping("/users")
     public String userList() {
         List<TUser> users = userService.getAllUsers();
-        System.out.println();
+        System.out.println(users);
         return "usermanager/user";
     }
 }
