@@ -38,11 +38,14 @@
                 </form>
             </div>
         	<div class="bj_right">
+        		<div>
+        			<a href="index.jsp"><img src="images/icon_close4.png" align="right" ></a>
+        	    </div>
             	<p>使用以下账号直接登录</p>
                 <a href="#" class="zhuce_qq">QQ注册</a>
                 <a href="#" class="zhuce_wb">微博注册</a>
                 <a href="#" class="zhuce_wx">微信注册</a>
-                <p>已有账号？<a href="login.html">立即登录</a></p>
+                <p>已有账号？<a href="login.jsp">立即登录</a></p>
             
             </div>
         </div>
