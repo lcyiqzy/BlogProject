@@ -7,7 +7,7 @@
 
 
 	<!--进行包扫描，扫描除去controller外的所有  -->
-	<context:component-scan base-package="blogProject.restapi">
+	<context:component-scan base-package="blogProject.manager">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
