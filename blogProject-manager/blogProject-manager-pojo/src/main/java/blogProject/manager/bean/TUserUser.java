@@ -1,7 +1,6 @@
 package blogProject.manager.bean;
 
 public class TUserUser {
-
     private Integer id;
 
     private Integer userFanId;
@@ -47,5 +46,5 @@ public class TUserUser {
         return "TUserUser [id=" + id + ", userFanId=" + userFanId + ", userFollowedId=" + userFollowedId + ", userId="
                 + userId + "]";
     }
-
+    
 }

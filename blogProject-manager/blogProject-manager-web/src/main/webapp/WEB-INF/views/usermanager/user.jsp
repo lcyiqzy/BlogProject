@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="UTF-8">
 <head>
@@ -76,20 +76,24 @@
 													<th>账号</th>
 													<th>名称</th>
 													<th>邮箱地址</th>
+													<th>手机号</th>
+													<th>用户类型</th>
 													<th width="200">操作</th>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach items="${info.list}" var="user">
 													<tr>
-														<td>${ user.id }</td>
-														<td><input type="checkbox" class="check_single_btn" del_id="${ user.id }"></td>
-														<td>${ user.userLonginacct }</td>
-														<td>${ user.userName }</td>
-														<td>${ user.userEmail }</td>
+														<td>${user.id }</td>
+														<td><input type="checkbox" class="check_single_btn" del_id="${user.id }"></td>
+														<td>${user.userLonginacct }</td>
+														<td>${user.userName }</td>
+														<td>${user.userEmail }</td>
+														<td>${user.userPhone }</td>
+														<td>${user.userPermission }</td>
 														<td>
 															<button type="button" class="btn btn-success btn-xs"
-																assign_id="${ user.id }">
+																assign_id="${user.id }">
 																<i class=" glyphicon glyphicon-check"></i>
 															</button>
 															<button type="button" class="btn btn-primary btn-xs">
