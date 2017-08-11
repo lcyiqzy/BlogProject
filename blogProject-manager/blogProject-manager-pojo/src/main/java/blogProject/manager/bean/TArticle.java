@@ -3,6 +3,7 @@ package blogProject.manager.bean;
 import java.util.Date;
 
 public class TArticle {
+
     private Integer id;
 
     private String articleName;
@@ -112,4 +113,13 @@ public class TArticle {
     public void setAuthorId(Integer authorId) {
         this.authorId = authorId;
     }
+
+    @Override
+    public String toString() {
+        return "TArticle [id=" + id + ", articleName=" + articleName + ", articleAuthor=" + articleAuthor
+                + ", articleUrl=" + articleUrl + ", articleReadNum=" + articleReadNum + ", articleLikeNum="
+                + articleLikeNum + ", articleFollowNum=" + articleFollowNum + ", articleCommitNum=" + articleCommitNum
+                + ", articleDate=" + articleDate + ", articlePicUrl=" + articlePicUrl + ", authorId=" + authorId + "]";
+    }
+
 }

@@ -1,6 +1,7 @@
 package blogProject.manager.bean;
 
 public class TUserArticle {
+
     private Integer id;
 
     private Integer userId;
@@ -50,4 +51,11 @@ public class TUserArticle {
     public void setFollowArticleId(Integer followArticleId) {
         this.followArticleId = followArticleId;
     }
+
+    @Override
+    public String toString() {
+        return "TUserArticle [id=" + id + ", userId=" + userId + ", writeArticleId=" + writeArticleId
+                + ", likeArticleId=" + likeArticleId + ", followArticleId=" + followArticleId + "]";
+    }
+
 }

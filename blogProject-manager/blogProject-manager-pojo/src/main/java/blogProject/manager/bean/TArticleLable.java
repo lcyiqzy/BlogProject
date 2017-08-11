@@ -1,6 +1,7 @@
 package blogProject.manager.bean;
 
 public class TArticleLable {
+
     private Integer id;
 
     private Integer articleId;
@@ -30,4 +31,10 @@ public class TArticleLable {
     public void setLabelId(Integer labelId) {
         this.labelId = labelId;
     }
+
+    @Override
+    public String toString() {
+        return "TArticleLable [id=" + id + ", articleId=" + articleId + ", labelId=" + labelId + "]";
+    }
+
 }

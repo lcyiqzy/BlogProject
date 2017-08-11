@@ -40,4 +40,11 @@ public class TUserUser {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "TUserUser [id=" + id + ", userFanId=" + userFanId + ", userFollowedId=" + userFollowedId + ", userId="
+                + userId + "]";
+    }
+    
 }

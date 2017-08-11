@@ -6,7 +6,7 @@
     <result column="user_longinacct" jdbcType="VARCHAR" property="userLonginacct" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
-    <result column="user_phone" jdbcType="INTEGER" property="userPhone" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_permission" jdbcType="INTEGER" property="userPermission" />
     <result column="follow_num" jdbcType="INTEGER" property="followNum" />
     <result column="followed_num" jdbcType="INTEGER" property="followedNum" />
@@ -120,7 +120,7 @@
       password_retrieve_url, regist_date, article_num, 
       user_self_introduction)
     values (#{id,jdbcType=INTEGER}, #{userLonginacct,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=INTEGER}, #{userPermission,jdbcType=INTEGER}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userPermission,jdbcType=INTEGER}, 
       #{followNum,jdbcType=INTEGER}, #{followedNum,jdbcType=INTEGER}, #{registState,jdbcType=INTEGER}, 
       #{registCode,jdbcType=VARCHAR}, #{registEmailUrl,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{passwordRetrieveUrl,jdbcType=VARCHAR}, #{registDate,jdbcType=DATE}, #{articleNum,jdbcType=INTEGER}, 
@@ -192,7 +192,7 @@
         #{userEmail,jdbcType=VARCHAR},
       </if>
       <if test="userPhone != null">
-        #{userPhone,jdbcType=INTEGER},
+        #{userPhone,jdbcType=VARCHAR},
       </if>
       <if test="userPermission != null">
         #{userPermission,jdbcType=INTEGER},
@@ -251,7 +251,7 @@
         user_email = #{record.userEmail,jdbcType=VARCHAR},
       </if>
       <if test="record.userPhone != null">
-        user_phone = #{record.userPhone,jdbcType=INTEGER},
+        user_phone = #{record.userPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.userPermission != null">
         user_permission = #{record.userPermission,jdbcType=INTEGER},
@@ -297,7 +297,7 @@
       user_longinacct = #{record.userLonginacct,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
-      user_phone = #{record.userPhone,jdbcType=INTEGER},
+      user_phone = #{record.userPhone,jdbcType=VARCHAR},
       user_permission = #{record.userPermission,jdbcType=INTEGER},
       follow_num = #{record.followNum,jdbcType=INTEGER},
       followed_num = #{record.followedNum,jdbcType=INTEGER},
@@ -326,7 +326,7 @@
         user_email = #{userEmail,jdbcType=VARCHAR},
       </if>
       <if test="userPhone != null">
-        user_phone = #{userPhone,jdbcType=INTEGER},
+        user_phone = #{userPhone,jdbcType=VARCHAR},
       </if>
       <if test="userPermission != null">
         user_permission = #{userPermission,jdbcType=INTEGER},
@@ -369,7 +369,7 @@
     set user_longinacct = #{userLonginacct,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
-      user_phone = #{userPhone,jdbcType=INTEGER},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
       user_permission = #{userPermission,jdbcType=INTEGER},
       follow_num = #{followNum,jdbcType=INTEGER},
       followed_num = #{followedNum,jdbcType=INTEGER},

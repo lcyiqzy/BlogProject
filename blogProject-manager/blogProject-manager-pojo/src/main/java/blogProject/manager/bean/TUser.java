@@ -3,6 +3,7 @@ package blogProject.manager.bean;
 import java.util.Date;
 
 public class TUser {
+
     private Integer id;
 
     private String userLonginacct;
@@ -11,7 +12,7 @@ public class TUser {
 
     private String userEmail;
 
-    private Integer userPhone;
+    private String userPhone;
 
     private Integer userPermission;
 
@@ -67,12 +68,12 @@ public class TUser {
         this.userEmail = userEmail == null ? null : userEmail.trim();
     }
 
-    public Integer getUserPhone() {
+    public String getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(Integer userPhone) {
-        this.userPhone = userPhone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone == null ? null : userPhone.trim();
     }
 
     public Integer getUserPermission() {
@@ -162,4 +163,15 @@ public class TUser {
     public void setUserSelfIntroduction(String userSelfIntroduction) {
         this.userSelfIntroduction = userSelfIntroduction == null ? null : userSelfIntroduction.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TUser [id=" + id + ", userLonginacct=" + userLonginacct + ", userName=" + userName + ", userEmail="
+                + userEmail + ", userPhone=" + userPhone + ", userPermission=" + userPermission + ", followNum="
+                + followNum + ", followedNum=" + followedNum + ", registState=" + registState + ", registCode="
+                + registCode + ", registEmailUrl=" + registEmailUrl + ", userPassword=" + userPassword
+                + ", passwordRetrieveUrl=" + passwordRetrieveUrl + ", registDate=" + registDate + ", articleNum="
+                + articleNum + ", userSelfIntroduction=" + userSelfIntroduction + "]";
+    }
+
 }

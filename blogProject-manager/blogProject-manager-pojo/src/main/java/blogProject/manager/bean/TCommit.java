@@ -3,6 +3,7 @@ package blogProject.manager.bean;
 import java.util.Date;
 
 public class TCommit {
+
     private Integer id;
 
     private String commitContent;
@@ -52,4 +53,11 @@ public class TCommit {
     public void setCommitDate(Date commitDate) {
         this.commitDate = commitDate;
     }
+
+    @Override
+    public String toString() {
+        return "TCommit [id=" + id + ", commitContent=" + commitContent + ", commitUserId=" + commitUserId
+                + ", commitArticleId=" + commitArticleId + ", commitDate=" + commitDate + "]";
+    }
+
 }

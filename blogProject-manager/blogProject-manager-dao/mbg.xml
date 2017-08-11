@@ -51,6 +51,9 @@
 		<table tableName="t_user_article" domainObjectName="TUserArticle"></table>
 		<table tableName="t_user_article_commit" domainObjectName="TUserArticleCommit"></table>
 		<table tableName="t_user_user" domainObjectName="TUserUser"></table>
+		<table tableName="t_type" domainObjectName="TType"></table>
+		<table tableName="t_permission" domainObjectName="TPermission"></table>
+		<table tableName="t_type_permission" domainObjectName="TTypePermission"></table>
 		
 	</context>
 </generatorConfiguration>

@@ -1,6 +1,7 @@
 package blogProject.manager.bean;
 
 public class TLabel {
+
     private Integer id;
 
     private String labelName;
@@ -30,4 +31,10 @@ public class TLabel {
     public void setLabelPicUrl(String labelPicUrl) {
         this.labelPicUrl = labelPicUrl == null ? null : labelPicUrl.trim();
     }
+
+    @Override
+    public String toString() {
+        return "TLabel [id=" + id + ", labelName=" + labelName + ", labelPicUrl=" + labelPicUrl + "]";
+    }
+
 }
