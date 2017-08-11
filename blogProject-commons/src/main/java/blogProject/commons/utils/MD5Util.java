@@ -13,7 +13,7 @@ public class MD5Util {
     }
 
     private static String digest(String inStr, int rang) {
-        //MessageDigest：JDK带的消息加密类
+        // MessageDigest：JDK带的消息加密类
         MessageDigest md5 = null;
         if (MyStringUtils.isEmpty(inStr)) {
             return "";
@@ -56,20 +56,19 @@ public class MD5Util {
         String digest2 = digest(s);
         System.out.println(digest1);
         System.out.println(digest2);
-        
-        //MD5+盐值加密  shiro
-        
+
+        // MD5+盐值加密 shiro
+
         String pass = new String("123456");
         System.out.println();
         String str = digest(digest(pass));
         System.out.println(str);
-        //二次MD5加密；
-        //用户输入 admin  123456
-        //数据库取出的 admin  csakjldjsakdhsaudiasnm
-        //1、将用户输入的用户名密码拿到
+        // 二次MD5加密；
+        // 用户输入 admin 123456
+        // 数据库取出的 admin csakjldjsakdhsaudiasnm
+        // 1、将用户输入的用户名密码拿到
         String dsa = MD5Util.digest("123456");
-        //2、去数据库查用户，使用用户带来的用户名，和加密后的密码进行查询;
-        
-        
+        // 2、去数据库查用户，使用用户带来的用户名，和加密后的密码进行查询;
+
     }
 }

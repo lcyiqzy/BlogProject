@@ -22,10 +22,14 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;  
 import org.apache.http.util.EntityUtils;  
   
-/** 
+/**
  *  
- * @author Nan 2015-11 
- */  
+ * @ClassName HttpClientUtil
+ * @Description TODO(这里用一句话描述这个类的作用)
+ * @author WzzAdmin
+ * @Date 2017年8月11日 下午4:11:51
+ * @version 1.0.0
+ */
 public class HttpClientUtil {  
     private static PoolingHttpClientConnectionManager cm;  
     private static String EMPTY_STR = "";  
