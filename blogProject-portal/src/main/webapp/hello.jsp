@@ -9,6 +9,7 @@
 <body>
 <h1>欢迎来到测试界面</h1>
 <a href="${ctp}/hello">Press Me</a>
+<a href="${ctp }/toUserCenterPage">}toUserCenterPage</a>
 
 </body>
 </html>
