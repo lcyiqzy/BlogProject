@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
-
+<html lang="UTF-8">
 <head>
 <title>用户管理</title>
 <meta charset="utf-8">
@@ -34,6 +35,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
+					<h3 class="page-title">文章管理</h3>
 					<div class="row">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -47,19 +49,19 @@
 										<thead>
 											<tr>
 												<th>名称</th>
-												<c:forEach items="${at_info}" var="accountType">
-													<th>${accountType.name}</th>
+												<c:forEach items="${types}" var="type">
+													<th>${type.type}</th>
 												</c:forEach>
 											</tr>
 										</thead>
 										<tbody>
-											<input id="aa" type="hidden" value="${atc_info}" />
-											<c:forEach items="${cert_info}" var="cert">
+											<%-- 											<input id="aa" type="hidden" value="${atc_info}" /> --%>
+											<c:forEach items="${permissions}" var="permission">
 												<tr>
-													<td>${cert.name}</td>
-													<c:forEach items="${at_info}" var="accountType">
+													<td>${permission.permission}</td>
+													<c:forEach items="${types}" var="type">
 														<td><input class="check_input" type="checkbox"
-															aid="${accountType.id}" cid="${cert.id}">${accountType.id}--${cert.id}</td>
+															tid="${type.id}" pid="${permission.id}">${type.id}--${permission.id}</td>
 													</c:forEach>
 												</tr>
 											</c:forEach>
@@ -80,13 +82,14 @@
 				</div>
 			</footer>
 		</div>
-		<!-- END WRAPPER -->
-		<!-- Javascript -->
-		<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
-		<script src="${ctp}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script
-			src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-		<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="${ctp}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
 </body>
 
 </html>

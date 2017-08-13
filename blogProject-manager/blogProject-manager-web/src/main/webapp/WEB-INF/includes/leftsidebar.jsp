@@ -37,6 +37,7 @@
 							<li><a href="${ctp}/audit/audi-audio" class="">音频审核</a></li>
 						</ul>
 					</div></li>
+				<li><a href="${ctp}/source/toSave" class=""><i class="lnr lnr-user"></i> <span>保存文章</span></a></li>
 			</ul>
 		</nav>
 	</div>
