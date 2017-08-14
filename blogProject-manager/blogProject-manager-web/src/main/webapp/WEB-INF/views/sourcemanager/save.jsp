@@ -42,7 +42,7 @@
 								<div class="panel-heading" style="font-size: medium;">写博客</div>
 								<div class="panel-body">
 								    
-                                    <form id="article" action="${ctp}/source/saveArticle" method="post">
+                                    <form id="article" action="${ctp}/article/saveArticle" method="post">
                                         <input name="articleName" type="text" placeholder="标题"/>
                                         <br/>
                                         <br/>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import blogProject.manager.bean.TArticle;
+import blogProject.manager.controller.util.ArticleUploadUtil;
 import blogProject.manager.controller.util.ImageUploadUtil;
 import blogProject.manager.service.TArticleService;
 
@@ -45,9 +46,13 @@ public class ArticleController {
     @RequestMapping(value="/saveArticle",produces="text/html;charset=utf-8")
     public String saveArticle(@RequestParam(value="upload") String upload,
             @RequestParam("articleName") String articleName,
+            HttpServletRequest request, HttpServletResponse response,
             HttpSession session) {
         System.out.println("保存文章开始。。。");
         TArticle article = new TArticle();
+        
+        String DirectoryName = "article/";
+        String url = ArticleUploadUtil.upload(request, response, DirectoryName,upload);
         
         //创建日期
         Date date = new Date();
@@ -65,7 +70,7 @@ public class ArticleController {
         article.setAuthorId(1);
         
         //文章内容
-        article.setArticleUrl(upload);
+        article.setArticleUrl(url);
         
         //文章点击量
         article.setArticleReadNum(0);

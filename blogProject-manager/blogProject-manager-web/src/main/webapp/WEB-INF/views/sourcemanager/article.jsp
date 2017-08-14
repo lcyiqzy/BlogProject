@@ -61,53 +61,54 @@
 									</button>
 									<br>
 									<hr style="clear: both;">
-                                    <div class="table-responsive">
-                                        <table class="table  table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th width="30">#</th>
-                                                    <th width="30"><input type="checkbox"
-                                                        class="check_all_btn"></th>
-                                                    <th>文章标题</th>
-                                                    <th>作者</th>
-                                                    <th>浏览量</th>
-                                                    <th>被喜欢量</th> 
-                                                    <th>评论量</th>
-                                                    <th>创建日期</th>
-                                                    <th width="200">操作</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${articles.list}" var="article">
-                                                    <tr>
-                                                        <td>${article.id }</td>
-                                                        <td><input type="checkbox" class="check_single_btn" del_id="${user.id }"></td>
-                                                        <td>${article.articleName }</td>
-                                                        <td>${article.articleAuthor }</td>
-                                                        <td>${article.articleReadNum }</td>
-                                                        <td>${article.articleLikeNum }</td>
-                                                        <td>${article.articleCommitNum }</td>
-                                                        <td>${article.articleDate }</td>
-                                                        <td>
-                                                            <button type="button" class="btn btn-success btn-xs"
-                                                                assign_id="${article.id }">
-                                                                <i class=" glyphicon glyphicon-check"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary btn-xs">
-                                                                <i class=" glyphicon glyphicon-pencil"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-danger btn-xs">
-                                                                <i class=" glyphicon glyphicon-remove"></i>
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                            <tfoot>
-                                                <!-- 分页按钮 -->
-                                            </tfoot>
-                                        </table>
-                                    </div>
+									<div class="table-responsive">
+										<table class="table  table-bordered">
+											<thead>
+												<tr>
+													<th width="30">#</th>
+													<th width="30"><input type="checkbox"
+														class="check_all_btn"></th>
+													<th>文章标题</th>
+													<th>作者</th>
+													<th>浏览量</th>
+													<th>被喜欢量</th>
+													<th>评论量</th>
+													<th>创建日期</th>
+													<th width="150">操作</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${articles.list}" var="article">
+													<tr>
+														<td>${article.id }</td>
+														<td><input type="checkbox" class="check_single_btn"
+															del_id="${user.id }"></td>
+														<td>${article.articleName }</td>
+														<td>${article.articleAuthor }</td>
+														<td>${article.articleReadNum }</td>
+														<td>${article.articleLikeNum }</td>
+														<td>${article.articleCommitNum }</td>
+														<td>${article.articleDate }</td>
+														<td>
+															<button type="button"
+																class="content btn btn-success btn-xs"
+																article_id="${article.id }"
+																article_name="${article.articleName}"
+																article_url="${article.articleUrl}">
+																<i class=" glyphicon glyphicon-check"></i>
+															</button>
+															<button type="button" class="btn btn-danger btn-xs">
+																<i class=" glyphicon glyphicon-remove"></i>
+															</button>
+														</td>
+													</tr>
+												</c:forEach>
+											</tbody>
+											<tfoot>
+												<!-- 分页按钮 -->
+											</tfoot>
+										</table>
+									</div>
 								</div>
 							</div>
 							<!--End Advanced Tables -->
@@ -133,6 +134,31 @@
 			</div>
 		</footer>
 	</div>
+
+	<!-- 查看文章模态框 -->
+	<div class="modal fade" id="articleModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" data-backdrop="static">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel"></h4>
+				</div>
+				<div class="modal-body">
+					<div>
+						<!-- 文章 -->
+						<iframe class="articleContent" width="850" height="400"></iframe>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
@@ -140,6 +166,21 @@
 	<script
 		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+		});
+
+		$(".content").click(
+				function() {
+					$("#articleModal").modal();
+					$("#articleModal #myModalLabel").html(
+							$(this).attr("article_name"));
+					alert($(this).attr("article_url"));
+					$("#articleModal .articleContent").attr("src",
+							$(this).attr("article_url"));
+				});
+	</script>
 </body>
 
 </html>
