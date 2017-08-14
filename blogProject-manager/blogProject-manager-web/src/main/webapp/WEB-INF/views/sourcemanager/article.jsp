@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
-
+<html lang="UTF-8">
 <head>
 <title>用户管理</title>
 <meta charset="utf-8">
@@ -37,7 +38,7 @@
 
 					<div class="row">
 						<div class="col-md-12">
-							<!-- 用户列表 Tables -->
+							<!-- Tables -->
 							<div class="panel panel-default">
 								<div class="panel-heading" style="font-size: medium;">文章管理</div>
 								<div class="panel-body">
@@ -58,14 +59,55 @@
 										style="float: right; margin-left: 10px;">
 										<i class=" glyphicon glyphicon-remove"></i> 删除
 									</button>
-									<button type="button" class="btn btn-primary"
-										style="float: right;"
-										onclick="window.location.href='add.html'">
-										<i class="glyphicon glyphicon-plus"></i> 新增
-									</button>
 									<br>
 									<hr style="clear: both;">
-									
+                                    <div class="table-responsive">
+                                        <table class="table  table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="30">#</th>
+                                                    <th width="30"><input type="checkbox"
+                                                        class="check_all_btn"></th>
+                                                    <th>文章标题</th>
+                                                    <th>作者</th>
+                                                    <th>浏览量</th>
+                                                    <th>被喜欢量</th> 
+                                                    <th>评论量</th>
+                                                    <th>创建日期</th>
+                                                    <th width="200">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${articles.list}" var="article">
+                                                    <tr>
+                                                        <td>${article.id }</td>
+                                                        <td><input type="checkbox" class="check_single_btn" del_id="${user.id }"></td>
+                                                        <td>${article.articleName }</td>
+                                                        <td>${article.articleAuthor }</td>
+                                                        <td>${article.articleReadNum }</td>
+                                                        <td>${article.articleLikeNum }</td>
+                                                        <td>${article.articleCommitNum }</td>
+                                                        <td>${article.articleDate }</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-success btn-xs"
+                                                                assign_id="${article.id }">
+                                                                <i class=" glyphicon glyphicon-check"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary btn-xs">
+                                                                <i class=" glyphicon glyphicon-pencil"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger btn-xs">
+                                                                <i class=" glyphicon glyphicon-remove"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                            <tfoot>
+                                                <!-- 分页按钮 -->
+                                            </tfoot>
+                                        </table>
+                                    </div>
 								</div>
 							</div>
 							<!--End Advanced Tables -->

@@ -1,7 +1,5 @@
 package blogProject.manager.bean;
 
-import java.util.Date;
-
 public class TArticle {
 
     private Integer id;
@@ -20,7 +18,7 @@ public class TArticle {
 
     private Integer articleCommitNum;
 
-    private Date articleDate;
+    private String articleDate;
 
     private String articlePicUrl;
 
@@ -90,11 +88,11 @@ public class TArticle {
         this.articleCommitNum = articleCommitNum;
     }
 
-    public Date getArticleDate() {
+    public String getArticleDate() {
         return articleDate;
     }
 
-    public void setArticleDate(Date articleDate) {
+    public void setArticleDate(String articleDate) {
         this.articleDate = articleDate;
     }
 

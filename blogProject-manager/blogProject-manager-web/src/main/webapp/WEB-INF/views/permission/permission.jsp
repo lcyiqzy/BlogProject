@@ -54,7 +54,6 @@
 												</button>
 											</div>
 										</div>
-										<!-- END PANEL DEFAULT -->
 									</div>
 								</c:forEach>
 							</div>

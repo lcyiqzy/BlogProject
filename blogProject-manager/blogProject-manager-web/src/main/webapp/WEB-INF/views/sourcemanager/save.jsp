@@ -49,8 +49,8 @@
                                         <textarea name="upload"></textarea>
 	                                    <script type="text/javascript">
 	                                        CKEDITOR.replace('upload',{
-	//                                          filebrowserBrowseUrl: '${ctp}/source/selectImg',
-	                                            filebrowserUploadUrl: '${ctp}/source/saveImg',
+	//                                          filebrowserBrowseUrl: '${ctp}/article/selectImg',
+	                                            filebrowserUploadUrl: '${ctp}/article/saveImg',
 	                                        });
 	                                        
 	                                    </script>
