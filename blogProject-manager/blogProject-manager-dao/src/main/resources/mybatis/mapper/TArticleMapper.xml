@@ -10,9 +10,10 @@
     <result column="article_like_num" jdbcType="INTEGER" property="articleLikeNum" />
     <result column="article_follow_num" jdbcType="INTEGER" property="articleFollowNum" />
     <result column="article_commit_num" jdbcType="INTEGER" property="articleCommitNum" />
-    <result column="article_date" jdbcType="DATE" property="articleDate" />
+    <result column="article_date" jdbcType="VARCHAR" property="articleDate" />
     <result column="article_pic_url" jdbcType="VARCHAR" property="articlePicUrl" />
     <result column="author_id" jdbcType="INTEGER" property="authorId" />
+    <result column="article_real_url" jdbcType="VARCHAR" property="articleRealUrl" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -74,7 +75,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, article_name, article_author, article_url, article_read_num, article_like_num, 
-    article_follow_num, article_commit_num, article_date, article_pic_url, author_id
+    article_follow_num, article_commit_num, article_date, article_pic_url, author_id, 
+    article_real_url
   </sql>
   <select id="selectByExample" parameterType="blogProject.manager.example.TArticleExample" resultMap="BaseResultMap">
     select
@@ -110,11 +112,13 @@
     insert into t_article (id, article_name, article_author, 
       article_url, article_read_num, article_like_num, 
       article_follow_num, article_commit_num, article_date, 
-      article_pic_url, author_id)
+      article_pic_url, author_id, article_real_url
+      )
     values (#{id,jdbcType=INTEGER}, #{articleName,jdbcType=VARCHAR}, #{articleAuthor,jdbcType=VARCHAR}, 
       #{articleUrl,jdbcType=VARCHAR}, #{articleReadNum,jdbcType=INTEGER}, #{articleLikeNum,jdbcType=INTEGER}, 
-      #{articleFollowNum,jdbcType=INTEGER}, #{articleCommitNum,jdbcType=INTEGER}, #{articleDate,jdbcType=DATE}, 
-      #{articlePicUrl,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER})
+      #{articleFollowNum,jdbcType=INTEGER}, #{articleCommitNum,jdbcType=INTEGER}, #{articleDate,jdbcType=VARCHAR}, 
+      #{articlePicUrl,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER}, #{articleRealUrl,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TArticle">
     insert into t_article
@@ -152,6 +156,9 @@
       <if test="authorId != null">
         author_id,
       </if>
+      <if test="articleRealUrl != null">
+        article_real_url,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -179,13 +186,16 @@
         #{articleCommitNum,jdbcType=INTEGER},
       </if>
       <if test="articleDate != null">
-        #{articleDate,jdbcType=DATE},
+        #{articleDate,jdbcType=VARCHAR},
       </if>
       <if test="articlePicUrl != null">
         #{articlePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="authorId != null">
         #{authorId,jdbcType=INTEGER},
+      </if>
+      <if test="articleRealUrl != null">
+        #{articleRealUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -223,13 +233,16 @@
         article_commit_num = #{record.articleCommitNum,jdbcType=INTEGER},
       </if>
       <if test="record.articleDate != null">
-        article_date = #{record.articleDate,jdbcType=DATE},
+        article_date = #{record.articleDate,jdbcType=VARCHAR},
       </if>
       <if test="record.articlePicUrl != null">
         article_pic_url = #{record.articlePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="record.authorId != null">
         author_id = #{record.authorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleRealUrl != null">
+        article_real_url = #{record.articleRealUrl,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -246,9 +259,10 @@
       article_like_num = #{record.articleLikeNum,jdbcType=INTEGER},
       article_follow_num = #{record.articleFollowNum,jdbcType=INTEGER},
       article_commit_num = #{record.articleCommitNum,jdbcType=INTEGER},
-      article_date = #{record.articleDate,jdbcType=DATE},
+      article_date = #{record.articleDate,jdbcType=VARCHAR},
       article_pic_url = #{record.articlePicUrl,jdbcType=VARCHAR},
-      author_id = #{record.authorId,jdbcType=INTEGER}
+      author_id = #{record.authorId,jdbcType=INTEGER},
+      article_real_url = #{record.articleRealUrl,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -278,13 +292,16 @@
         article_commit_num = #{articleCommitNum,jdbcType=INTEGER},
       </if>
       <if test="articleDate != null">
-        article_date = #{articleDate,jdbcType=DATE},
+        article_date = #{articleDate,jdbcType=VARCHAR},
       </if>
       <if test="articlePicUrl != null">
         article_pic_url = #{articlePicUrl,jdbcType=VARCHAR},
       </if>
       <if test="authorId != null">
         author_id = #{authorId,jdbcType=INTEGER},
+      </if>
+      <if test="articleRealUrl != null">
+        article_real_url = #{articleRealUrl,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -298,9 +315,10 @@
       article_like_num = #{articleLikeNum,jdbcType=INTEGER},
       article_follow_num = #{articleFollowNum,jdbcType=INTEGER},
       article_commit_num = #{articleCommitNum,jdbcType=INTEGER},
-      article_date = #{articleDate,jdbcType=DATE},
+      article_date = #{articleDate,jdbcType=VARCHAR},
       article_pic_url = #{articlePicUrl,jdbcType=VARCHAR},
-      author_id = #{authorId,jdbcType=INTEGER}
+      author_id = #{authorId,jdbcType=INTEGER},
+      article_real_url = #{articleRealUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,8 +1,6 @@
 package blogProject.manager.example;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class TArticleExample {
@@ -104,32 +102,6 @@ public class TArticleExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -652,53 +624,63 @@ public class TArticleExample {
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateEqualTo(Date value) {
-            addCriterionForJDBCDate("article_date =", value, "articleDate");
+        public Criteria andArticleDateEqualTo(String value) {
+            addCriterion("article_date =", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("article_date <>", value, "articleDate");
+        public Criteria andArticleDateNotEqualTo(String value) {
+            addCriterion("article_date <>", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("article_date >", value, "articleDate");
+        public Criteria andArticleDateGreaterThan(String value) {
+            addCriterion("article_date >", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("article_date >=", value, "articleDate");
+        public Criteria andArticleDateGreaterThanOrEqualTo(String value) {
+            addCriterion("article_date >=", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateLessThan(Date value) {
-            addCriterionForJDBCDate("article_date <", value, "articleDate");
+        public Criteria andArticleDateLessThan(String value) {
+            addCriterion("article_date <", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("article_date <=", value, "articleDate");
+        public Criteria andArticleDateLessThanOrEqualTo(String value) {
+            addCriterion("article_date <=", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateIn(List<Date> values) {
-            addCriterionForJDBCDate("article_date in", values, "articleDate");
+        public Criteria andArticleDateLike(String value) {
+            addCriterion("article_date like", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("article_date not in", values, "articleDate");
+        public Criteria andArticleDateNotLike(String value) {
+            addCriterion("article_date not like", value, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("article_date between", value1, value2, "articleDate");
+        public Criteria andArticleDateIn(List<String> values) {
+            addCriterion("article_date in", values, "articleDate");
             return (Criteria) this;
         }
 
-        public Criteria andArticleDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("article_date not between", value1, value2, "articleDate");
+        public Criteria andArticleDateNotIn(List<String> values) {
+            addCriterion("article_date not in", values, "articleDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleDateBetween(String value1, String value2) {
+            addCriterion("article_date between", value1, value2, "articleDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleDateNotBetween(String value1, String value2) {
+            addCriterion("article_date not between", value1, value2, "articleDate");
             return (Criteria) this;
         }
 
@@ -829,6 +811,76 @@ public class TArticleExample {
 
         public Criteria andAuthorIdNotBetween(Integer value1, Integer value2) {
             addCriterion("author_id not between", value1, value2, "authorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlIsNull() {
+            addCriterion("article_real_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlIsNotNull() {
+            addCriterion("article_real_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlEqualTo(String value) {
+            addCriterion("article_real_url =", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlNotEqualTo(String value) {
+            addCriterion("article_real_url <>", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlGreaterThan(String value) {
+            addCriterion("article_real_url >", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("article_real_url >=", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlLessThan(String value) {
+            addCriterion("article_real_url <", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlLessThanOrEqualTo(String value) {
+            addCriterion("article_real_url <=", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlLike(String value) {
+            addCriterion("article_real_url like", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlNotLike(String value) {
+            addCriterion("article_real_url not like", value, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlIn(List<String> values) {
+            addCriterion("article_real_url in", values, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlNotIn(List<String> values) {
+            addCriterion("article_real_url not in", values, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlBetween(String value1, String value2) {
+            addCriterion("article_real_url between", value1, value2, "articleRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleRealUrlNotBetween(String value1, String value2) {
+            addCriterion("article_real_url not between", value1, value2, "articleRealUrl");
             return (Criteria) this;
         }
     }

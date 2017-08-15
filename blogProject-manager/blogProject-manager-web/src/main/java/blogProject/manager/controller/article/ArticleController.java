@@ -63,8 +63,14 @@ public class ArticleController {
         
         String DirectoryName = "article/";
         String url = ArticleUploadUtil.upload(request, response, DirectoryName,upload);
+        String[] urls = url.split("&");
+        
         List<String> list = (List<String>) session.getAttribute("pictureRealPaths");
-        System.out.println(list);
+        String pictureUrl = "";
+        for (String string : list) {
+            pictureUrl += string + "&";
+        }
+        System.out.println(pictureUrl);
         
         //创建日期
         Date date = new Date();
@@ -78,11 +84,14 @@ public class ArticleController {
         //文章作者
         article.setArticleAuthor("shinn");
         
-        //文章作者
+        //文章作者id
         article.setAuthorId(1);
+
+        //文章真实地址
+        article.setArticleRealUrl(urls[0]);
         
         //文章内容
-        article.setArticleUrl(url);
+        article.setArticleUrl(urls[1]);
         
         //文章点击量
         article.setArticleReadNum(0);
@@ -96,6 +105,9 @@ public class ArticleController {
         //文章评论数
         article.setArticleCommitNum(0);
         
+        //图片Url
+        article.setArticlePicUrl(pictureUrl);
+        
         System.out.println(upload);
         
         boolean flag = articleService.saveArticle(article);
@@ -105,6 +117,8 @@ public class ArticleController {
         } else {
             System.out.println("保存失败");
         }
+        
+        session.removeAttribute("pictureRealPaths");
         
         return "redirect:/source/article";
     }

@@ -1,7 +1,6 @@
 package blogProject.manager.bean;
 
 public class TArticle {
-
     private Integer id;
 
     private String articleName;
@@ -23,6 +22,8 @@ public class TArticle {
     private String articlePicUrl;
 
     private Integer authorId;
+
+    private String articleRealUrl;
 
     public Integer getId() {
         return id;
@@ -93,7 +94,7 @@ public class TArticle {
     }
 
     public void setArticleDate(String articleDate) {
-        this.articleDate = articleDate;
+        this.articleDate = articleDate == null ? null : articleDate.trim();
     }
 
     public String getArticlePicUrl() {
@@ -112,12 +113,11 @@ public class TArticle {
         this.authorId = authorId;
     }
 
-    @Override
-    public String toString() {
-        return "TArticle [id=" + id + ", articleName=" + articleName + ", articleAuthor=" + articleAuthor
-                + ", articleUrl=" + articleUrl + ", articleReadNum=" + articleReadNum + ", articleLikeNum="
-                + articleLikeNum + ", articleFollowNum=" + articleFollowNum + ", articleCommitNum=" + articleCommitNum
-                + ", articleDate=" + articleDate + ", articlePicUrl=" + articlePicUrl + ", authorId=" + authorId + "]";
+    public String getArticleRealUrl() {
+        return articleRealUrl;
     }
 
+    public void setArticleRealUrl(String articleRealUrl) {
+        this.articleRealUrl = articleRealUrl == null ? null : articleRealUrl.trim();
+    }
 }

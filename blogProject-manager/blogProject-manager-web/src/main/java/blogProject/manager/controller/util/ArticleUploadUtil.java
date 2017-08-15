@@ -44,7 +44,7 @@ public class ArticleUploadUtil {
             }
         }
         
-        String articleContextPath = request.getContextPath() + "/" + directoryName + fileName;
-        return articleContextPath;
+        String articleRealContextPath = fileUrl + "&" +request.getContextPath() + "/" + directoryName + fileName;
+        return articleRealContextPath;
     }
 }
