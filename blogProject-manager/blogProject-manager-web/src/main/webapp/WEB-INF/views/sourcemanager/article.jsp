@@ -174,9 +174,8 @@
 		$(".content").click(
 				function() {
 					$("#articleModal").modal();
-					$("#articleModal #myModalLabel").html(
-							$(this).attr("article_name"));
-					alert($(this).attr("article_url"));
+					$("#articleModal #myModalLabel").html($(this).attr("article_name"));
+// 					alert($(this).attr("article_url"));
 					$("#articleModal .articleContent").attr("src",
 							$(this).attr("article_url"));
 				});

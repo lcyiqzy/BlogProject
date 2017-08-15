@@ -40,7 +40,7 @@ public class ImageUploadUtil {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
                 request.getSession().getServletContext());
         
-        String fileName = null;
+        String fileRealPath = null;
         if (multipartResolver.isMultipart(request)) {
             MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
 
@@ -65,26 +65,29 @@ public class ImageUploadUtil {
                             realPathDirectory.mkdirs();
                         }
                         
-                        fileName = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10)+ "_file_"
+                        String fileName = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10)+ "_file_"
                                 + originalFilename;
-                        
-                        File uploadFile = new File(realPathDirectory + "\\" + fileName);
+                        fileRealPath = realPathDirectory + "\\" + fileName;
+                        File uploadFile = new File(fileRealPath);
                         System.out.println(uploadFile);
                         file.transferTo(uploadFile);
+                        fileRealPath = fileRealPath + "&" + fileName;
                     }
                 }
             }
         }
-        return fileName;
+        return fileRealPath;
     }
 
     /**
      * ckeditor文件上传功能，回调，传回图片路径，实现预览效果。
      * 
      */
-    public static void ckeditor(HttpServletRequest request, HttpServletResponse response, String DirectoryName)
+    public static String ckeditor(HttpServletRequest request, HttpServletResponse response, String DirectoryName)
             throws IOException {
-        String fileName = upload(request, DirectoryName);
+        String fileRealPath = upload(request, DirectoryName);
+        String[] split = fileRealPath.split("&");
+        String fileName = split[1];
         // 结合ckeditor功能
         // imageContextPath为图片在服务器地址，非绝对路径
         String imageContextPath = request.getContextPath() + "/" + DirectoryName + fileName;
@@ -96,5 +99,6 @@ public class ImageUploadUtil {
         out.println("</script>");
         out.flush();
         out.close();
+        return split[0];
     }
 }
