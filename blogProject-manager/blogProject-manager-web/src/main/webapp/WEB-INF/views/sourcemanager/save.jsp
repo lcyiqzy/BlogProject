@@ -89,13 +89,14 @@
 	<script
 		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	<script src="${ctp}/plugin/layer/layer.js"></script>
     <script type="text/javascript">
         $(function(){
         	
         });
         
         $("#save").click(function(){
-        	alert(1);
+        	layer.msg("保存完成");
         	$("#article").submit();
         });
     </script>

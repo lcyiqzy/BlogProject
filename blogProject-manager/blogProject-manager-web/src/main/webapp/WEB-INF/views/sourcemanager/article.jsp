@@ -97,7 +97,11 @@
 																article_url="${article.articleUrl}">
 																<i class=" glyphicon glyphicon-check"></i>
 															</button>
-															<button type="button" class="btn btn-danger btn-xs">
+															<button type="button" class="del btn btn-danger btn-xs"
+																article_id="${article.id }"
+																article_name="${article.articleName}"
+																article_realurl="${article.articleRealUrl}"
+																article_picurl="${article.articlePicUrl}">
 																<i class=" glyphicon glyphicon-remove"></i>
 															</button>
 														</td>
@@ -166,6 +170,7 @@
 	<script
 		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	<script src="${ctp}/plugin/layer/layer.js"></script>
 	<script type="text/javascript">
 		$(function() {
 
@@ -174,11 +179,37 @@
 		$(".content").click(
 				function() {
 					$("#articleModal").modal();
-					$("#articleModal #myModalLabel").html($(this).attr("article_name"));
-// 					alert($(this).attr("article_url"));
+					$("#articleModal #myModalLabel").html(
+							$(this).attr("article_name"));
+					//alert($(this).attr("article_url"));
 					$("#articleModal .articleContent").attr("src",
 							$(this).attr("article_url"));
 				});
+
+		$(".del").click(function() {
+			var id = $(this).attr("article_id");
+			var name = $(this).attr("article_name");
+			var realurl = $(this).attr("article_realurl");
+			var picurl = $(this).attr("article_picurl");
+			var delUrl = "${ctp}/article/del?did=" + id + "&drealurl=" + realurl + "&dpicurl=" + picurl
+			
+			layer.confirm(
+					'你确定删除【' + name + '】吗', 
+					{btn : [ '否', '是' ]},
+					function(index, layero) {
+					    layer.msg("没删成");
+					}, 
+					function(index,layero) {
+						layer.msg("删除完成")
+						location.href = delUrl;
+// 						$.get(
+// 							"${ctp}/article/del",
+// 							{ did: id, drealurl: realurl,dpicurl: picurl}, 
+// 							function(msg){
+// 								layer.msg(msg);
+// 							});
+					});
+		});
 	</script>
 </body>
 

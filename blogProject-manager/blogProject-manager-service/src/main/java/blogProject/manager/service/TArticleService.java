@@ -10,4 +10,6 @@ public interface TArticleService {
 
     List<TArticle> getAllArticles();
 
+    boolean delArticle(Integer did);
+
 }

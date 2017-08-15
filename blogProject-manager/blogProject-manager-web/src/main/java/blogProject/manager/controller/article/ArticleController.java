@@ -10,14 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.filefilter.DelegateFileFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import blogProject.manager.bean.TArticle;
 import blogProject.manager.controller.util.ArticleUploadUtil;
+import blogProject.manager.controller.util.DeleteUtil;
 import blogProject.manager.controller.util.ImageUploadUtil;
 import blogProject.manager.service.TArticleService;
 
@@ -27,6 +30,25 @@ public class ArticleController {
     
     @Autowired
     TArticleService articleService;
+    
+    /**
+     * 删除文章
+     */
+    @RequestMapping(value="/del")
+    public String del(@RequestParam(value="did") Integer did,
+            @RequestParam(value="drealurl") String drealurl,
+            @RequestParam(value="dpicurl") String dpicurl) {
+        System.out.println("开始删除文章。。。");
+        System.out.println(did + "--------");
+        System.out.println(drealurl + "--------");
+        System.out.println(dpicurl + "--------");
+        boolean flag = articleService.delArticle(did);
+        DeleteUtil.deleteFile(drealurl, dpicurl);
+//        if (flag) {
+//            return "删除完成";
+//        }
+        return "redirect:/source/article";
+    }
     
     /**
      * 图片上传 
@@ -67,9 +89,12 @@ public class ArticleController {
         
         List<String> list = (List<String>) session.getAttribute("pictureRealPaths");
         String pictureUrl = "";
-        for (String string : list) {
-            pictureUrl += string + "&";
+        if (list != null) {
+            for (String string : list) {
+                pictureUrl += string + "&";
+            }
         }
+        
         System.out.println(pictureUrl);
         
         //创建日期
@@ -82,7 +107,7 @@ public class ArticleController {
         article.setArticleName(articleName);
         
         //文章作者
-        article.setArticleAuthor("shinn");
+        article.setArticleAuthor("shinnyong");
         
         //文章作者id
         article.setAuthorId(1);

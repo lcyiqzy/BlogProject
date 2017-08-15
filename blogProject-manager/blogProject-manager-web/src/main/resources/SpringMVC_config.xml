@@ -21,7 +21,20 @@
 	<!-- 静态资源能访问，动态映射的请求就不行 -->
 	<mvc:default-servlet-handler />
 	<!-- springmvc可以保证动态请求和静态请求都能访问 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven>
+	<mvc:message-converters>  
+        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>  
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
+            <property name="supportedMediaTypes">  
+                <list>  
+                    <value>application/json;charset=utf-8</value>
+                    <value>text/plain;charset=utf-8</value>  
+                    <value>text/html;charset=UTF-8</value>  
+                </list>  
+            </property>  
+        </bean>  
+    </mvc:message-converters>  
+	</mvc:annotation-driven>
 	
 	<!-- 文件上传需要一个文件上传解析器 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

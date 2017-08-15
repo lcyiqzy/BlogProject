@@ -35,5 +35,17 @@ public class TArticleServiceImpl implements TArticleService {
         return articleMapper.selectByExample(null);
     }
     
+    /**
+     * 删除文章
+     */
+    @Override
+    public boolean delArticle(Integer did) {
+        int i = articleMapper.deleteByPrimaryKey(did);
+        if (i == 1) {
+            return true;
+        }
+        return false;
+    }
+    
 
 }
