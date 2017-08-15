@@ -12,6 +12,5 @@ public class controllerTest {
 		
 		return "success";
 	}
-	
 
 }
