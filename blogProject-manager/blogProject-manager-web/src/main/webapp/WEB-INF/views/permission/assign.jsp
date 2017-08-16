@@ -55,13 +55,13 @@
 											</tr>
 										</thead>
 										<tbody>
-											<%-- 											<input id="aa" type="hidden" value="${atc_info}" /> --%>
+											<input id="typePermission" type="hidden" value="${typePermissions}"/>
 											<c:forEach items="${permissions}" var="permission">
 												<tr>
 													<td>${permission.permission}</td>
 													<c:forEach items="${types}" var="type">
 														<td><input class="check_input" type="checkbox"
-															tid="${type.id}" pid="${permission.id}">${type.id}--${permission.id}</td>
+															tid="${type.id}" pid="${permission.id}"></td>
 													</c:forEach>
 												</tr>
 											</c:forEach>
@@ -90,6 +90,32 @@
 	<script
 		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	<script src="${ctp}/plugin/layer/layer.js"></script>
+	<script type="text/javascript">
+	   $(function(){
+		   $.get("${ctp}/permission/tps",function(tps){
+			   $.each(tps,function(){
+				   var tid = this.type;
+	               var pid = this.permission;
+				   $(".check_input[tid='" + tid +"'][pid='" + pid +"']").prop("checked",true);
+			   })
+		   });
+	   });
+	   
+	   $(".check_input").click(function(){
+		   var t = $(this).attr("tid");
+           var p = $(this).attr("pid");
+           if($(this).is(":checked")){
+               $.post("${ctp}/permission/update?opt=add&tid=" + t +"&pid=" + p,function(){
+                   layer.msg("添加完成");
+               });
+           }else{
+               $.post("${ctp}/permission/update?opt=del&tid=" + t +"&pid=" + p,function(){
+                   layer.msg("删除完成");
+               });
+           }
+	   });
+	</script>
 </body>
 
 </html>
