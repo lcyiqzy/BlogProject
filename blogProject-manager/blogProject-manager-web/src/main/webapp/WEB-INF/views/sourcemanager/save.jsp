@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="UTF-8">
 <head>
@@ -43,7 +44,7 @@
 								<div class="panel-body">
 								    
                                     <form id="article" action="${ctp}/article/saveArticle" method="post">
-                                        <input name="articleName" type="text" placeholder="标题"/>
+                                        <input name="articleName" type="text" placeholder="标题" style="width: 400px"/>
                                         <br/>
                                         <br/>
                                         <textarea name="upload"></textarea>
@@ -55,7 +56,14 @@
 	                                        
 	                                    </script>
                                     </form>
+                                    
                                     <br/>
+                                    <select name="label" class="form-control" style="float: left;width: 150px">
+                                        <option value="">---请选择分类---</option>
+                                        <c:forEach items="${labels}" var="label">
+                                            <option value="${label.id}">${label.labelName}</option>
+                                        </c:forEach>
+                                    </select>
 									<button id="save" type="button" class="btn btn-primary btn-success" style="float: right;">保存</button>
 								</div>
 							</div>
@@ -98,6 +106,7 @@
         $("#save").click(function(){
         	layer.msg("保存完成");
         	$("#article").submit();
+        	$("#article").empty();
         });
     </script>
 </body>

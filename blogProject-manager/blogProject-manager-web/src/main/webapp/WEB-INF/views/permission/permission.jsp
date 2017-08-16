@@ -36,22 +36,34 @@
 			<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">权限列表</h3>
-
+					<button type="button" class="btn btn-danger del_btn"
+						style="float: right; margin-left: 10px;">
+						<i class=" glyphicon glyphicon-remove"></i> 删除
+					</button>
+					<button type="button" class="add_label btn btn-primary"
+						style="float: right;">
+						<i class="glyphicon glyphicon-plus"></i> 新增
+					</button>
+					<br>
+					<br>
+					<br>
 					<div id="page-inner">
 
 						<div class="row">
 							<div class="col-md-12">
 								<c:forEach items="${permissions}" var="permission">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<h3 class="panel-title">${permission.permission}</h3>
-											<div class="right">
-												<button type="button" class="btn-toggle-collapse">
-													<i class="lnr lnr-chevron-up"></i>
-												</button>
-												<button type="button" class="btn-remove">
-													<i class="lnr lnr-cross"></i>
-												</button>
+									<div class="col-md-4">
+										<div class="panel">
+											<div class="panel-heading">
+												<h3 class="panel-title">${permission.permission}</h3>
+												<div class="right">
+													<button type="button" class="btn-toggle-collapse">
+														<i class="lnr lnr-chevron-up"></i>
+													</button>
+													<button type="button" class="btn-remove">
+														<i class="lnr lnr-cross"></i>
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>

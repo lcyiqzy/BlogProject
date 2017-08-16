@@ -12,7 +12,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import blogProject.manager.bean.TArticle;
+import blogProject.manager.bean.TLabel;
 import blogProject.manager.service.TArticleService;
+import blogProject.manager.service.TLabelService;
 
 
 @Controller
@@ -21,6 +23,9 @@ public class SourceController {
     
     @Autowired
     TArticleService articleService;
+    
+    @Autowired
+    TLabelService labelService;
     
     /**
      * 获取标签列表
@@ -69,7 +74,9 @@ public class SourceController {
      * @return
      */
     @RequestMapping("/toSave")
-    public String toSave() {
+    public String toSave(Model model) {
+        List<TLabel> labels = labelService.getAllLabels();
+        model.addAttribute("labels", labels);
         return "sourcemanager/save";
     }
     

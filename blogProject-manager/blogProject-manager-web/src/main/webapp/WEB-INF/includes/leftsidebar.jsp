@@ -4,7 +4,7 @@
 	<div class="sidebar-scroll">
 		<nav>
 			<ul class="nav">
-				<li><a href="${ctp}/index.jsp" class="active"><i class="lnr lnr-home"></i>
+				<li><a href="${ctp}/usermanager/manager" class="active"><i class="lnr lnr-home"></i>
 						<span>主页</span></a></li>
 				<li><a href="${ctp}/usermanager/users" class=""><i class="lnr lnr-user"></i> <span>用户管理</span></a></li>
 				<li><a href="#perPages" data-toggle="collapse"

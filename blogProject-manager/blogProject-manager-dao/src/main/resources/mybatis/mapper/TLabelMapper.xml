@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="label_name" jdbcType="VARCHAR" property="labelName" />
     <result column="label_pic_url" jdbcType="VARCHAR" property="labelPicUrl" />
+    <result column="label_real_url" jdbcType="VARCHAR" property="labelRealUrl" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, label_name, label_pic_url
+    id, label_name, label_pic_url, label_real_url
   </sql>
   <select id="selectByExample" parameterType="blogProject.manager.example.TLabelExample" resultMap="BaseResultMap">
     select
@@ -98,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="blogProject.manager.bean.TLabel">
-    insert into t_label (id, label_name, label_pic_url
-      )
-    values (#{id,jdbcType=INTEGER}, #{labelName,jdbcType=VARCHAR}, #{labelPicUrl,jdbcType=VARCHAR}
-      )
+    insert into t_label (id, label_name, label_pic_url, 
+      label_real_url)
+    values (#{id,jdbcType=INTEGER}, #{labelName,jdbcType=VARCHAR}, #{labelPicUrl,jdbcType=VARCHAR}, 
+      #{labelRealUrl,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TLabel">
     insert into t_label
@@ -115,6 +116,9 @@
       <if test="labelPicUrl != null">
         label_pic_url,
       </if>
+      <if test="labelRealUrl != null">
+        label_real_url,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -125,6 +129,9 @@
       </if>
       <if test="labelPicUrl != null">
         #{labelPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="labelRealUrl != null">
+        #{labelRealUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -146,6 +153,9 @@
       <if test="record.labelPicUrl != null">
         label_pic_url = #{record.labelPicUrl,jdbcType=VARCHAR},
       </if>
+      <if test="record.labelRealUrl != null">
+        label_real_url = #{record.labelRealUrl,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -155,7 +165,8 @@
     update t_label
     set id = #{record.id,jdbcType=INTEGER},
       label_name = #{record.labelName,jdbcType=VARCHAR},
-      label_pic_url = #{record.labelPicUrl,jdbcType=VARCHAR}
+      label_pic_url = #{record.labelPicUrl,jdbcType=VARCHAR},
+      label_real_url = #{record.labelRealUrl,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,13 +180,17 @@
       <if test="labelPicUrl != null">
         label_pic_url = #{labelPicUrl,jdbcType=VARCHAR},
       </if>
+      <if test="labelRealUrl != null">
+        label_real_url = #{labelRealUrl,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="blogProject.manager.bean.TLabel">
     update t_label
     set label_name = #{labelName,jdbcType=VARCHAR},
-      label_pic_url = #{labelPicUrl,jdbcType=VARCHAR}
+      label_pic_url = #{labelPicUrl,jdbcType=VARCHAR},
+      label_real_url = #{labelRealUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

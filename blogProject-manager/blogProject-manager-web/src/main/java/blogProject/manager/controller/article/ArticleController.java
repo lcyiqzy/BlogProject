@@ -10,15 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.filefilter.DelegateFileFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import blogProject.manager.bean.TArticle;
+import blogProject.manager.bean.TUser;
 import blogProject.manager.controller.util.ArticleUploadUtil;
 import blogProject.manager.controller.util.DeleteUtil;
 import blogProject.manager.controller.util.ImageUploadUtil;
@@ -83,6 +81,8 @@ public class ArticleController {
         System.out.println("保存文章开始。。。");
         TArticle article = new TArticle();
         
+        TUser loginUser = (TUser) session.getAttribute("loginUser");
+        
         String DirectoryName = "article/";
         String url = ArticleUploadUtil.upload(request, response, DirectoryName,upload);
         String[] urls = url.split("&");
@@ -107,10 +107,10 @@ public class ArticleController {
         article.setArticleName(articleName);
         
         //文章作者
-        article.setArticleAuthor("shinnyong");
+        article.setArticleAuthor(loginUser.getUserLonginacct());
         
         //文章作者id
-        article.setAuthorId(1);
+        article.setAuthorId(loginUser.getId());
 
         //文章真实地址
         article.setArticleRealUrl(urls[0]);

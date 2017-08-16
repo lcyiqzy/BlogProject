@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <!doctype html>
 <html lang="UTF-8">
 <head>
@@ -25,10 +25,10 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-        <%@ include file="/WEB-INF/includes/navbar.jsp" %>
+		<%@ include file="/WEB-INF/includes/navbar.jsp"%>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		<%@ include file="/WEB-INF/includes/leftsidebar.jsp" %>
+		<%@ include file="/WEB-INF/includes/leftsidebar.jsp"%>
 		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
 		<div class="main">
@@ -77,28 +77,6 @@
 									</div>
 								</div>
 							</div>
-<!-- 							<div class="row"> -->
-<!-- 								<div class="col-md-9"> -->
-<!-- 									<div id="headline-chart" class="ct-chart"></div> -->
-<!-- 								</div> -->
-<!-- 								<div class="col-md-3"> -->
-<!-- 									<div class="weekly-summary text-right"> -->
-<!-- 										<span class="number">2,315</span> <span class="percentage"><i -->
-<!-- 											class="fa fa-caret-up text-success"></i> 12%</span> <span -->
-<!-- 											class="info-label">Total Sales</span> -->
-<!-- 									</div> -->
-<!-- 									<div class="weekly-summary text-right"> -->
-<!-- 										<span class="number">$5,758</span> <span class="percentage"><i -->
-<!-- 											class="fa fa-caret-up text-success"></i> 23%</span> <span -->
-<!-- 											class="info-label">Monthly Income</span> -->
-<!-- 									</div> -->
-<!-- 									<div class="weekly-summary text-right"> -->
-<!-- 										<span class="number">$65,938</span> <span class="percentage"><i -->
-<!-- 											class="fa fa-caret-down text-danger"></i> 8%</span> <span -->
-<!-- 											class="info-label">Total Income</span> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
 						</div>
 					</div>
 					<!-- END OVERVIEW -->
@@ -115,12 +93,12 @@
 					<div class="row">
 						<div class="col-md-7">
 							<!-- TODO LIST -->
-							
+
 							<!-- END TODO LIST -->
 						</div>
 						<div class="col-md-5">
 							<!-- TIMELINE -->
-				
+
 							<!-- END TIMELINE -->
 						</div>
 					</div>
@@ -132,24 +110,21 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">
-				</p>
+				<p class="copyright"></p>
 			</div>
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
+	<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="${ctp}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
 	<script>
-	$(function() {
+		$(function() {
 
-
-	});
+		});
 	</script>
 </body>
 

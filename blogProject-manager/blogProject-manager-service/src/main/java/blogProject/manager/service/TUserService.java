@@ -8,4 +8,6 @@ public interface TUserService {
 
     List<TUser> getAllUsers();
 
+    TUser getUser(TUser user);
+
 }

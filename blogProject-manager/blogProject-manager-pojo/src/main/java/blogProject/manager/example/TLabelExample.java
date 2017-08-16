@@ -303,6 +303,76 @@ public class TLabelExample {
             addCriterion("label_pic_url not between", value1, value2, "labelPicUrl");
             return (Criteria) this;
         }
+
+        public Criteria andLabelRealUrlIsNull() {
+            addCriterion("label_real_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlIsNotNull() {
+            addCriterion("label_real_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlEqualTo(String value) {
+            addCriterion("label_real_url =", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlNotEqualTo(String value) {
+            addCriterion("label_real_url <>", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlGreaterThan(String value) {
+            addCriterion("label_real_url >", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("label_real_url >=", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlLessThan(String value) {
+            addCriterion("label_real_url <", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlLessThanOrEqualTo(String value) {
+            addCriterion("label_real_url <=", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlLike(String value) {
+            addCriterion("label_real_url like", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlNotLike(String value) {
+            addCriterion("label_real_url not like", value, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlIn(List<String> values) {
+            addCriterion("label_real_url in", values, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlNotIn(List<String> values) {
+            addCriterion("label_real_url not in", values, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlBetween(String value1, String value2) {
+            addCriterion("label_real_url between", value1, value2, "labelRealUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelRealUrlNotBetween(String value1, String value2) {
+            addCriterion("label_real_url not between", value1, value2, "labelRealUrl");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

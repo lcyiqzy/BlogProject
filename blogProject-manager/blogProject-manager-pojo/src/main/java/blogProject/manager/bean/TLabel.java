@@ -1,12 +1,13 @@
 package blogProject.manager.bean;
 
 public class TLabel {
-
     private Integer id;
 
     private String labelName;
 
     private String labelPicUrl;
+
+    private String labelRealUrl;
 
     public Integer getId() {
         return id;
@@ -32,9 +33,11 @@ public class TLabel {
         this.labelPicUrl = labelPicUrl == null ? null : labelPicUrl.trim();
     }
 
-    @Override
-    public String toString() {
-        return "TLabel [id=" + id + ", labelName=" + labelName + ", labelPicUrl=" + labelPicUrl + "]";
+    public String getLabelRealUrl() {
+        return labelRealUrl;
     }
 
+    public void setLabelRealUrl(String labelRealUrl) {
+        this.labelRealUrl = labelRealUrl == null ? null : labelRealUrl.trim();
+    }
 }

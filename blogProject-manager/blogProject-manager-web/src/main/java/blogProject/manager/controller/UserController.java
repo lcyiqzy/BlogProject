@@ -2,6 +2,8 @@ package blogProject.manager.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,5 +34,20 @@ public class UserController {
 
         model.addAttribute("info", info);
         return "usermanager/user";
+    }
+    
+    @RequestMapping("/login")
+    public String login(TUser user,HttpSession session) {
+        TUser loginUser = userService.getUser(user);
+        if (loginUser != null) {
+            session.setAttribute("loginUser", loginUser);
+            return "redirect:/usermanager/manager";
+        }
+        return "redirect:/login.jsp";
+    }
+    
+    @RequestMapping("/manager")
+    public String toManager() {
+        return "manager";
     }
 }
