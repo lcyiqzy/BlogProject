@@ -25,6 +25,8 @@ public class TArticle {
 
     private String articleRealUrl;
 
+    private Integer articleLabel;
+
     public Integer getId() {
         return id;
     }
@@ -119,5 +121,13 @@ public class TArticle {
 
     public void setArticleRealUrl(String articleRealUrl) {
         this.articleRealUrl = articleRealUrl == null ? null : articleRealUrl.trim();
+    }
+
+    public Integer getArticleLabel() {
+        return articleLabel;
+    }
+
+    public void setArticleLabel(Integer articleLabel) {
+        this.articleLabel = articleLabel;
     }
 }

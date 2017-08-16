@@ -76,6 +76,7 @@ public class ArticleController {
     @RequestMapping(value="/saveArticle",produces="text/html;charset=utf-8")
     public String saveArticle(@RequestParam(value="upload") String upload,
             @RequestParam("articleName") String articleName,
+            @RequestParam("label") Integer label,
             HttpServletRequest request, HttpServletResponse response,
             HttpSession session) {
         System.out.println("保存文章开始。。。");
@@ -132,6 +133,9 @@ public class ArticleController {
         
         //图片Url
         article.setArticlePicUrl(pictureUrl);
+        
+        //文章标签
+        article.setArticleLabel(label);
         
         System.out.println(upload);
         

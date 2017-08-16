@@ -883,6 +883,66 @@ public class TArticleExample {
             addCriterion("article_real_url not between", value1, value2, "articleRealUrl");
             return (Criteria) this;
         }
+
+        public Criteria andArticleLabelIsNull() {
+            addCriterion("article_label is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelIsNotNull() {
+            addCriterion("article_label is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelEqualTo(Integer value) {
+            addCriterion("article_label =", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelNotEqualTo(Integer value) {
+            addCriterion("article_label <>", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelGreaterThan(Integer value) {
+            addCriterion("article_label >", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelGreaterThanOrEqualTo(Integer value) {
+            addCriterion("article_label >=", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelLessThan(Integer value) {
+            addCriterion("article_label <", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelLessThanOrEqualTo(Integer value) {
+            addCriterion("article_label <=", value, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelIn(List<Integer> values) {
+            addCriterion("article_label in", values, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelNotIn(List<Integer> values) {
+            addCriterion("article_label not in", values, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelBetween(Integer value1, Integer value2) {
+            addCriterion("article_label between", value1, value2, "articleLabel");
+            return (Criteria) this;
+        }
+
+        public Criteria andArticleLabelNotBetween(Integer value1, Integer value2) {
+            addCriterion("article_label not between", value1, value2, "articleLabel");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
