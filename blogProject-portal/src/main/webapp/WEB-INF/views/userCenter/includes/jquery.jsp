@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 			<!-- jQuery -->
-		<script src="${ctp}/js/jquery.min.js"></script>
+		<script src="${ctp}/js/jquery-1.7.2.js"></script>
 		<!-- jQuery Easing -->
 		<script src="${ctp}/js/jquery.easing.1.3.js"></script>
 		<!-- Bootstrap -->

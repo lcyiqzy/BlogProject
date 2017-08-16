@@ -16,6 +16,8 @@ public class MyAppListener implements ServletContextListener   {
 		
 		servletContext.setAttribute("ctp", contextPath);
 		
+		servletContext.setAttribute("restApi", "http://127.0.0.1:8082/blogProject-restapi");
+		
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
