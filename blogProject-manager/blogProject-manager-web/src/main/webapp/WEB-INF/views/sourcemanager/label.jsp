@@ -69,7 +69,7 @@
 											<tfoot>
 												<!-- 分页按钮 -->
 												<tr>
-												<td id="pageBar_td" colspan="6" align="center"></td>
+												    <td id="pageBar_td" colspan="6" align="center"></td>
 												</tr>
 											</tfoot>
 										</table>

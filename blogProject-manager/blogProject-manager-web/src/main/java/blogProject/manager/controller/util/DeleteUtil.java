@@ -31,6 +31,5 @@ public class DeleteUtil {
                 System.out.println("文件不存在，删除单个文件"+url+"失败！");
             }
         }
-        
     }
 }

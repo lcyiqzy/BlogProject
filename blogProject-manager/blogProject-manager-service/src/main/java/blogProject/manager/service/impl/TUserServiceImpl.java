@@ -41,5 +41,18 @@ public class TUserServiceImpl implements TUserService {
         return null;
     }
     
+    /**
+     * 修改
+     */
+    @Override
+    public boolean update(TUser user) {
+        int i = userMapper.updateByPrimaryKeySelective(user);
+        System.out.println(i);
+        if (i == 1) {
+            return true;
+        }
+        return false;
+    }
+    
     
 }

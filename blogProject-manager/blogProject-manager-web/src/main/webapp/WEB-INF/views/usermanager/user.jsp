@@ -85,7 +85,8 @@
 												<c:forEach items="${info.list}" var="user">
 													<tr>
 														<td>${user.id }</td>
-														<td><input type="checkbox" class="check_single_btn" del_id="${user.id }"></td>
+														<td><input type="checkbox" class="check_single_btn"
+															del_id="${user.id }"></td>
 														<td>${user.userLonginacct }</td>
 														<td>${user.userName }</td>
 														<td>${user.userEmail }</td>
@@ -96,7 +97,9 @@
 																assign_id="${user.id }">
 																<i class=" glyphicon glyphicon-check"></i>
 															</button>
-															<button type="button" class="btn btn-primary btn-xs">
+															<button type="button" class="edit btn btn-primary btn-xs"
+																u_id="${user.id}" u_name="${user.userName}"
+																u_permission="${user.userPermission}">
 																<i class=" glyphicon glyphicon-pencil"></i>
 															</button>
 															<button type="button" class="btn btn-danger btn-xs">
@@ -108,6 +111,34 @@
 											</tbody>
 											<tfoot>
 												<!-- 分页按钮 -->
+												<tr>
+													<td colspan="8" align="center">
+														<ul class="pagination">
+															<li><a href="${ctp}/usermanager/users?pn=1">首页</a></li>
+															<c:if test="${info.hasPreviousPage}">
+																<li><a
+																	href="${ctp}/usermanager/users?pn=${info.prePage}">上一页</a></li>
+															</c:if>
+
+															<c:forEach items="${info.navigatepageNums}" var="pn">
+																<c:if test="${ pn == info.pageNum }">
+																	<li class="active"><a
+																		href="${ctp}/usermanager/users?pn=${info.pageNum}">${pn}<span
+																			class="sr-only"></span></a></li>
+																</c:if>
+																<c:if test="${ pn != info.pageNum }">
+																	<li><a href="${ctp}/usermanager/users?pn=${pn}">${pn}</a></li>
+																</c:if>
+															</c:forEach>
+
+															<c:if test="${info.hasNextPage}">
+																<li><a
+																	href="${ctp}/usermanager/users?pn=${info.nextPage}">下一页</a></li>
+															</c:if>
+															<li><a href="${ctp}/usermanager/users?pn=${info.pages}">末页</a></li>
+														</ul>
+													</td>
+												</tr>
 											</tfoot>
 										</table>
 									</div>
@@ -129,6 +160,62 @@
 			</footer>
 		</div>
 	</div>
+
+	<!-- 用户修改模态框 -->
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" data-backdrop="static">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel"></h4>
+				</div>
+				<div class="modal-body">
+					<div>
+						<!-- 用户信息 -->
+						<form id="userEdit" action="${ctp}/usermanager/update">
+							<table>
+								<div>
+									<tr>
+										<td>用户ID：</td>
+										<td><input id="edit_id" name="id"
+											style="border: none; text-align: center"
+											class="has-success input-group input-group-sm" type="text"
+											value="" /></td>
+									</tr>
+								</div>
+								<div>
+									<tr>
+										<td>名称：</td>
+										<td><input id="edit_name" name="userName"
+											style="border: none; text-align: center"
+											class="has-success input-group input-group-sm" type="text"
+											value="" /></td>
+									</tr>
+								</div>
+								<div>
+									<tr>
+										<td>用户类型：</td>
+										<td><input id="edit_permission" name="userPermission"
+											style="border: none; text-align: center"
+											class="has-success input-group input-group-sm" type="text"
+											value="" /></td>
+									</tr>
+								</div>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="submitBtn">修改</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
@@ -136,6 +223,28 @@
 	<script
 		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
+	<script src="${ctp}/plugin/layer/layer.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+		});
+
+		$(".edit")
+				.click(
+						function() {
+							$("#userModal").modal();
+							$("#userEdit #edit_id").prop("value",
+									$(this).attr("u_id"));
+							$("#userEdit #edit_name").prop("value",
+									$(this).attr("u_name"));
+							$("#userEdit #edit_permission").prop("value",
+									$(this).attr("u_permission"));
+						});
+
+		$("#submitBtn").click(function() {
+			$("#userEdit").submit();
+		});
+	</script>
 </body>
 
 </html>

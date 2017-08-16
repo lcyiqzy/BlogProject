@@ -10,4 +10,6 @@ public interface TUserService {
 
     TUser getUser(TUser user);
 
+    boolean update(TUser user);
+
 }
