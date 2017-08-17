@@ -3,7 +3,6 @@ package blogProject.manager.bean;
 import java.util.Date;
 
 public class TUser {
-
     private Integer id;
 
     private String userLonginacct;
@@ -35,6 +34,10 @@ public class TUser {
     private Integer articleNum;
 
     private String userSelfIntroduction;
+
+    private Integer userGetlike;
+
+    private Integer userWritenum;
 
     public Integer getId() {
         return id;
@@ -164,14 +167,19 @@ public class TUser {
         this.userSelfIntroduction = userSelfIntroduction == null ? null : userSelfIntroduction.trim();
     }
 
-    @Override
-    public String toString() {
-        return "TUser [id=" + id + ", userLonginacct=" + userLonginacct + ", userName=" + userName + ", userEmail="
-                + userEmail + ", userPhone=" + userPhone + ", userPermission=" + userPermission + ", followNum="
-                + followNum + ", followedNum=" + followedNum + ", registState=" + registState + ", registCode="
-                + registCode + ", registEmailUrl=" + registEmailUrl + ", userPassword=" + userPassword
-                + ", passwordRetrieveUrl=" + passwordRetrieveUrl + ", registDate=" + registDate + ", articleNum="
-                + articleNum + ", userSelfIntroduction=" + userSelfIntroduction + "]";
+    public Integer getUserGetlike() {
+        return userGetlike;
     }
 
+    public void setUserGetlike(Integer userGetlike) {
+        this.userGetlike = userGetlike;
+    }
+
+    public Integer getUserWritenum() {
+        return userWritenum;
+    }
+
+    public void setUserWritenum(Integer userWritenum) {
+        this.userWritenum = userWritenum;
+    }
 }

@@ -1,11 +1,12 @@
 package blogProject.restapi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import blogProject.manager.bean.TUser;
 import blogProject.restapi.service.UserCenterService;
@@ -17,17 +18,63 @@ public class UserCenterController {
 	@Autowired
 	UserCenterService centerService;
 
+	@RequestMapping("/getUserbyId")
+	public TUser getUserbyId(Integer userId) {
+
+		TUser user = centerService.getUserbyId(userId);
+
+		return user;
+	}
+
 	@RequestMapping("/getUserFollow")
 	public List<TUser> getUserFollow(Integer userId) {
-		System.out.println("aaaa");
-		System.out.println(userId);
-		return null;
+		List<TUser> follow = centerService.getFollowByUserId(userId);
+
+		return follow;
 
 	}
 
 	@RequestMapping("/getUserFans")
-	public void getUserFans() {
+	public List<TUser> getUserFans(Integer userId) {
 
+		List<TUser> fans = centerService.getFansByUserId(userId);
+
+		return fans;
+
+	}
+
+	@RequestMapping("/addFollow")
+	public void addFollow(@RequestParam(value = "userId") Integer userId,
+			@RequestParam(value = "fanId") Integer fanId) {
+
+		centerService.addFollow(userId, fanId);
+
+	}
+	
+	@RequestMapping("/deleteFollow")
+	public void deleteFollow(@RequestParam(value = "userId") Integer userId,
+			@RequestParam(value = "fanId") Integer fanId) {
+
+		centerService.deleteFollow(userId, fanId);
+
+	}
+
+
+	@RequestMapping("/isFollowed")
+	public Integer isFollowed(Integer userId,Integer fanId) {
+
+		List<TUser> follow = centerService.getFollowByUserId(userId);
+		List<Integer> followedId = new ArrayList<>();
+		for (TUser tUser : follow) {
+
+			followedId.add(tUser.getId());
+
+		}
+		if (followedId.contains(fanId)) {
+			return 1;
+
+		} 
+			return 0;
 	}
 
 }

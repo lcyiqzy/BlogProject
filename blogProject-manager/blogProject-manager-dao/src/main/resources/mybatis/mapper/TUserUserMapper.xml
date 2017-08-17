@@ -15,6 +15,14 @@
 		t.`id`=t_u.`user_id`
 		WHERE t.`id`=#{userId}
 	</select>
+	
+		<!--通过用户id获取其关注的用户id ：List<Integer> getFollowId(Integer userId); -->
+	<select id="getFollowId" resultMap="BaseResultMap">
+		SELECT t_u.user_followed_id FROM t_user_user t_u
+		LEFT JOIN t_user t ON
+		t.`id`=t_u.`user_id`
+		WHERE t.`id`=#{userId}
+	</select>
 
 
 

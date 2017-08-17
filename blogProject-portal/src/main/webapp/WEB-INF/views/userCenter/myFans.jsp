@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+
 <%@include file="/WEB-INF/views/userCenter/includes/css.jsp"%>
 
 </head>
@@ -13,7 +16,6 @@
 		//设置点击高亮效果
 		pageContext.setAttribute("curPage", "myFans");
 	%>
-
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
@@ -25,167 +27,155 @@
 				<div class="tech-no">
 
 					<div class="clearfix"></div>
+					<table class="table  table-bordered">
 
-					<!-- technology-top -->
-					<div class="wthree">
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							<div class="tch-img">
-								<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
-									class="img-responsive" alt=""></a>
-							</div>
-						</div>
-						<div class="col-md-6 wthree-right wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
+						<c:forEach items="${page.items}" var="fan">
 
-							<div class="info">
-								<a class="" href="#">Util</a>
-								<div class="meta">
-									<span>关注 73</span><span>粉丝 637</span><span>文章 31</span>
+							<!-- technology-top -->
+							<div class="wthree">
+								<div class="col-md-3 wthree-left wow fadeInDown"
+									data-wow-duration=".8s" data-wow-delay=".2s">
+									<div class="tch-img">
+										<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
+											class="img-responsive" alt=""></a>
+									</div>
 								</div>
-								<div class="meta">写了 60166 字，获得了 767 个喜欢</div>
-							</div>
-							<div class="clearfix"></div>
+								<div class="col-md-6 wthree-right wow fadeInDown"
+									data-wow-duration=".8s" data-wow-delay=".2s">
 
-						</div>
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							</br>
-							<button type="button" class="btn btn-default btn-lg">添加关注</button>
+									<div class="info">
+										<a class="" href="#">${fan.userName }</a>
+										<div class="meta">
+											<span>关注 ${fan.followNum }</span><span>粉丝
+												${fan.followedNum}</span><span>文章 ${fan.articleNum }</span>
+										</div>
+										<div class="meta">写了 ${fan.userWritenum }
+											字，获得了${fan.userGetlike }个喜欢</div>
+									</div>
+									<div class="clearfix"></div>
 
-						</div>
-						<div class="clearfix"></div>
-					</div>
-
-					<div class="wthree">
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							<div class="tch-img">
-								<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
-									class="img-responsive" alt=""></a>
-							</div>
-						</div>
-						<div class="col-md-6 wthree-right wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-
-							<div class="info">
-								<a class="" href="#">Jason</a>
-								<div class="meta">
-									<span>关注 73</span><span>粉丝 637</span><span>文章 31</span>
 								</div>
-								<div class="meta">写了 60166 字，获得了 767 个喜欢</div>
-							</div>
-							<div class="clearfix"></div>
+								<div i class="col-md-3 wthree-left wow fadeInDown btn_div"
+									data-wow-duration=".8s" data-wow-delay=".2s">
+									</br>
 
-						</div>
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							</br>
-							<button type="button" class="btn btn-default btn-lg">添加关注</button>
 
-						</div>
-						<div class="clearfix"></div>
-					</div>
+									<button id="${fan.id }_btn" type="button"
+										class="btn btn-default btn-lg" fanId="${fan.id }"
+										userId="${user.id}"></button>
 
-					<div class="wthree">
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							<div class="tch-img">
-								<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
-									class="img-responsive" alt=""></a>
-							</div>
-						</div>
-						<div class="col-md-6 wthree-right wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-
-							<div class="info">
-								<a class="" href="#">Moon</a>
-								<div class="meta">
-									<span>关注 73</span><span>粉丝 637</span><span>文章 31</span>
 								</div>
-								<div class="meta">写了 60166 字，获得了 767 个喜欢</div>
+								<div class="clearfix"></div>
 							</div>
-							<div class="clearfix"></div>
 
-						</div>
-						<div class="col-md-3 wthree-left wow fadeInDown"
-							data-wow-duration=".8s" data-wow-delay=".2s">
-							</br>
-							<button type="button" class="btn btn-default btn-lg">添加关注</button>
+						</c:forEach>
 
-						</div>
-						<div class="clearfix"></div>
-					</div>
+						<%@include file="/WEB-INF/views/userCenter/includes/page.jsp"%>
 
+					</table>
 				</div>
 			</div>
-			<!-- technology-right -->
 
 			<%@include file="/WEB-INF/views/userCenter/includes/rightGrid.jsp"%>
-
 
 		</div>
 		<div class="clearfix"></div>
 		<!-- technology-right -->
 	</div>
-
-	<div class="footer">
-		<div class="container">
-			<div class="col-md-4 footer-left wow fadeInDown"
-				data-wow-duration=".8s" data-wow-delay=".2s">
-				<h4>About Me</h4>
-				<p>Consectetur adipisicing Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit, sed do eiusmod .</p>
-				<img src="images/t4.jpg" class="img-responsive" alt="">
-				<div class="bht1">
-					<a href="singlepage.html">Read More</a>
-				</div>
-			</div>
-			<div class="col-md-4 footer-middle wow fadeInDown"
-				data-wow-duration=".8s" data-wow-delay=".2s">
-				<h4>Latest Tweet</h4>
-				<div class="mid-btm">
-					<p>Sed do eiusmod tempor Lorem ipsum dolor sit amet,
-						consectetur adipisicing elit, sed do eiusmod .</p>
-					<a href="http://sc.chinaz.com/">http://sc.chinaz.com/</a>
-				</div>
-
-				<p>Consectetur adipisicing Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit, sed do eiusmod .</p>
-				<a href="http://sc.chinaz.com/">http://sc.chinaz.com/</a>
-
-			</div>
-			<div class="col-md-4 footer-right wow fadeInDown"
-				data-wow-duration=".8s" data-wow-delay=".2s">
-				<h4>Newsletter</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt</p>
-				<div class="name">
-					<form action="#" method="post">
-						<input type="text" placeholder="Your Name" required=""> <input
-							type="text" placeholder="Your Email" required=""> <input
-							type="submit" value="Subscribed Now">
-					</form>
-
-				</div>
-
-				<div class="clearfix"></div>
-
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	<div class="copyright wow fadeInDown" data-wow-duration=".8s"
-		data-wow-delay=".2s">
-		<div class="container">
-			<p>
-				Copyright &copy; 2016.Company name All rights reserved.<a
-					target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-			</p>
-		</div>
-	</div>
+	<%@include file="/WEB-INF/views/userCenter/includes/footer.jsp"%>
 
 	<%@include file="/WEB-INF/views/userCenter/includes/jquery.jsp"%>
+
+	<script type="text/javascript">
+		$(function() {
+
+			buildBtn();
+
+		});
+
+		$("body").on(
+				"click",
+				".unFollowed",
+				function() {
+
+					var fanid = $(this).attr("fanId");
+
+					var userid = $(this).attr("userId");
+
+					var id = fanid + "_btn";
+
+					$.get("${ctp}/userCenter/addFollow?fanId=" + fanid
+							+ "&userId=" + userid, function() {
+						$("#" + id).empty().append("&nbsp;已关注&nbsp;");
+
+						buildBtn();
+
+					});
+
+				});
+
+		$("body").on(
+				"click",
+				".followed",
+				function() {
+
+					var fanid = $(this).attr("fanId");
+
+					var userid = $(this).attr("userId");
+
+					var id = fanid + "_btn";
+
+					$.get("${ctp}/userCenter/deleteFollow?fanId=" + fanid
+							+ "&userId=" + userid, function() {
+						$("#" + id).empty().append("添加关注");
+
+						buildBtn();
+
+					});
+
+				});
+
+		$("body").on("mouseenter", ".followed", function() {
+
+			$(this).empty().append("取消关注");
+		});
+
+		$("body").on("mouseleave", ".followed", function() {
+
+			$(this).empty().append("&nbsp;已关注&nbsp;");
+		});
+
+		function buildBtn() {
+
+			$.each($(".btn-lg"), function() {
+
+				var fanid = $(this).attr("fanId");
+
+				var userid = $(this).attr("userId");
+
+				var id = fanid + "_btn";
+
+				$.get("${ctp}/userCenter/isFollowed?fanId=" + fanid
+						+ "&userId=" + userid, function(data) {
+
+					if (data) {
+
+						$("#" + id).removeClass().addClass(
+								"btn btn-default btn-lg followed").empty()
+								.append("&nbsp;已关注&nbsp;");
+					} else {
+
+						$("#" + id).removeClass().addClass(
+								"btn btn-default btn-lg unFollowed").empty()
+								.append("添加关注");
+					}
+
+				});
+
+			});
+		}
+	</script>
+
 </body>
 
 </html>

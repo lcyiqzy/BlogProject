@@ -35,7 +35,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyFollowPage?userId=1">53</a>
+						<a href="${ctp}/userCenter/tomyFollowPage?userId=${user.id}">${user.followNum }</a>
 					</h5>
 				</div>
 
@@ -56,7 +56,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyFansPage">53</a>
+						<a href="${ctp}/userCenter/tomyFansPage?userId=${user.id}">${user.followedNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -75,7 +75,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">53</a>
+						<a href="singlepage.html">${user.articleNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -94,7 +94,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">53</a>
+						<a href="singlepage.html">${user.userGetlike }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -113,7 +113,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">53</a>
+						<a href="singlepage.html">${user.userGetlike }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>

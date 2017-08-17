@@ -31,5 +31,7 @@ public interface TUserUserMapper {
 
 	int updateByPrimaryKey(TUserUser record);
 
-	List<Integer> getFansId(@Param("userId") Integer userId);
+	List<TUserUser> getFansId(@Param("userId") Integer userId);
+
+	List<TUserUser> getFollowId(@Param("userId") Integer userId);
 }
