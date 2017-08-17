@@ -103,7 +103,7 @@
 			   				<div class="slider-text-inner">
 									<h1>霍乱时期的爱情</h1>
 										<h2>“我对死亡感到唯一的痛苦，是没能为爱而死。”软弱者永远爱情的王国，爱情的王国是无情和吝啬的，女人们只肯委身于那些敢做敢为的男子汉，正是这样的男子汉能使她们得到她们所渴望的安全感，使她们能正视生活。</h2>
-										<p><a  class="btn btn-primary btn-lg" href="singlepage.jsp">阅读全文</a></p>
+										<p><a  class="btn btn-primary btn-lg" href="articles/1">阅读全文</a></p>
 			   				</div>
 			   			</div>
 			   		</div>

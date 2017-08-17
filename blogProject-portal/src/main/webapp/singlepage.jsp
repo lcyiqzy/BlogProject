@@ -1,3 +1,6 @@
+<%@page import="java.io.BufferedReader"%>  
+<%@page import="java.io.FileReader"%>  
+<%@page import="java.io.File"%>  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -69,6 +72,18 @@
 
 </head>
 <body>
+  		<%  
+        File file = new File("D:/1.txt");  
+        FileReader fr = new FileReader(file);  //字符输入流  
+        BufferedReader br = new BufferedReader(fr);  //使文件可按行读取并具有缓冲功能  
+        StringBuffer strB = new StringBuffer();   //strB用来存储jsp.txt文件里的内容  
+        String str = br.readLine();  
+        while(str!=null){  
+            strB.append(str).append("<br>");   //将读取的内容放入strB  
+            str = br.readLine();  
+        }  
+   	     br.close();    //关闭输入流  
+    	%>  
 <div class="fh5co-loader"></div>
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
@@ -169,7 +184,9 @@
 			   <img src="images/sing-1.jpg" class="img-responsive" alt="">
 			    <div class="b-bottom"> 
 			      <h5 class="top">What turn out consetetur sadipscing elit</h5>
-				   <p class="sub">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since,Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry's standard dummy text ever since Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+				   <p class="sub">
+				    <%=strB %>  
+				   </p>
 			      <p>On Aug 01 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a></p>
 				 
 				</div>
@@ -177,7 +194,7 @@
 			  
 
 						<div class="response">
-					<h4>Responses</h4>
+					<h4>精彩评论</h4>
 					<div class="media response-info">
 						<div class="media-left response-text-left">
 							<a href="#">
@@ -189,7 +206,7 @@
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							<ul>
 								<li>Jun 21, 2016</li>
-								<li><a href="#">Reply</a></li>
+								
 							</ul>
 							<div class="media response-info">
 								<div class="media-left response-text-left">
@@ -202,7 +219,7 @@
 										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 									<ul>
 										<li>July 17, 2016</li>
-										<li><a href="#">Reply</a></li>
+										
 									</ul>		
 								</div>
 								<div class="clearfix"> </div>
@@ -221,7 +238,7 @@
 								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							<ul>
 								<li>Jul 22, 2016</li>
-								<li><a href="#">Reply</a></li>
+								
 							</ul>
 							<div class="media response-info">
 								<div class="media-left response-text-left">
@@ -234,7 +251,7 @@
 										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 									<ul>
 										<li>Aug 01, 2016</li>
-										<li><a href="#">Reply</a></li>
+										
 									</ul>		
 								</div>
 								<div class="clearfix"> </div>
@@ -244,13 +261,13 @@
 					</div>
 				</div>	
 				<div class="coment-form">
-					<h4>Leave your comment</h4>
+					<h4>留下你的评论</h4>
 					<form action="#" method="post">
 						<input type="text" value="Name " name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
 						<input type="email" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
 						<input type="text" value="Website" name="websie" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Website';}" required="">
 						<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Comment...';}" required="">Your Comment...</textarea>
-						<input type="submit" value="Submit Comment">
+						<input type="submit" value="提交">
 					</form>
 				</div>	
 				<div class="clearfix"></div>
