@@ -6,7 +6,7 @@
     <result column="message_content" jdbcType="VARCHAR" property="messageContent" />
     <result column="message_sender_id" jdbcType="INTEGER" property="messageSenderId" />
     <result column="message_receiver_id" jdbcType="INTEGER" property="messageReceiverId" />
-    <result column="message_date" jdbcType="DATE" property="messageDate" />
+    <result column="message_date" jdbcType="VARCHAR" property="messageDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -103,7 +103,7 @@
     insert into t_message (id, message_content, message_sender_id, 
       message_receiver_id, message_date)
     values (#{id,jdbcType=INTEGER}, #{messageContent,jdbcType=VARCHAR}, #{messageSenderId,jdbcType=INTEGER}, 
-      #{messageReceiverId,jdbcType=INTEGER}, #{messageDate,jdbcType=DATE})
+      #{messageReceiverId,jdbcType=INTEGER}, #{messageDate,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TMessage">
     insert into t_message
@@ -138,7 +138,7 @@
         #{messageReceiverId,jdbcType=INTEGER},
       </if>
       <if test="messageDate != null">
-        #{messageDate,jdbcType=DATE},
+        #{messageDate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -164,7 +164,7 @@
         message_receiver_id = #{record.messageReceiverId,jdbcType=INTEGER},
       </if>
       <if test="record.messageDate != null">
-        message_date = #{record.messageDate,jdbcType=DATE},
+        message_date = #{record.messageDate,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -177,7 +177,7 @@
       message_content = #{record.messageContent,jdbcType=VARCHAR},
       message_sender_id = #{record.messageSenderId,jdbcType=INTEGER},
       message_receiver_id = #{record.messageReceiverId,jdbcType=INTEGER},
-      message_date = #{record.messageDate,jdbcType=DATE}
+      message_date = #{record.messageDate,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -195,7 +195,7 @@
         message_receiver_id = #{messageReceiverId,jdbcType=INTEGER},
       </if>
       <if test="messageDate != null">
-        message_date = #{messageDate,jdbcType=DATE},
+        message_date = #{messageDate,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -205,7 +205,7 @@
     set message_content = #{messageContent,jdbcType=VARCHAR},
       message_sender_id = #{messageSenderId,jdbcType=INTEGER},
       message_receiver_id = #{messageReceiverId,jdbcType=INTEGER},
-      message_date = #{messageDate,jdbcType=DATE}
+      message_date = #{messageDate,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

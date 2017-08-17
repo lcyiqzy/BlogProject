@@ -1,8 +1,6 @@
 package blogProject.manager.example;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class TCommitExample {
@@ -104,32 +102,6 @@ public class TCommitExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -392,53 +364,63 @@ public class TCommitExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateEqualTo(Date value) {
-            addCriterionForJDBCDate("commit_date =", value, "commitDate");
+        public Criteria andCommitDateEqualTo(String value) {
+            addCriterion("commit_date =", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("commit_date <>", value, "commitDate");
+        public Criteria andCommitDateNotEqualTo(String value) {
+            addCriterion("commit_date <>", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("commit_date >", value, "commitDate");
+        public Criteria andCommitDateGreaterThan(String value) {
+            addCriterion("commit_date >", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("commit_date >=", value, "commitDate");
+        public Criteria andCommitDateGreaterThanOrEqualTo(String value) {
+            addCriterion("commit_date >=", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateLessThan(Date value) {
-            addCriterionForJDBCDate("commit_date <", value, "commitDate");
+        public Criteria andCommitDateLessThan(String value) {
+            addCriterion("commit_date <", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("commit_date <=", value, "commitDate");
+        public Criteria andCommitDateLessThanOrEqualTo(String value) {
+            addCriterion("commit_date <=", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateIn(List<Date> values) {
-            addCriterionForJDBCDate("commit_date in", values, "commitDate");
+        public Criteria andCommitDateLike(String value) {
+            addCriterion("commit_date like", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("commit_date not in", values, "commitDate");
+        public Criteria andCommitDateNotLike(String value) {
+            addCriterion("commit_date not like", value, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("commit_date between", value1, value2, "commitDate");
+        public Criteria andCommitDateIn(List<String> values) {
+            addCriterion("commit_date in", values, "commitDate");
             return (Criteria) this;
         }
 
-        public Criteria andCommitDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("commit_date not between", value1, value2, "commitDate");
+        public Criteria andCommitDateNotIn(List<String> values) {
+            addCriterion("commit_date not in", values, "commitDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommitDateBetween(String value1, String value2) {
+            addCriterion("commit_date between", value1, value2, "commitDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommitDateNotBetween(String value1, String value2) {
+            addCriterion("commit_date not between", value1, value2, "commitDate");
             return (Criteria) this;
         }
     }

@@ -11,7 +11,7 @@ public interface TTypePermissionMapper {
 
     int deleteByExample(TTypePermissionExample example);
 
-    int deleteByPrimaryKey(Integer type);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(TTypePermission record);
 
@@ -19,7 +19,7 @@ public interface TTypePermissionMapper {
 
     List<TTypePermission> selectByExample(TTypePermissionExample example);
 
-    TTypePermission selectByPrimaryKey(Integer type);
+    TTypePermission selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") TTypePermission record, @Param("example") TTypePermissionExample example);
 

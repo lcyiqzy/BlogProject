@@ -1181,6 +1181,126 @@ public class TUserExample {
             addCriterion("user_self_introduction not between", value1, value2, "userSelfIntroduction");
             return (Criteria) this;
         }
+
+        public Criteria andUserGetlikeIsNull() {
+            addCriterion("user_getlike is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeIsNotNull() {
+            addCriterion("user_getlike is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeEqualTo(Integer value) {
+            addCriterion("user_getlike =", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeNotEqualTo(Integer value) {
+            addCriterion("user_getlike <>", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeGreaterThan(Integer value) {
+            addCriterion("user_getlike >", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_getlike >=", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeLessThan(Integer value) {
+            addCriterion("user_getlike <", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeLessThanOrEqualTo(Integer value) {
+            addCriterion("user_getlike <=", value, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeIn(List<Integer> values) {
+            addCriterion("user_getlike in", values, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeNotIn(List<Integer> values) {
+            addCriterion("user_getlike not in", values, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeBetween(Integer value1, Integer value2) {
+            addCriterion("user_getlike between", value1, value2, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserGetlikeNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_getlike not between", value1, value2, "userGetlike");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumIsNull() {
+            addCriterion("user_writenum is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumIsNotNull() {
+            addCriterion("user_writenum is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumEqualTo(Integer value) {
+            addCriterion("user_writenum =", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumNotEqualTo(Integer value) {
+            addCriterion("user_writenum <>", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumGreaterThan(Integer value) {
+            addCriterion("user_writenum >", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_writenum >=", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumLessThan(Integer value) {
+            addCriterion("user_writenum <", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumLessThanOrEqualTo(Integer value) {
+            addCriterion("user_writenum <=", value, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumIn(List<Integer> values) {
+            addCriterion("user_writenum in", values, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumNotIn(List<Integer> values) {
+            addCriterion("user_writenum not in", values, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumBetween(Integer value1, Integer value2) {
+            addCriterion("user_writenum between", value1, value2, "userWritenum");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserWritenumNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_writenum not between", value1, value2, "userWritenum");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -1,9 +1,6 @@
 package blogProject.manager.bean;
 
-import java.util.Date;
-
 public class TCommit {
-
     private Integer id;
 
     private String commitContent;
@@ -12,7 +9,7 @@ public class TCommit {
 
     private Integer commitArticleId;
 
-    private Date commitDate;
+    private String commitDate;
 
     public Integer getId() {
         return id;
@@ -46,18 +43,11 @@ public class TCommit {
         this.commitArticleId = commitArticleId;
     }
 
-    public Date getCommitDate() {
+    public String getCommitDate() {
         return commitDate;
     }
 
-    public void setCommitDate(Date commitDate) {
-        this.commitDate = commitDate;
+    public void setCommitDate(String commitDate) {
+        this.commitDate = commitDate == null ? null : commitDate.trim();
     }
-
-    @Override
-    public String toString() {
-        return "TCommit [id=" + id + ", commitContent=" + commitContent + ", commitUserId=" + commitUserId
-                + ", commitArticleId=" + commitArticleId + ", commitDate=" + commitDate + "]";
-    }
-
 }

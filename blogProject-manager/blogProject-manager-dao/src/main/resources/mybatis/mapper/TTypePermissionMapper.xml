@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="blogProject.manager.dao.TTypePermissionMapper">
   <resultMap id="BaseResultMap" type="blogProject.manager.bean.TTypePermission">
-    <id column="type" jdbcType="INTEGER" property="type" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
     <result column="permission" jdbcType="INTEGER" property="permission" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    type, permission
+    id, type, permission
   </sql>
   <select id="selectByExample" parameterType="blogProject.manager.example.TTypePermissionExample" resultMap="BaseResultMap">
     select
@@ -84,11 +85,11 @@
     select 
     <include refid="Base_Column_List" />
     from t_type_permission
-    where type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_type_permission
-    where type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="blogProject.manager.example.TTypePermissionExample">
     delete from t_type_permission
@@ -97,12 +98,17 @@
     </if>
   </delete>
   <insert id="insert" parameterType="blogProject.manager.bean.TTypePermission">
-    insert into t_type_permission (type, permission)
-    values (#{type,jdbcType=INTEGER}, #{permission,jdbcType=INTEGER})
+    insert into t_type_permission (id, type, permission
+      )
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{permission,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TTypePermission">
     insert into t_type_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="type != null">
         type,
       </if>
@@ -111,6 +117,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
       <if test="type != null">
         #{type,jdbcType=INTEGER},
       </if>
@@ -128,6 +137,9 @@
   <update id="updateByExampleSelective" parameterType="map">
     update t_type_permission
     <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
       <if test="record.type != null">
         type = #{record.type,jdbcType=INTEGER},
       </if>
@@ -141,7 +153,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update t_type_permission
-    set type = #{record.type,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=INTEGER},
       permission = #{record.permission,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -150,15 +163,19 @@
   <update id="updateByPrimaryKeySelective" parameterType="blogProject.manager.bean.TTypePermission">
     update t_type_permission
     <set>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
       <if test="permission != null">
         permission = #{permission,jdbcType=INTEGER},
       </if>
     </set>
-    where type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="blogProject.manager.bean.TTypePermission">
     update t_type_permission
-    set permission = #{permission,jdbcType=INTEGER}
-    where type = #{type,jdbcType=INTEGER}
+    set type = #{type,jdbcType=INTEGER},
+      permission = #{permission,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

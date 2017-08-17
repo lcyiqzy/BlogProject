@@ -1,7 +1,6 @@
 package blogProject.manager.bean;
 
 public class TUserArticleCommit {
-
     private Integer id;
 
     private Integer userId;
@@ -41,11 +40,4 @@ public class TUserArticleCommit {
     public void setCommitId(Integer commitId) {
         this.commitId = commitId;
     }
-
-    @Override
-    public String toString() {
-        return "TUserArticleCommit [id=" + id + ", userId=" + userId + ", articleId=" + articleId + ", commitId="
-                + commitId + "]";
-    }
-
 }

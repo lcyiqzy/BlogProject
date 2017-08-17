@@ -1,9 +1,6 @@
 package blogProject.manager.bean;
 
-import java.util.Date;
-
 public class TMessage {
-
     private Integer id;
 
     private String messageContent;
@@ -12,7 +9,7 @@ public class TMessage {
 
     private Integer messageReceiverId;
 
-    private Date messageDate;
+    private String messageDate;
 
     public Integer getId() {
         return id;
@@ -46,18 +43,11 @@ public class TMessage {
         this.messageReceiverId = messageReceiverId;
     }
 
-    public Date getMessageDate() {
+    public String getMessageDate() {
         return messageDate;
     }
 
-    public void setMessageDate(Date messageDate) {
-        this.messageDate = messageDate;
+    public void setMessageDate(String messageDate) {
+        this.messageDate = messageDate == null ? null : messageDate.trim();
     }
-
-    @Override
-    public String toString() {
-        return "TMessage [id=" + id + ", messageContent=" + messageContent + ", messageSenderId=" + messageSenderId
-                + ", messageReceiverId=" + messageReceiverId + ", messageDate=" + messageDate + "]";
-    }
-
 }

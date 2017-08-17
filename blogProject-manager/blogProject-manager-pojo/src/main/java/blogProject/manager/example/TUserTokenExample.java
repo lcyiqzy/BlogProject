@@ -3,14 +3,14 @@ package blogProject.manager.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TTypePermissionExample {
+public class TUserTokenExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TTypePermissionExample() {
+    public TUserTokenExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -164,123 +164,133 @@ public class TTypePermissionExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("type is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("type is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(Integer value) {
-            addCriterion("type =", value, "type");
+        public Criteria andUserIdEqualTo(Integer value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(Integer value) {
-            addCriterion("type <>", value, "type");
+        public Criteria andUserIdNotEqualTo(Integer value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(Integer value) {
-            addCriterion("type >", value, "type");
+        public Criteria andUserIdGreaterThan(Integer value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("type >=", value, "type");
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(Integer value) {
-            addCriterion("type <", value, "type");
+        public Criteria andUserIdLessThan(Integer value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("type <=", value, "type");
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<Integer> values) {
-            addCriterion("type in", values, "type");
+        public Criteria andUserIdIn(List<Integer> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<Integer> values) {
-            addCriterion("type not in", values, "type");
+        public Criteria andUserIdNotIn(List<Integer> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(Integer value1, Integer value2) {
-            addCriterion("type between", value1, value2, "type");
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("type not between", value1, value2, "type");
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionIsNull() {
-            addCriterion("permission is null");
+        public Criteria andPswTokenIsNull() {
+            addCriterion("psw_token is null");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionIsNotNull() {
-            addCriterion("permission is not null");
+        public Criteria andPswTokenIsNotNull() {
+            addCriterion("psw_token is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionEqualTo(Integer value) {
-            addCriterion("permission =", value, "permission");
+        public Criteria andPswTokenEqualTo(String value) {
+            addCriterion("psw_token =", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionNotEqualTo(Integer value) {
-            addCriterion("permission <>", value, "permission");
+        public Criteria andPswTokenNotEqualTo(String value) {
+            addCriterion("psw_token <>", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionGreaterThan(Integer value) {
-            addCriterion("permission >", value, "permission");
+        public Criteria andPswTokenGreaterThan(String value) {
+            addCriterion("psw_token >", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionGreaterThanOrEqualTo(Integer value) {
-            addCriterion("permission >=", value, "permission");
+        public Criteria andPswTokenGreaterThanOrEqualTo(String value) {
+            addCriterion("psw_token >=", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionLessThan(Integer value) {
-            addCriterion("permission <", value, "permission");
+        public Criteria andPswTokenLessThan(String value) {
+            addCriterion("psw_token <", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionLessThanOrEqualTo(Integer value) {
-            addCriterion("permission <=", value, "permission");
+        public Criteria andPswTokenLessThanOrEqualTo(String value) {
+            addCriterion("psw_token <=", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionIn(List<Integer> values) {
-            addCriterion("permission in", values, "permission");
+        public Criteria andPswTokenLike(String value) {
+            addCriterion("psw_token like", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionNotIn(List<Integer> values) {
-            addCriterion("permission not in", values, "permission");
+        public Criteria andPswTokenNotLike(String value) {
+            addCriterion("psw_token not like", value, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionBetween(Integer value1, Integer value2) {
-            addCriterion("permission between", value1, value2, "permission");
+        public Criteria andPswTokenIn(List<String> values) {
+            addCriterion("psw_token in", values, "pswToken");
             return (Criteria) this;
         }
 
-        public Criteria andPermissionNotBetween(Integer value1, Integer value2) {
-            addCriterion("permission not between", value1, value2, "permission");
+        public Criteria andPswTokenNotIn(List<String> values) {
+            addCriterion("psw_token not in", values, "pswToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andPswTokenBetween(String value1, String value2) {
+            addCriterion("psw_token between", value1, value2, "pswToken");
+            return (Criteria) this;
+        }
+
+        public Criteria andPswTokenNotBetween(String value1, String value2) {
+            addCriterion("psw_token not between", value1, value2, "pswToken");
             return (Criteria) this;
         }
     }

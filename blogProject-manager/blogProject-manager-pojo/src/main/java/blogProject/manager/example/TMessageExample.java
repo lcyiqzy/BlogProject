@@ -1,8 +1,6 @@
 package blogProject.manager.example;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class TMessageExample {
@@ -104,32 +102,6 @@ public class TMessageExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -392,53 +364,63 @@ public class TMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateEqualTo(Date value) {
-            addCriterionForJDBCDate("message_date =", value, "messageDate");
+        public Criteria andMessageDateEqualTo(String value) {
+            addCriterion("message_date =", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateNotEqualTo(Date value) {
-            addCriterionForJDBCDate("message_date <>", value, "messageDate");
+        public Criteria andMessageDateNotEqualTo(String value) {
+            addCriterion("message_date <>", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateGreaterThan(Date value) {
-            addCriterionForJDBCDate("message_date >", value, "messageDate");
+        public Criteria andMessageDateGreaterThan(String value) {
+            addCriterion("message_date >", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("message_date >=", value, "messageDate");
+        public Criteria andMessageDateGreaterThanOrEqualTo(String value) {
+            addCriterion("message_date >=", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateLessThan(Date value) {
-            addCriterionForJDBCDate("message_date <", value, "messageDate");
+        public Criteria andMessageDateLessThan(String value) {
+            addCriterion("message_date <", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("message_date <=", value, "messageDate");
+        public Criteria andMessageDateLessThanOrEqualTo(String value) {
+            addCriterion("message_date <=", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateIn(List<Date> values) {
-            addCriterionForJDBCDate("message_date in", values, "messageDate");
+        public Criteria andMessageDateLike(String value) {
+            addCriterion("message_date like", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateNotIn(List<Date> values) {
-            addCriterionForJDBCDate("message_date not in", values, "messageDate");
+        public Criteria andMessageDateNotLike(String value) {
+            addCriterion("message_date not like", value, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("message_date between", value1, value2, "messageDate");
+        public Criteria andMessageDateIn(List<String> values) {
+            addCriterion("message_date in", values, "messageDate");
             return (Criteria) this;
         }
 
-        public Criteria andMessageDateNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("message_date not between", value1, value2, "messageDate");
+        public Criteria andMessageDateNotIn(List<String> values) {
+            addCriterion("message_date not in", values, "messageDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageDateBetween(String value1, String value2) {
+            addCriterion("message_date between", value1, value2, "messageDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMessageDateNotBetween(String value1, String value2) {
+            addCriterion("message_date not between", value1, value2, "messageDate");
             return (Criteria) this;
         }
     }
