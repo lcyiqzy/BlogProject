@@ -17,32 +17,16 @@
 <body class="login_bj">
 	<div class="zhuce_body">
 		<div class="logo">
-<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
-			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
+			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a>
+			<h1>轻博客</h1>
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
 				<div class="">
-					<h1>
-						登录
-					</h1>
-					<form id="loginForm" action="${ctp}/user/login" method="post">
-						<input type="text" name="userEmail" class="username"
-							placeholder="邮箱"> 
-						<span class="errorInfo" style="color: red;">${msg }</span> 
-						<input type="password" name="userPassword" class="password" placeholder="密码"> 
-						<span class="errorInfo" style="color: red;"></span>
-
-						<button type="submit">登录</button>
-						<br/>
-						<br/>
-						<!-- 						<button type="button">忘记密码</button> -->
-						<label style="float: left;"> <a href="${ctp}/forgetpwd.html">忘记密码</a> </label> 
-						<label style="float: right"> <a href="${ctp}/register.jsp">我要注册</a> </label>
-<!-- 						<div class="error"> -->
-<!-- 							<span>+</span> -->
-<!-- 						</div> -->
-					</form>
+					<h3>
+						激活失败,${msg}
+					</h3>
+					<br/>
 					<div class="connect">
 						<br/>
 						<br/>

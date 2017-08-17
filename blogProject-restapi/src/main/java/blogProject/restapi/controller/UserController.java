@@ -25,6 +25,7 @@ public class UserController {
 	public BlogReturn activate(String userEmail, String registCode) {
 		System.out.println("resapi接到的userEmail:" + userEmail);
 		System.out.println("resapi接到的registCode:" + registCode);
+		//根据邮箱账号查找user对象
 		TUser user = userService.find(userEmail);
 		System.out.println("拿到要激活的user: " + user);
 		// 1.验证邮箱是否存在

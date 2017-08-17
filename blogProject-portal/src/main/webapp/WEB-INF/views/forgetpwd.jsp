@@ -24,24 +24,15 @@
 			<div class="zc">
 				<div class="">
 					<h1>
-						登录
+						忘记密码
 					</h1>
-					<form id="loginForm" action="${ctp}/user/login" method="post">
+					<form id="forgetpwdForm" action="${ctp }/user/sendpwdEmail" method="post">
 						<input type="text" name="userEmail" class="username"
 							placeholder="邮箱"> 
-						<span class="errorInfo" style="color: red;">${msg }</span> 
-						<input type="password" name="userPassword" class="password" placeholder="密码"> 
-						<span class="errorInfo" style="color: red;"></span>
-
-						<button type="submit">登录</button>
+						<span class="errorInfo" style="color: red;"></span> 
+						<button type="submit">提交</button>
 						<br/>
 						<br/>
-						<!-- 						<button type="button">忘记密码</button> -->
-						<label style="float: left;"> <a href="${ctp}/forgetpwd.html">忘记密码</a> </label> 
-						<label style="float: right"> <a href="${ctp}/register.jsp">我要注册</a> </label>
-<!-- 						<div class="error"> -->
-<!-- 							<span>+</span> -->
-<!-- 						</div> -->
 					</form>
 					<div class="connect">
 						<br/>
@@ -63,7 +54,6 @@
 	<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
 	<script src="${ctp}/js/bootstrap.min.js"></script>
 	<script src="${ctp}/js/jquery.validate.min.js"></script>
-	<%-- <script src="${ctp}/js/login-register.js"></script> --%>
 
 	<script type="text/javascript">
 		//给校验器设置一些策略
@@ -84,25 +74,18 @@
 
 		});
 
-		$("#loginForm").validate({
+		$("#forgetpwdForm").validate({
 			rules : {
 				userEmail : {
 					required : true,
 					email : true
-				},
-				userPassword : {
-					required : true
 				}
 			},
 			messages : {
 				userEmail : {
 					required : "请输入邮箱账号",
 					email : "请输入正确的邮箱地址"
-				},
-				userPassword : {
-					required : "请输入密码"
 				}
-
 			},
 		})
 	</script>

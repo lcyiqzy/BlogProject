@@ -1,59 +1,109 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<!--<meta name="keywords" content="盒老师">
-	<meta name="content" content="盒老师">-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <link type="text/css" rel="stylesheet" href="css/login.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+<meta charset="UTF-8">
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<link type="text/css" rel="stylesheet" href="${ctp}/css/login.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="${ctp}/assets/css/reset.css">
+<link rel="stylesheet" href="${ctp}/assets/css/supersized.css">
+<link rel="stylesheet" href="${ctp}/assets/css/style.css">
 
 </head>
-<body class="login_bj" >
+<body class="login_bj">
+	<div class="zhuce_body">
+		<div class="logo">
+<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
+			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
+		</div>
+		<div class="zhuce_kong login_kuang">
+			<div class="zc">
+				<div class="">
+					<h1>
+						注册
+					</h1>
+					<form id="regForm" action="${ctp}/user/register" method="post">
+						<input type="text" name="userEmail" class="username"
+							placeholder="邮箱"> 
+						<span class="errorInfo" style="color: red;">${msg }</span> 
+						<input type="password" name="userPassword" class="password" placeholder="密码"> 
+						<span class="errorInfo" style="color: red;"></span>
 
-<div class="zhuce_body">
-	<!--<div class="logo"><a href="#"><img src="images/logo.png" width="114" height="54" border="0"></a></div>-->
-    <div class="zhuce_kong">
-    	<div class="zc">
-        	<div class="bj_bai">
-            <h3>欢迎注册</h3>
-       	  	  <form action="" method="get">
-                <!--<input name="" type="text" class="kuang_txt phone" placeholder="手机号">-->
-                <input name="" type="text" class="kuang_txt email" placeholder="邮箱">
-                <input name="" type="text" class="kuang_txt possword" placeholder="密码">
-               <!-- <input name="" type="text" class="kuang_txt possword" placeholder="邀请码">-->
-                <input name="" type="text" class="kuang_txt yanzm" placeholder="验证码">
-                <div>
-                	<div class="hui_kuang"><img src="images/zc_22.jpg" width="92" height="31"></div>
-                	<div class="shuaxin"><a href="#"><img src="images/zc_25.jpg" width="13" height="14"></a></div>
-                </div>
-                <div>
-               		<input name="" type="checkbox" value=""><span>已阅读并同意<a href="#" target="_blank"><span class="lan">《XXXXX使用协议》</span></a></span>
-                </div>
-                <input name="注册" type="button" class="btn_zhuce" value="注册">
-                
-                </form>
-            </div>
-        	<div class="bj_right">
-        		<div>
-        			<a href="index.jsp"><img src="images/icon_close4.png" align="right" ></a>
-        	    </div>
-            	<p>使用以下账号直接登录</p>
-                <a href="#" class="zhuce_qq">QQ注册</a>
-                <a href="#" class="zhuce_wb">微博注册</a>
-                <a href="#" class="zhuce_wx">微信注册</a>
-                <p>已有账号？<a href="login.jsp">立即登录</a></p>
-            
-            </div>
-        </div>
-        <P>GentlyBlog.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到轻博客！</P>
-    </div>
+						<button type="submit">注册</button>
+						<br/>
+						<br/>
+						<label style="float: left;"> <a href="${ctp}/forgetpwd.html">忘记密码</a> </label> 
+						<label style="float: right"> <a href="${ctp}/login.jsp">我有帐号</a> </label>
+<!-- 						<div class="error"> -->
+<!-- 							<span>+</span> -->
+<!-- 						</div> -->
+					</form>
+					<div class="connect">
+						<br/>
+						<br/>
+						<br/>
+						<p>GentlyBlog.com&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到轻博客！</p>
+					</div>
+				</div>
 
-</div>
-    
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- script  -->
+	<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
+	<script src="${ctp}/js/bootstrap.min.js"></script>
+	<script src="${ctp}/js/jquery.validate.min.js"></script>
+	<%-- <script src="${ctp}/js/login-register.js"></script> --%>
+
+	<script type="text/javascript">
+		//给校验器设置一些策略
+		$.validator.setDefaults({
+
+			showErrors : function(map, list) {
+
+				//每次进来之前都清空状态
+				$(".errorInfo").empty();
+				$.each(list, function() {
+					//当前发生错误的详细信息；
+					//element当前错误元素
+					//错误信息
+					console.log(this);
+					$(this.element).next(".errorInfo").text(this.message);
+				})
+			}
+
+		});
+
+		$("#regForm").validate({
+			rules : {
+				userEmail : {
+					required:true,
+                    email:true
+				},
+				userPassword : {
+					required : true
+				}
+			},
+			messages : {
+				userEmail : {
+					required : "请输入邮箱账号",
+					email : "请输入正确的邮箱地址"
+				},
+				userPassword : {
+					required : "请输入密码"
+				}
+
+			},
+		})
+	</script>
 
 </body>
-</html></html>
+</html>
+
