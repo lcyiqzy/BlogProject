@@ -1994,20 +1994,20 @@ i.glyphicon.glyphicon-comment {
     border: 1px solid #d2d1d1;
 }
 .soci  ul li a.fb{
-    background: url(../images/social.png) no-repeat -48px -7px;
+    background: url(../images/social3.png) no-repeat -48px -7px;
 }
 .soci  ul li a.twit{
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
  /*-- agileits --*/
 .soci  ul li a.goog{
-    background: url(../images/social.png) no-repeat -88px -7px;
+    background: url(../images/social3.png) no-repeat -88px -7px;
 }
 .soci  ul li a.pin{
-    background: url(../images/social.png) no-repeat -130px -7px;
+    background: url(../images/social3.png) no-repeat -130px -7px;
 }
 .soci  ul li a.drib{
-    background: url(../images/social.png) no-repeat -171px -7px;
+    background: url(../images/social3.png) no-repeat -171px -7px;
 }
 /*--technology-left--*/
 /*--technology-right--*/
@@ -3466,6 +3466,10 @@ h5.top {
     padding: 2em 2em;
     background: #fff;
 }
+.btn-default{
+	font-size:30px;
+	font-weight: 800;
+}
 .footer-left, .footer-middle, .footer-right {
     float: left;
     width: 100%;
@@ -3850,6 +3854,7 @@ label.on {
     padding: 1em 1em;
     background: #fff;
 }
+.
 .footer-left, .footer-middle, .footer-right {
     padding: 0;
 }
@@ -3941,3 +3946,4 @@ label.icon-search span {
     width: 74%;
 }
 }
+

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
-	<head>
+<head>
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Law &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
@@ -21,7 +22,7 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-<!-- 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -49,9 +50,8 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-    </head>
-	<body>
-		
+</head>
+<body>
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
@@ -64,8 +64,8 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li class="active"><a href="index.jsp">首页</a></li>
-							<li><a href="blog.jsp">写博客</a></li>
+							<li ><a href="index.jsp">首页</a></li>
+							<li class="active"><a href="blog.jsp">写博客</a></li>
 							<!--<li><a href="find.jsp">发现</a></li>
 							<li><a href="like.jsp">关注</a></li>-->
 							<!--<li><a href="won.jsp">Won Cases</a></li>
@@ -92,7 +92,7 @@
 	</nav>
 	
 	
-	<aside id="fh5co-hero" class="js-fullheight">
+		<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
 		   	<li style="background-image: url(images/img_bg_1.jpg);">
@@ -140,164 +140,46 @@
 		  	</ul>
 	  	</div>
 	</aside>
+	<!-- technology-left -->
 	<div class="technology">
 	<div class="container">
 		<div class="col-md-9 technology-left">
-		<div class="tech-no">
-			<!-- technology-top -->
-			
-			 <div class="tc-ch wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-				
-					<div class="tch-img">
-						<a href="singlepage.jsp"><img src="images/t4.jpg" class="img-responsive" alt=""></a>
-					</div>
+			<div class="contact-section">
+				<h2 class="w3">写博客</h2>
 					
-					<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-					<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<div class="bht1">
-							<a href="singlepage.jsp">Continue Reading</a>
+				
+					<div class="contact-grids">
+						<div class="col-md-8 contact-grid">
+							
+							<p>Blog是一个网页，通常由简短且经常更新的帖子（Post，作为动词，表示张贴的意思，作为名字，指张贴的文章）构成，这些帖子一般是按照年份和日期倒序排列的。而作为Blog的内容，它可以是你纯粹个人的想法和心得，包括你对时事新闻、国家大事的个人看法，或者你对一日三餐、服饰打扮的精心料理等，也可以是在基于某一主题的情况下或是在某一共同领域内由一群人集体创作的内容。</p>
+							<form action="#" method="post">
+								<input type="text" name="Name" value="名字 " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}" required="">
+								<input type="email" name="Email" value="邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}" required="">
+								<input type="text" name="Phone" value="手机" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机';}" required="">
+								<textarea type="text" name="textarea" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '博客内容';}" required="">博客内容</textarea>
+								<input type="submit" value="提交">
+							</form>
 						</div>
-						<div class="soci">
+						<div class="col-md-4 contact-grid1">
+							<h4>示例</h4>
+							<div class="contact-top">
+								
+								
+								<div class="clearfix"></div>
+							</div>
 							<ul>
-								<!--<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-								<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-								<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								<!--<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>-->
-								<!--<li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>-->
-							</ul>
+									<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 姓名: 宋为</li>
+									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 手机 : 0200-123-4567</li>
+									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="#"></a><a href="mailto:info@example.com">info@example.com</a></li>
+								</ul>
+
 						</div>
 						<div class="clearfix"></div>
-			</div>
-			<div class="clearfix"></div>
-			<!-- technology-top -->
-			<!-- technology-top -->
-			<div class="w3ls">
-				<div class="col-md-6 w3ls-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-					 <div class="tc-ch">
-						<div class="tch-img">
-							<a href="singlepage.jsp">
-							<img src="images/m4.jpg" class="img-responsive" alt=""></a>
-						</div>
-					
-						<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-						<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<div class="bht1">
-								<a href="singlepage.jsp">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-									<!--<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-									<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-									<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
 					</div>
-				</div>
-				<div class="col-md-6 w3ls-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-					 <div class="tc-ch">
-						<div class="tch-img">
-							<a href="singlepage.jsp"><img src="images/m5.jpg" class="img-responsive" alt=""></a>
-						</div>
-					
-						<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-						<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<div class="bht1">
-								<a href="singlepage.jsp">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-								<!--	<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-									<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-									<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<!-- technology-top -->
-			<div class="wthree">
-				 <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-					<div class="tch-img">
-							<a href="singlepage.jsp"><img src="images/f1.jpg" class="img-responsive" alt=""></a>
-						</div>
-				 </div>
-				 <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-						<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-						<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
-							<div class="bht1">
-								<a href="singlepage.jsp">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-									
-								<!--	<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-									<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-									<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-					
-				 </div>
-					<div class="clearfix"></div>
-			</div>
-			<div class="wthree">
-				 <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-					<div class="tch-img">
-							<a href="singlepage.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
-						</div>
-				 </div>
-				 <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-						<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-						<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris .</p>
-							<div class="bht1">
-								<a href="singlepage.jsp">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-									<!--<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-									<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-									<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-					
-				 </div>
-					<div class="clearfix"></div>
-			</div>
-			<div class="wthree">
-				 <div class="col-md-6 wthree-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-					<div class="tch-img">
-							<a href="singlepage.jsp"><img src="images/f3.jpg" class="img-responsive" alt=""></a>
-						</div>
-				 </div>
-				 <div class="col-md-6 wthree-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-						<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-						<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris.</p>
-							<div class="bht1">
-								<a href="singlepage.jsp">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-								<!--	<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>-->
-									<li class="hvr-rectangle-out"><a class="twit" href="login.jsp"></a></li>
-									<li class="hvr-rectangle-out"><a class="goog" href="login.jsp"></a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-					
-				 </div>
-					<div class="clearfix"></div>
-			</div>
+					<!--<div class="google-map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424145.8679554096!2d150.65178930803913!3d-33.847403996396665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney+NSW%2C+Australia!5e0!3m2!1sen!2sin!4v1470643502584" allowfullscreen></iframe>
+					</div>-->
+				
 			</div>
 		</div>
 		<!-- technology-right -->
@@ -307,14 +189,14 @@
 				<div class="blo-top1">
 							
 					<div class="tech-btm">
-					<div class="search-1 wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+					<div class="search-1">
 							<form action="#" method="post">
 								<input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
 								<input type="submit" value=" ">
 							</form>
 						</div>
-					<h4>热门排行</h4>
-						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+					<h4>Popular Posts </h4>
+						<div class="blog-grids">
 							<div class="blog-grid-left">
 								<a href="singlepage.jsp"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
 							</div>
@@ -324,7 +206,7 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<div class="blog-grids">
 							<div class="blog-grid-left">
 								<a href="singlepage.jsp"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
 							</div>
@@ -334,7 +216,7 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<div class="blog-grids">
 							<div class="blog-grid-left">
 								<a href="singlepage.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
 							</div>
@@ -344,7 +226,7 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<div class="blog-grids">
 							<div class="blog-grid-left">
 								<a href="singlepage.jsp"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
 							</div>
@@ -354,7 +236,7 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="blog-grids wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+						<div class="blog-grids">
 							<div class="blog-grid-left">
 								<a href="singlepage.jsp"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
 							</div>
@@ -364,21 +246,21 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<div class="insta wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-							<h4>博客分类</h4>
-							<ul>
-								<li><a href="singlepage.jsp" class="btn btn-default">旅行</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">美食</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">世间事</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">哲思</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">娱乐</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">读书</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">历史</a></li>
-								<li><a href="singlepage.jsp" class="btn btn-default">@IT.互联网</a></li>
+						<div class="insta">
+					<h4>Instagram</h4>
+						<ul>
 							
-								<!--<li><a href="singlepage.jsp"><img src="images/m3.jpg" class="img-responsive" alt=""></a></li>-->
+							<li><a href="singlepage.jsp"><img src="images/t1.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/m1.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/f1.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/m2.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/t2.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/f3.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/t3.jpg" class="img-responsive" alt=""></a></li>
+							<li><a href="singlepage.jsp"><img src="images/m3.jpg" class="img-responsive" alt=""></a></li>
 						</ul>
-						</div>
+					</div>
 					
 					<p>Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur, at pro</p>
 					</div>
@@ -395,7 +277,7 @@
 </div>
 <div class="footer">
 		<div class="container">
-			<div class="col-md-4 footer-left wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+			<div class="col-md-4 footer-left">
 				<h4>About Me</h4>
 				<p>Consectetur adipisicing Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
 				<img src="images/t4.jpg" class="img-responsive" alt="">
@@ -403,7 +285,7 @@
 						<a href="singlepage.jsp">Read More</a>
 					</div>
 			</div>
-			<div class="col-md-4 footer-middle wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+			<div class="col-md-4 footer-middle">
 			<h4>Latest Tweet</h4>
 			<div class="mid-btm">
 				<p>Sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
@@ -414,7 +296,7 @@
 				<a href="http://sc.chinaz.com/">http://sc.chinaz.com/</a>
 		
 			</div>
-			<div class="col-md-4 footer-right wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+			<div class="col-md-4 footer-right">
 				<h4>Newsletter</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
 						<div class="name">
@@ -432,12 +314,11 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="copyright wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
+	<div class="copyright">
 				<div class="container">
 					<p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
 				</div>
 			</div>
-
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -459,7 +340,6 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
-	</body>
+</body>
 </html>
 
