@@ -22,15 +22,16 @@
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
-				<div class="">
+				<div class="form">
 					<h1>
 						注册
 					</h1>
 					<form id="regForm" action="${ctp}/user/register" method="post">
-						<input type="text" name="userEmail" class="username"
-							placeholder="邮箱"> 
+						<input type="email" name="userEmail" class="username"
+							placeholder="邮箱" required autocomplete="off"> 
 						<span class="errorInfo" style="color: red;">${msg }</span> 
-						<input type="password" name="userPassword" class="password" placeholder="密码"> 
+						<input type="password" name="userPassword" class="password" 
+							placeholder="密码" required autocomplete="off"> 
 						<span class="errorInfo" style="color: red;"></span>
 
 						<button type="submit">注册</button>
@@ -60,49 +61,49 @@
 	<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
 	<script src="${ctp}/js/bootstrap.min.js"></script>
 	<script src="${ctp}/js/jquery.validate.min.js"></script>
-	<%-- <script src="${ctp}/js/login-register.js"></script> --%>
+	<script src="${ctp}/assets/js/login_register.js"></script>
 
 	<script type="text/javascript">
 		//给校验器设置一些策略
-		$.validator.setDefaults({
+// 		$.validator.setDefaults({
 
-			showErrors : function(map, list) {
+// 			showErrors : function(map, list) {
 
-				//每次进来之前都清空状态
-				$(".errorInfo").empty();
-				$.each(list, function() {
-					//当前发生错误的详细信息；
-					//element当前错误元素
-					//错误信息
-					console.log(this);
-					$(this.element).next(".errorInfo").text(this.message);
-				})
-			}
+// 				//每次进来之前都清空状态
+// 				$(".errorInfo").empty();
+// 				$.each(list, function() {
+// 					//当前发生错误的详细信息；
+// 					//element当前错误元素
+// 					//错误信息
+// 					console.log(this);
+// 					$(this.element).next(".errorInfo").text(this.message);
+// 				})
+// 			}
 
-		});
+// 		});
 
-		$("#regForm").validate({
-			rules : {
-				userEmail : {
-					required:true,
-                    email:true
-				},
-				userPassword : {
-					required : true
-				}
-			},
-			messages : {
-				userEmail : {
-					required : "请输入邮箱账号",
-					email : "请输入正确的邮箱地址"
-				},
-				userPassword : {
-					required : "请输入密码"
-				}
+// 		$("#regForm").validate({
+// 			rules : {
+// 				userEmail : {
+// 					required:true,
+//                     email:true
+// 				},
+// 				userPassword : {
+// 					required : true
+// 				}
+// 			},
+// 			messages : {
+// 				userEmail : {
+// 					required : "请输入邮箱账号",
+// 					email : "请输入正确的邮箱地址"
+// 				},
+// 				userPassword : {
+// 					required : "请输入密码"
+// 				}
 
-			},
-		})
-	</script>
+// 			},
+// 		})
+ 	</script>
 
 </body>
 </html>
