@@ -28,4 +28,9 @@ public interface TUserMapper {
     int updateByPrimaryKeySelective(TUser record);
 
     int updateByPrimaryKey(TUser record);
+    
+    //删除注册激活码
+	int delRegistCode(String registCode);
+
+	TUser selectForTest();
 }

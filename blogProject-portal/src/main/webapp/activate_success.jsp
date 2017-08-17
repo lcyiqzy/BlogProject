@@ -17,31 +17,16 @@
 <body class="login_bj">
 	<div class="zhuce_body">
 		<div class="logo">
-<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
-			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
+			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a>
+			<h1>轻博客</h1>
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
 				<div class="">
-					<h1>
-						注册
-					</h1>
-					<form id="regForm" action="${ctp}/user/register" method="post">
-						<input type="text" name="userEmail" class="username"
-							placeholder="邮箱"> 
-						<span class="errorInfo" style="color: red;">${msg }</span> 
-						<input type="password" name="userPassword" class="password" placeholder="密码"> 
-						<span class="errorInfo" style="color: red;"></span>
-
-						<button type="submit">注册</button>
-						<br/>
-						<br/>
-						<label style="float: left;"> <a href="${ctp}/#">忘记密码</a> </label> 
-						<label style="float: right"> <a href="${ctp}/login.jsp">我有帐号</a> </label>
-<!-- 						<div class="error"> -->
-<!-- 							<span>+</span> -->
-<!-- 						</div> -->
-					</form>
+					<h3>
+						激活成功,${msg}
+					</h3>
+					<br/>
 					<div class="connect">
 						<br/>
 						<br/>
@@ -51,6 +36,8 @@
 				</div>
 
 			</div>
+
+
 
 		</div>
 
@@ -81,11 +68,11 @@
 
 		});
 
-		$("#regForm").validate({
+		$("#loginForm").validate({
 			rules : {
 				userEmail : {
-					required:true,
-                    email:true
+					required : true,
+					email : true
 				},
 				userPassword : {
 					required : true

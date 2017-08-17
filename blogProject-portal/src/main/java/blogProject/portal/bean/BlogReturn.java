@@ -1,8 +1,8 @@
-package blogProject.restapil.bean;
+package blogProject.portal.bean;
 
 import java.util.Map;
 
-public class ScwReturn<T> {
+public class BlogReturn<T> {
 
     private int code; // 状态码 1：表示成功 0:表示失败
     private String msg; // 提示信息
@@ -59,8 +59,8 @@ public class ScwReturn<T> {
      */
 
     // 两个快速的成功失败方法
-    public static <T> ScwReturn<T> success(String msg, T content, Map<String, Object> ext) {
-        ScwReturn<T> t = new ScwReturn<T>();
+    public static <T> BlogReturn<T> success(String msg, T content, Map<String, Object> ext) {
+        BlogReturn<T> t = new BlogReturn<T>();
         t.setCode(1);
         t.setContent(content);
         t.setMsg(msg);
@@ -68,8 +68,8 @@ public class ScwReturn<T> {
         return t;
     }
 
-    public static <T> ScwReturn<T> fail(String msg, T content, Map<String, Object> ext) {
-        ScwReturn<T> t = new ScwReturn<T>();
+    public static <T> BlogReturn<T> fail(String msg, T content, Map<String, Object> ext) {
+        BlogReturn<T> t = new BlogReturn<T>();
         t.setCode(0);
         t.setMsg(msg);
         t.setContent(content);

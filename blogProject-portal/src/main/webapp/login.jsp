@@ -5,60 +5,108 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<!--<meta name="keywords" content="盒老师">
-	<meta name="content" content="盒老师">-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <link type="text/css" rel="stylesheet" href="${ctp}/css/login.css">
-<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
-<script src="${ctp}/js/bootstrap.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="${ctp}/assets/css/reset.css">
+<link rel="stylesheet" href="${ctp}/assets/css/supersized.css">
+<link rel="stylesheet" href="${ctp}/assets/css/style.css">
 
 </head>
 <body class="login_bj">
 	<div class="zhuce_body">
 		<div class="logo">
-			<!--<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a>-->
-			<!--<h1>轻博客</h1>-->
+<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
+			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
-				<div class="bj_bai">
-					<h3>登录</h3>
-					<form action="${ctp}/login" method="post">
-						<input name="userEmail" type="text" class="kuang_txt"
-							placeholder="邮箱"> <input name="userPassword" type="text"
-							class="kuang_txt" placeholder="密码">
-						<div>
-							<a href="${ctp}/#">忘记密码？</a><input name="" type="checkbox"
-								value="" checked><span>记住我</span>
-						</div>
-						<input type="submit" class="btn_zhuce" value="登录">
+				<div class="">
+					<h1>
+						登录
+					</h1>
+					<form id="loginForm" action="${ctp}/user/login" method="post">
+						<input type="text" name="userEmail" class="username"
+							placeholder="邮箱"> 
+						<span class="errorInfo" style="color: red;">${msg }</span> 
+						<input type="password" name="userPassword" class="password" placeholder="密码"> 
+						<span class="errorInfo" style="color: red;"></span>
+
+						<button type="submit">登录</button>
+						<br/>
+						<br/>
+						<!-- 						<button type="button">忘记密码</button> -->
+						<label style="float: left;"> <a href="${ctp}/#">忘记密码</a> </label> 
+						<label style="float: right"> <a href="${ctp}/register.jsp">我要注册</a> </label>
+<!-- 						<div class="error"> -->
+<!-- 							<span>+</span> -->
+<!-- 						</div> -->
 					</form>
-				</div>
-				<div class="bj_right">
-					<div>
-						<a href="index.html"><img src="images/icon_close4.png"
-							align="right"></a>
+					<div class="connect">
+						<br/>
+						<br/>
+						<br/>
+						<p>GentlyBlog.com&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到轻博客！</p>
 					</div>
-					<p>使用以下账号直接登录</p>
-					<a href="${ctp}/#" class="zhuce_qq">QQ登录</a> <a href="${ctp}/#"
-						class="zhuce_wb">微博登录</a> <a href="${ctp}/#" class="zhuce_wx">微信登录</a>
-					<p>
-						没有账号？<a href="${ctp}/register.jsp">立即注册</a>
-					</p>
 				</div>
 
 			</div>
 
 
-			<P>GentlyBlog.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到轻博客！</P>
+
 		</div>
 
 	</div>
-	<script>
-		
-	</script>
 
+	<!-- script  -->
+	<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
+	<script src="${ctp}/js/bootstrap.min.js"></script>
+	<script src="${ctp}/js/jquery.validate.min.js"></script>
+	<%-- <script src="${ctp}/js/login-register.js"></script> --%>
+
+	<script type="text/javascript">
+		//给校验器设置一些策略
+		$.validator.setDefaults({
+
+			showErrors : function(map, list) {
+
+				//每次进来之前都清空状态
+				$(".errorInfo").empty();
+				$.each(list, function() {
+					//当前发生错误的详细信息；
+					//element当前错误元素
+					//错误信息
+					console.log(this);
+					$(this.element).next(".errorInfo").text(this.message);
+				})
+			}
+
+		});
+
+		$("#loginForm").validate({
+			rules : {
+				userEmail : {
+					required : true,
+					email : true
+				},
+				userPassword : {
+					required : true
+				}
+			},
+			messages : {
+				userEmail : {
+					required : "请输入邮箱账号",
+					email : "请输入正确的邮箱地址"
+				},
+				userPassword : {
+					required : "请输入密码"
+				}
+
+			},
+		})
+	</script>
 
 </body>
 </html>
->
+
