@@ -9,19 +9,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!-- VENDOR CSS -->
-<link rel="stylesheet"
-	href="${ctp}/assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${ctp}/assets/vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="${ctp}/assets/vendor/linearicons/style.css">
-<link rel="stylesheet"
-	href="${ctp}/assets/vendor/chartist/css/chartist-custom.css">
-<!-- MAIN CSS -->
-<link rel="stylesheet" href="${ctp}/assets/css/main.css">
+<%@ include file="/WEB-INF/includes/common-css.jsp" %>
+<%@ include file="/WEB-INF/includes/common-js.jsp" %>
 </head>
 
 <body>
+    <%
+        pageContext.setAttribute("url", "source/article");
+    %>
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
@@ -78,11 +73,11 @@
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${articles.list}" var="article">
+												<c:forEach items="${info.list}" var="article">
 													<tr>
 														<td>${article.id }</td>
 														<td><input type="checkbox" class="check_single_btn"
-															del_id="${user.id }"></td>
+															del_id="${article.authorId }"></td>
 														<td>${article.articleName }</td>
 														<td>${article.articleAuthor }</td>
 														<td>${article.articleReadNum }</td>
@@ -110,6 +105,7 @@
 											</tbody>
 											<tfoot>
 												<!-- 分页按钮 -->
+												<%@ include file="/WEB-INF/includes/page.jsp" %>
 											</tfoot>
 										</table>
 									</div>
@@ -164,13 +160,7 @@
 		</div>
 	</div>
 	<!-- END WRAPPER -->
-	<!-- Javascript -->
-	<script src="${ctp}/assets/vendor/jquery/jquery.min.js"></script>
-	<script src="${ctp}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script
-		src="${ctp}/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="${ctp}/assets/scripts/klorofil-common.js"></script>
-	<script src="${ctp}/plugin/layer/layer.js"></script>
+	
 	<script type="text/javascript">
 		$(function() {
 

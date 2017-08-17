@@ -47,7 +47,7 @@ public class SourceController {
         PageHelper.startPage(pn, ps);
         List<TArticle> list = articleService.getAllArticles();
         PageInfo<TArticle> info = new PageInfo<>(list, 5);
-        model.addAttribute("articles", info);
+        model.addAttribute("info", info);
         return "sourcemanager/article";
     }
     

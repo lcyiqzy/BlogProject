@@ -6,10 +6,8 @@
 <meta charset="UTF-8">
 <title></title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<link type="text/css" rel="stylesheet"
-	href="${ctp}/assets/css/login.css">
-<script type="text/javascript" src="${ctp}/js/jquery-1.11.1.min.js"></script>
-<script src="${ctp}/js/bootstrap.min.js"></script>
+<%@ include file="/WEB-INF/includes/common-css.jsp" %>
+<%@ include file="/WEB-INF/includes/common-js.jsp" %>
 
 </head>
 <body class="login_bj">
