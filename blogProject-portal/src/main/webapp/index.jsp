@@ -84,7 +84,7 @@
 											<li><a href="${ctp}/#">喜欢的文章</a></li>
 											<li><a href="${ctp}/#">设置</a></li>
 											<li role="separator" class="divider"></li>
-											<li><a href="${ctp}/user/exitLogin">退出登录</a></li>
+											<li><a href="${ctp}/user/index.html">退出登录</a></li>
 										</ul>
 									</li>
 								</c:if>

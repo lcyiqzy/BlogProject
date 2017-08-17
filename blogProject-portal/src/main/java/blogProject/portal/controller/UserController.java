@@ -20,13 +20,35 @@ import blogProject.manager.bean.TUser;
 import blogProject.portal.bean.BlogReturn;
 import blogProject.portal.constant.Constants;
 
+/**
+ * 该类用于调用第三方接口数据
+ * @author WzzAdmin
+ *
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
 	@Autowired
 	RestApiServerInfo serverInfo;
-
+	
+	@RequestMapping("/sendpwdEmail")
+	public String sendpwdEmail(String userEmail, Model model) {
+		
+		System.out.println("忘记密码的邮箱账号:" + userEmail);
+		
+		return null;
+		
+	}
+	
+	
+	/**
+	 * 激活方法
+	 * @param userEmail
+	 * @param validateCode
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/activate")
 	public String activate(String userEmail, String validateCode, Model model) {
 		System.out.println("接收到的激活userEmail：" + userEmail);
@@ -50,15 +72,15 @@ public class UserController {
 				// 激活成功！页面提示点击这里转到登录页面
 				System.out.println(readValue.getMsg());
 				model.addAttribute("msg", readValue.getMsg());
-				return "forward:/activate_success.jsp";
+				return "activate_success";
 			} else {
 				System.out.println(readValue.getMsg());
 				model.addAttribute("msg", readValue.getMsg());
-				return "forward:/activate_failure.jsp";
+				return "activate_failure";
 			}
 		} catch (Exception e) {
 			model.addAttribute("msg", "激活异常,请重新操作！");
-			return "forward:/activate_failure.jsp";
+			return "activate_failure";
 		}
 	}
 
@@ -67,7 +89,7 @@ public class UserController {
 	 * @param session
 	 * @return
 	 */
-	@RequestMapping("/exitLogin")
+	@RequestMapping("/index.html")
 	public String exitLogin(HttpSession session) {
 		Object loginSess = session.getAttribute(Constants.LOGIN_USER);
 		if (loginSess != null) {
@@ -76,6 +98,13 @@ public class UserController {
 		return "forward:/index.jsp";
 	}
 
+	/**
+	 * 登录
+	 * @param user
+	 * @param session
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/register")
 	public String register(TUser user, HttpSession session, Model model) {
 		System.out.println("需要注册的user：" + user);
@@ -113,7 +142,14 @@ public class UserController {
 		}
 
 	}
-
+	
+	/**
+	 * 注册
+	 * @param user
+	 * @param session
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/login")
 	public String login(TUser user, HttpSession session, Model model) {
 		System.out.println("接收到的user： " + user);

@@ -36,7 +36,7 @@
 						<button type="submit">注册</button>
 						<br/>
 						<br/>
-						<label style="float: left;"> <a href="${ctp}/#">忘记密码</a> </label> 
+						<label style="float: left;"> <a href="${ctp}/forgetpwd.html">忘记密码</a> </label> 
 						<label style="float: right"> <a href="${ctp}/login.jsp">我有帐号</a> </label>
 <!-- 						<div class="error"> -->
 <!-- 							<span>+</span> -->
