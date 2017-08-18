@@ -11,7 +11,7 @@
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 
-	<!-- Facebook and Twitter integration -->
+
 	<meta property="og:title" content="" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
@@ -22,33 +22,16 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
 
-	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-
-	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
-
-	<!-- Owl Carousel  -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
-
-	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
-
-	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 <body>
@@ -66,20 +49,6 @@
 						<ul>
 							<li ><a href="index.jsp">首页</a></li>
 							<li class="active"><a href="blog.jsp">写博客</a></li>
-							<!--<li><a href="find.jsp">发现</a></li>
-							<li><a href="like.jsp">关注</a></li>-->
-							<!--<li><a href="won.jsp">Won Cases</a></li>
-							<li class="has-dropdown">
-								<a href="blog.jsp">Blog</a>
-								<ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
-								</ul>
-							</li>
-							<li><a href="about.jsp">About</a></li>
-							<li><a href="contact.jsp">Contact</a></li>-->
 							<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 						 <li class="btn-cta"><a href="register.jsp"><span>注册</span></a></li>
 						 <li class="btn-cta"><a href="login.jsp"><span>登录</span></a></li>
@@ -92,88 +61,25 @@
 	</nav>
 	
 	
-		<aside id="fh5co-hero" class="js-fullheight">
-		<div class="flexslider js-fullheight">
-			<ul class="slides">
-		   	<li style="background-image: url(images/img_bg_1.jpg);">
-		   		<div class="overlay-gradient"></div>
-		   		<div class="container">
-		   			<div class="row">
-			   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-									<h1>霍乱时期的爱情</h1>
-										<h2>“我对死亡感到唯一的痛苦，是没能为爱而死。”软弱者永远爱情的王国，爱情的王国是无情和吝啬的，女人们只肯委身于那些敢做敢为的男子汉，正是这样的男子汉能使她们得到她们所渴望的安全感，使她们能正视生活。</h2>
-										<p><a  class="btn btn-primary btn-lg" href="singlepage.jsp">阅读全文</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-		   		</div>
-		   	</li>
-		   	<li style="background-image: url(images/img_bg_2.jpg);">
-		   		<div class="overlay-gradient"></div>
-		   		<div class="container">
-		   			<div class="row">
-			   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h1>「不思考」的零秒思考艺术</h1>
-										<h2>零秒思考，并不是真的不思考，而是思考速度很快，快到感觉不到。什么样的思考能够达到这种境界呢？换个字眼，那就是直觉思考。所谓零秒思考，就是让你的思考变成一种直觉，遇到问题时，直觉反应出解决方案，甚至能看到结果。</h2>
-										<p><a  class="btn btn-primary btn-lg" href="singlepage.jsp">阅读全文</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-		   		</div>
-		   	</li>
-		   	<li style="background-image: url(images/img_bg_3.jpg);">
-		   		<div class="overlay-gradient"></div>
-		   		<div class="container">
-		   			<div class="row">
-			   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-			   				<div class="slider-text-inner">
-			   					<h1>旅行路上，你在做什么</h1>
-										<h2>开始喜欢旅行，似乎是很久以前的事情了。对于旅行的热爱，最初是因为什么，现在我已经记得不太清楚了。不过我仍然记得第一次出门旅行的样子，那是4岁的时候，至少我记得是那个时候。</h2>
-										<p><a  class="btn btn-primary btn-lg" href="singlepage.jsp">阅读全文</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-		   		</div>
-		   	</li>		   	
-		  	</ul>
-	  	</div>
-	</aside>
 	<!-- technology-left -->
 	<div class="technology">
 	<div class="container">
-		<div class="col-md-9 technology-left">
+		<div class="col-md-9 technology-left" style="width:100%">
 			<div class="contact-section">
 				<h2 class="w3">写博客</h2>
 					
 				
 					<div class="contact-grids">
-						<div class="col-md-8 contact-grid">
+						<div class="col-md-8 contact-grid" style="width:100%">
 							
 							<p>Blog是一个网页，通常由简短且经常更新的帖子（Post，作为动词，表示张贴的意思，作为名字，指张贴的文章）构成，这些帖子一般是按照年份和日期倒序排列的。而作为Blog的内容，它可以是你纯粹个人的想法和心得，包括你对时事新闻、国家大事的个人看法，或者你对一日三餐、服饰打扮的精心料理等，也可以是在基于某一主题的情况下或是在某一共同领域内由一群人集体创作的内容。</p>
 							<form action="#" method="post">
-								<input type="text" name="Name" value="名字 " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}" required="">
-								<input type="email" name="Email" value="邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}" required="">
-								<input type="text" name="Phone" value="手机" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机';}" required="">
+								<input type="text" name="Title" value="标题 " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '标题';}" required="">
 								<textarea type="text" name="textarea" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '博客内容';}" required="">博客内容</textarea>
 								<input type="submit" value="提交">
 							</form>
 						</div>
-						<div class="col-md-4 contact-grid1">
-							<h4>示例</h4>
-							<div class="contact-top">
-								
-								
-								<div class="clearfix"></div>
-							</div>
-							<ul>
-									<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 姓名: 宋为</li>
-									<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 手机 : 0200-123-4567</li>
-									<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="#"></a><a href="mailto:info@example.com">info@example.com</a></li>
-								</ul>
-
-						</div>
+						
 						<div class="clearfix"></div>
 					</div>
 					<!--<div class="google-map">
@@ -182,94 +88,6 @@
 				
 			</div>
 		</div>
-		<!-- technology-right -->
-		<div class="col-md-3 technology-right">
-				
-				
-				<div class="blo-top1">
-							
-					<div class="tech-btm">
-					<div class="search-1">
-							<form action="#" method="post">
-								<input type="search" name="Search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
-								<input type="submit" value=" ">
-							</form>
-						</div>
-					<h4>Popular Posts </h4>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.jsp"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-								
-								<h5><a href="singlepage.jsp">Pellentesque dui Maecenas male</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.jsp"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-								
-								<h5><a href="singlepage.jsp">Pellentesque dui Maecenas male</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-								
-								<h5><a href="singlepage.jsp">Pellentesque dui Maecenas male</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.jsp"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-								
-								<h5><a href="singlepage.jsp">Pellentesque dui Maecenas male</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.jsp"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-								
-								<h5><a href="singlepage.jsp">Pellentesque dui Maecenas male</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="insta">
-					<h4>Instagram</h4>
-						<ul>
-							
-							<li><a href="singlepage.jsp"><img src="images/t1.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/m1.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/f1.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/m2.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/f2.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/t2.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/f3.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/t3.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="singlepage.jsp"><img src="images/m3.jpg" class="img-responsive" alt=""></a></li>
-						</ul>
-					</div>
-					
-					<p>Lorem ipsum ex vix illud nonummy, novum tation et his. At vix scripta patrioque scribentur, at pro</p>
-					</div>
-					
-					
-					
-				</div>
-				
-			
 		</div>
 		<div class="clearfix"></div>
 		<!-- technology-right -->
