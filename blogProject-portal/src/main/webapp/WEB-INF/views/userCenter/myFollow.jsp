@@ -57,7 +57,7 @@
 								<div class="col-md-3 wthree-left wow fadeInDown"
 									data-wow-duration=".8s" data-wow-delay=".2s">
 									</br>
-									
+
 									<button id="${follow.id }_btn" type="button"
 										class="btn btn-default btn-lg" fanId="${follow.id }"
 										userId="${user.id}"></button>
@@ -144,8 +144,7 @@
 
 				$(this).empty().append("&nbsp;已关注&nbsp;");
 			});
-			
-			
+
 			function buildBtn() {
 
 				$.each($(".btn-lg"), function() {
@@ -174,6 +173,45 @@
 					});
 
 				});
+			}
+
+			function edit_click() {
+
+				$("#myModal").modal('show');
+
+			}
+
+			$("#edit_save").click(
+					function() {
+
+						$("#intro_form").submit();
+
+						var text = $("#intro_text").val();
+
+						var userId = $("#intro_text").attr("userId");
+
+						$.get("${ctp}/userCenter/saveIntro?content=" + text
+								+ "&userId=" + userId, function() {
+
+							showIntro();
+
+							$("#myModal").modal("hide");
+						});
+
+						return false;
+					});
+
+			function showIntro() {
+
+				var userId = $("#intro_text").attr("userId");
+
+				$.get("${ctp}/userCenter/getIntro?userId=" + userId, function(
+						data) {
+
+					$("#selfIntroduction").empty().append(data);
+
+				});
+
 			}
 		</script>
 </body>

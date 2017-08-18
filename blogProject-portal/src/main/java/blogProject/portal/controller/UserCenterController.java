@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import blogProject.commons.utils.HttpClientUtil;
@@ -26,20 +28,7 @@ import blogProject.portal.bean.Pagination;
 @Controller
 @RequestMapping("/userCenter")
 public class UserCenterController {
-
-	/*
-	 * @Value("${restapi.server.ip}") // 此注解为将数据从配置文件中取出 private String
-	 * restapiServer;
-	 * 
-	 * @Value("${restapi.server.port}") private String restapiPort;
-	 * 
-	 * @Value("${restapi.server.apppath}") private String restapiPath;
-	 * 
-	 * private String getRestApiURL() {
-	 * 
-	 * return "http://" + restapiServer + ":" + restapiPort + "/" + restapiPath;
-	 * }
-	 */
+	// 构建分页条
 	Pagination pagination = new Pagination();
 
 	@RequestMapping("/toUserCenterPage")
@@ -69,6 +58,14 @@ public class UserCenterController {
 
 		return "userCenter/userCenterPage";
 	}
+	
+	//去往文章页面
+	@RequestMapping("/tomyArticlePage")
+	public String tomyArticlePage(){
+		
+		return "userCenter/myArticle";
+	}
+	
 
 	@RequestMapping("/tomyFollowPage")
 	public String tomyFollowPage(
@@ -180,6 +177,7 @@ public class UserCenterController {
 
 	}
 
+	// 判断该是否关注了该用户
 	@ResponseBody
 	@RequestMapping("/isFollowed")
 	public boolean isFollowed(@RequestParam(value = "userId") Integer userId,
@@ -208,5 +206,60 @@ public class UserCenterController {
 
 			return false;
 
+	}
+
+	// 将自我介绍添加到数据库
+	@ResponseBody
+	@RequestMapping("/saveIntro")
+	public void saveIntro(@RequestParam(value = "userId") Integer userId,
+			@RequestParam(value = "content", required = false) String content,
+			HttpSession session)
+
+	throws Exception {
+
+		byte[] bytes = content.getBytes("ISO-8859-1");
+		// ISO-8859-1-------------------->UTF-8码表
+		String content1 = new String(bytes, "UTF-8");
+
+		String url = "http://127.0.0.1:8082/blogProject-restapi"
+				+ "/userCenter/saveIntro";
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("content", content1);
+		map.put("userId", userId);
+
+		TUser user = null;
+
+		try {
+			String response = HttpClientUtil.httpPostRequest(url, map);
+
+			user = new ObjectMapper().readValue(response.getBytes(),
+					new TypeReference<TUser>() {
+					});
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// 将新的user(更新了个人介绍)放进session中替换之前的user信息
+		session.setAttribute("user", user);
+	}
+
+	@ResponseBody
+	@RequestMapping("/getIntro")
+	public String getIntro(@RequestParam(value = "userId") Integer userId)
+			throws Exception {
+
+		String url = "http://127.0.0.1:8082/blogProject-restapi"
+				+ "/userCenter/getIntro";
+
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("userId", userId);
+
+		String intro = null;
+
+		intro = HttpClientUtil.httpPostRequest(url, map);
+		System.out.println(intro + "--------------");
+		return intro;
 	}
 }

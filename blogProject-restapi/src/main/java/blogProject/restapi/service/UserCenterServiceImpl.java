@@ -74,22 +74,42 @@ public class UserCenterServiceImpl implements UserCenterService {
 		userUser.setUserFollowedId(fanId);
 
 		userUserMapper.insertSelective(userUser);
-	
 
 	}
 
 	@Override
 	public void deleteFollow(Integer userId, Integer fanId) {
-	
+
 		TUserUserExample uue = new TUserUserExample();
-		
+
 		Criteria criteria = uue.createCriteria();
-		
+
 		criteria.andUserFollowedIdEqualTo(fanId);
-		
+
 		criteria.andUserIdEqualTo(userId);
-		
+
 		userUserMapper.deleteByExample(uue);
+	}
+
+	@Override
+	public void saveIntro(String content, Integer userId) {
+
+		TUser user = userMapper.selectByPrimaryKey(userId);
+
+		user.setUserSelfIntroduction(content);
+
+		userMapper.updateByPrimaryKeySelective(user);
+
+	}
+
+	@Override
+	public String getIntro(Integer userId) {
+
+		TUser user = userMapper.selectByPrimaryKey(userId);
+
+		String intro = user.getUserSelfIntroduction();
+
+		return intro;
 	}
 
 }
