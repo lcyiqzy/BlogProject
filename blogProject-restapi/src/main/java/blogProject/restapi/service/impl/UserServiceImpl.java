@@ -44,9 +44,8 @@ public class UserServiceImpl implements UserService {
 
 		// 加密密码保存
 		user.setUserPassword(pwdStr);
-		// 账号是唯一约束,这里我是用自动生成一个,主要还是邮箱登陆
-		String acctStr = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
-		user.setUserLonginacct(acctStr);
+
+		user.setUserLonginacct(user.getUserEmail());
 		// 设置用户名,跟生成的账号一样
 		user.setUserName(user.getUserLonginacct());
 		// 注册的邮箱帐号

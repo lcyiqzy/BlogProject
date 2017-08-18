@@ -94,7 +94,7 @@
 														<td>${user.userName }</td>
 														<td>${user.userEmail }</td>
 														<td>${user.userPhone }</td>
-														<td>${user.userPermission }</td>
+														<td style="text-align: center;">${user.userPermission }</td>
 														<td>
 															<button type="button" class="btn btn-success btn-xs"
 																assign_id="${user.id }">
