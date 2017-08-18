@@ -57,6 +57,10 @@ public class UserServiceImpl implements UserService {
 		user.setUserPermission(1);
 		// 注册时时间
 		user.setRegistDate(new Date());
+		
+		user.setUserGetlike(0);
+		
+		user.setUserWritenum(0);
 
 		// Calendar c = Calendar.getInstance();
 		// // 现在的时间(单位：毫秒)
