@@ -36,7 +36,7 @@
 								<div class="panel-body">
 								    
                                     <form id="article" action="${ctp}/article/saveArticle" method="post">
-                                        <input name="articleName" type="text" placeholder="标题" style="width: 400px"/>
+                                        <input autofocus="autofocus" name="articleName" type="text" placeholder="标题" style="border:none; width: 400px;height: 30px"/>
                                         <br/>
                                         <br/>
                                         <textarea name="upload"></textarea>
@@ -49,7 +49,7 @@
 	                                    </script>
 	                                    
 	                                    <br/>
-	                                     <select name="label" class="form-control" style="float: left;width: 150px">
+	                                     <select name="label" class="form-control" style="float: left;width: 150px;">
 	                                        <option value="">---请选择分类---</option>
 	                                        <c:forEach items="${labels}" var="label">
 	                                            <option value="${label.id}">${label.labelName}</option>

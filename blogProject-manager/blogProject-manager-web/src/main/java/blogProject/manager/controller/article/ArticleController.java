@@ -83,7 +83,7 @@ public class ArticleController {
         TArticle article = new TArticle();
         System.out.println(upload);
         
-        String reg = "[^\u4e00-\u9fa5]";
+        String reg = "[^，。“”（）：；‘’、？《！》——\u4e00-\u9fa5]";
         String simplecontent = upload.replaceAll(reg, "");
         int i = simplecontent.length();
         if (i >= 100) {
