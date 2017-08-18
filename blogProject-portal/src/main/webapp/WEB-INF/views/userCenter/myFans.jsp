@@ -7,6 +7,7 @@
 
 
 <%@include file="/WEB-INF/views/userCenter/includes/css.jsp"%>
+<%@include file="/WEB-INF/views/userCenter/includes/jquery.jsp"%>
 
 </head>
 
@@ -78,13 +79,14 @@
 
 			<%@include file="/WEB-INF/views/userCenter/includes/rightGrid.jsp"%>
 
+
 		</div>
 		<div class="clearfix"></div>
 		<!-- technology-right -->
 	</div>
 	<%@include file="/WEB-INF/views/userCenter/includes/footer.jsp"%>
 
-	<%@include file="/WEB-INF/views/userCenter/includes/jquery.jsp"%>
+
 
 	<script type="text/javascript">
 		$(function() {
@@ -174,6 +176,45 @@
 
 			});
 		}
+
+		function edit_click() {
+
+			$("#myModal").modal('show');
+
+		}
+
+		$("#edit_save").click(
+				function() {
+
+					$("#intro_form").submit();
+
+					var text = $("#intro_text").val();
+
+					var userId = $("#intro_text").attr("userId");
+
+					$.get("${ctp}/userCenter/saveIntro?content=" + text
+							+ "&userId=" + userId, function() {
+
+						showIntro();
+						
+						$("#myModal").modal("hide");
+					});
+
+					return false;
+				});
+		
+		function showIntro(){
+			
+			var userId = $("#intro_text").attr("userId");
+
+			$.get("${ctp}/userCenter/getIntro?userId="+userId, function(data) {
+				
+				$("#selfIntroduction").empty().append(data);
+
+			});
+			
+		}
+		
 	</script>
 
 </body>

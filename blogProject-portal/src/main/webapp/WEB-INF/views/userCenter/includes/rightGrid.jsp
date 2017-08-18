@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
 <div class="col-md-3 technology-right">
 
 	<div class="blo-top1">
@@ -9,12 +11,41 @@
 		<div class="tech-btm">
 			<div class="divleft">个人介绍</div>
 			<div class="divright">
-				<a href="#">编辑</a>
+				<a href="javascript:void(0);" onclick="edit_click()">编辑</a>
 			</div>
 			<!--<a class="inline" data-action="start-edit-intro" href=""><i class="iconfont ic-edit-s"></i>编辑</a>-->
-
 			</br>
-			<div id="selfIntroduction">在此处显示用户的个人介绍</div>
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title">请输入个人介绍</h4>
+						</div>
+						<div class="modal-body">
+						
+						<textarea name="intro" id="intro_text" userId="${user.id }"
+								style="overflow-y: hidden; height: 30px; width: 570px; border: none;"
+								onpropertychange="this.style.height=this.scrollHeight + 'px'"
+								oninput="this.style.height=this.scrollHeight + 'px'"
+								autofocus="autofocus"></textarea>
+						
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">取消</button>
+							<button  type="button" class="btn btn-primary" id="edit_save">保存</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="selfIntroduction">${user.userSelfIntroduction }</div>
 			<hr>
 
 			<h4>Jack</h4>
@@ -64,7 +95,7 @@
 			<div class="blog-grids wow fadeInDown" data-wow-duration=".8s"
 				data-wow-delay=".2s">
 				<div class="blog-grid-left">
-							<c:if test="${curPage=='myArticle'}">
+					<c:if test="${curPage=='myArticle'}">
 						<i style="color: red">我的文章</i>
 					</c:if>
 					<c:if test="${curPage!='myArticle'}">
@@ -75,7 +106,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">${user.articleNum }</a>
+						<a href="${ctp}/userCenter/tomyArticlePage">${user.articleNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -83,7 +114,7 @@
 			<div class="blog-grids wow fadeInDown" data-wow-duration=".8s"
 				data-wow-delay=".2s">
 				<div class="blog-grid-left">
-							<c:if test="${curPage=='getLike'}">
+					<c:if test="${curPage=='getLike'}">
 						<i style="color: red">收获喜欢</i>
 					</c:if>
 					<c:if test="${curPage!='getLike'}">
@@ -94,7 +125,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">${user.userGetlike }</a>
+					<span>${user.userGetlike }</span>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -102,7 +133,7 @@
 			<div class="blog-grids wow fadeInDown" data-wow-duration=".8s"
 				data-wow-delay=".2s">
 				<div class="blog-grid-left">
-							<c:if test="${curPage=='myLike'}">
+					<c:if test="${curPage=='myLike'}">
 						<i style="color: red">我的喜欢</i>
 					</c:if>
 					<c:if test="${curPage!='myLike'}">
@@ -113,7 +144,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="singlepage.html">${user.userGetlike }</a>
+						<span>${user.userGetlike }</span>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -148,7 +179,7 @@
 			<p>Lorem ipsum ex vix illud nonummy, novum tation et his. At vix
 				scripta patrioque scribentur, at pro</p>
 		</div>
-
 	</div>
-
 </div>
+
+

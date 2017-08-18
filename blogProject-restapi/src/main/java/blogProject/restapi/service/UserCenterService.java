@@ -17,4 +17,8 @@ public interface UserCenterService {
 
 	public void deleteFollow(Integer userId, Integer fanId);
 
+	public void saveIntro(String content, Integer userId);
+
+	public String getIntro(Integer userId);
+
 }

@@ -50,7 +50,7 @@ public class UserCenterController {
 		centerService.addFollow(userId, fanId);
 
 	}
-	
+
 	@RequestMapping("/deleteFollow")
 	public void deleteFollow(@RequestParam(value = "userId") Integer userId,
 			@RequestParam(value = "fanId") Integer fanId) {
@@ -59,9 +59,8 @@ public class UserCenterController {
 
 	}
 
-
 	@RequestMapping("/isFollowed")
-	public Integer isFollowed(Integer userId,Integer fanId) {
+	public Integer isFollowed(Integer userId, Integer fanId) {
 
 		List<TUser> follow = centerService.getFollowByUserId(userId);
 		List<Integer> followedId = new ArrayList<>();
@@ -72,9 +71,25 @@ public class UserCenterController {
 		}
 		if (followedId.contains(fanId)) {
 			return 1;
+		}
+		return 0;
+	}
 
-		} 
-			return 0;
+	@RequestMapping("/saveIntro")
+	public TUser saveIntro(String content, Integer userId) {
+
+		centerService.saveIntro(content, userId);
+
+		TUser user = centerService.getUserbyId(userId);
+
+		return user;
+	}
+
+	@RequestMapping("/getIntro")
+	public String getIntro(Integer userId) throws Exception {
+		String intro = centerService.getIntro(userId);
+		System.out.println(intro);
+		return intro;
 	}
 
 }
