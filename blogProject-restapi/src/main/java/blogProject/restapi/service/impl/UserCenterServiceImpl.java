@@ -1,4 +1,4 @@
-package blogProject.restapi.service;
+package blogProject.restapi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
