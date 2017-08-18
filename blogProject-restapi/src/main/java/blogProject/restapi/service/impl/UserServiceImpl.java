@@ -106,12 +106,12 @@ public class UserServiceImpl implements UserService {
 			// 自定义的ip，一定要手动设置好端口号
 			htmlEmail.setSmtpPort(25);
 			// 设置登陆服务器的帐号跟密码
-			htmlEmail.setAuthentication("admin@atguigu.com", "123456");
+			htmlEmail.setAuthentication("admin@jg.com", "admin");
 			// 设置发送给谁
 			try {
-				htmlEmail.addTo("xsb@atguigu.com");
+				htmlEmail.addTo("zyong@jg.com");
 				// 设置来源
-				htmlEmail.setFrom("admin@atguigu.com");
+				htmlEmail.setFrom("admin@jg.com");
 				// 设置邮件标题
 				htmlEmail.setSubject("轻博客帐号激活");
 				// 设置邮件内容
