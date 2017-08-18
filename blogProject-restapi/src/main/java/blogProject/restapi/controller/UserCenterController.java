@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import blogProject.manager.bean.TArticle;
 import blogProject.manager.bean.TUser;
 import blogProject.restapi.service.UserCenterService;
 
@@ -63,14 +64,17 @@ public class UserCenterController {
 	public Integer isFollowed(Integer userId, Integer fanId) {
 
 		List<TUser> follow = centerService.getFollowByUserId(userId);
-		List<Integer> followedId = new ArrayList<>();
-		for (TUser tUser : follow) {
+		if (follow != null) {
+			List<Integer> followedId = new ArrayList<>();
+			for (TUser tUser : follow) {
 
-			followedId.add(tUser.getId());
+				followedId.add(tUser.getId());
 
-		}
-		if (followedId.contains(fanId)) {
-			return 1;
+			}
+			if (followedId.contains(fanId)) {
+				return 1;
+			}
+			return 0;
 		}
 		return 0;
 	}
@@ -85,11 +89,20 @@ public class UserCenterController {
 		return user;
 	}
 
-	@RequestMapping("/getIntro")
+	@RequestMapping(value="/getIntro", produces="text/html;charset=UTF-8")
 	public String getIntro(Integer userId) throws Exception {
 		String intro = centerService.getIntro(userId);
-		System.out.println(intro);
 		return intro;
 	}
+	
+	@RequestMapping("/getUserArticle")
+	public List<TArticle> getUserArticle(Integer userId){
+		
+		List<TArticle> list =centerService.getUserArticleByUserId(userId);
+		
+		
+		return list;
+	}
+	
 
 }

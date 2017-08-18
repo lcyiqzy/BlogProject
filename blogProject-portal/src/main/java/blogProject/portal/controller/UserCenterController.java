@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import blogProject.commons.utils.HttpClientUtil;
+import blogProject.manager.bean.TArticle;
 import blogProject.manager.bean.TUser;
 import blogProject.portal.bean.Page;
 import blogProject.portal.bean.Pagination;
@@ -58,14 +59,38 @@ public class UserCenterController {
 
 		return "userCenter/userCenterPage";
 	}
-	
-	//去往文章页面
+
+	// 去往文章页面
 	@RequestMapping("/tomyArticlePage")
-	public String tomyArticlePage(){
-		
+	public String tomyArticlePage(
+			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
+			@RequestParam(value = "pageSize", defaultValue = "4") Integer pageSize,
+			@RequestParam(value = "userId") Integer userId, Model model) {
+
+		List<TArticle> userArticle = null;
+
+		String url = "http://127.0.0.1:8082/blogProject-restapi"
+				+ "/userCenter/getUserArticle";
+		Map<String, Object> map = new HashMap<>();
+		try {
+			map.put("userId", userId);
+			String response = HttpClientUtil.httpPostRequest(url, map);
+
+			userArticle = new ArrayList<>();
+
+			userArticle = new ObjectMapper().readValue(response.getBytes(),
+					new TypeReference<List<TArticle>>() {
+					});
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String pageUrl = "/userCenter/tomyArticlePage";
+		Page<TArticle> page = pagination.paging(userArticle, pageSize, pageNo,
+				userId, pageUrl);
+		model.addAttribute("page", page);
 		return "userCenter/myArticle";
 	}
-	
 
 	@RequestMapping("/tomyFollowPage")
 	public String tomyFollowPage(
@@ -244,8 +269,9 @@ public class UserCenterController {
 		session.setAttribute("user", user);
 	}
 
+	// 将个人介绍从数据库中取出
 	@ResponseBody
-	@RequestMapping("/getIntro")
+	@RequestMapping(value="/getIntro", produces="text/html;charset=UTF-8")
 	public String getIntro(@RequestParam(value = "userId") Integer userId)
 			throws Exception {
 
@@ -256,10 +282,10 @@ public class UserCenterController {
 
 		map.put("userId", userId);
 
-		String intro = null;
+		String intro = HttpClientUtil.httpPostRequest(url, map);
 
-		intro = HttpClientUtil.httpPostRequest(url, map);
 		System.out.println(intro + "--------------");
+
 		return intro;
 	}
 }

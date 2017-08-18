@@ -56,6 +56,6 @@
 <!-- 		<table tableName="t_type_permission" domainObjectName="TTypePermission"></table> -->
 
 		
-		<table tableName="t_user" domainObjectName="TUser"></table>
+	<!-- 	<table tableName="t_user" domainObjectName="TUser"></table> -->
 	</context>
 </generatorConfiguration>

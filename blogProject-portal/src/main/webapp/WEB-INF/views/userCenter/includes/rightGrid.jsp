@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
 <div class="col-md-3 technology-right">
 
 	<div class="blo-top1">
@@ -16,7 +15,7 @@
 			<!--<a class="inline" data-action="start-edit-intro" href=""><i class="iconfont ic-edit-s"></i>编辑</a>-->
 			</br>
 
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -27,12 +26,11 @@
 							<h4 class="modal-title">请输入个人介绍</h4>
 						</div>
 						<div class="modal-body">
-						
 						<textarea name="intro" id="intro_text" userId="${user.id }"
 								style="overflow-y: hidden; height: 30px; width: 570px; border: none;"
 								onpropertychange="this.style.height=this.scrollHeight + 'px'"
 								oninput="this.style.height=this.scrollHeight + 'px'"
-								autofocus="autofocus"></textarea>
+								placeholder="请输入内容" autofocus="autofocus"></textarea>
 						
 							
 						</div>
@@ -48,7 +46,7 @@
 			<div id="selfIntroduction">${user.userSelfIntroduction }</div>
 			<hr>
 
-			<h4>Jack</h4>
+			<h4>${user.userName }</h4>
 
 			<div class="blog-grids wow fadeInDown" data-wow-duration=".8s"
 				data-wow-delay=".2s">
@@ -106,7 +104,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyArticlePage">${user.articleNum }</a>
+						<a href="${ctp}/userCenter/tomyArticlePage?userId=${user.id}">${user.articleNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>

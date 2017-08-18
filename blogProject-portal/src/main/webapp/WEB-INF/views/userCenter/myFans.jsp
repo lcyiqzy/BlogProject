@@ -86,13 +86,9 @@
 	</div>
 	<%@include file="/WEB-INF/views/userCenter/includes/footer.jsp"%>
 
-
-
 	<script type="text/javascript">
 		$(function() {
-
 			buildBtn();
-
 		});
 
 		$("body").on(
@@ -111,9 +107,7 @@
 						$("#" + id).empty().append("&nbsp;已关注&nbsp;");
 
 						buildBtn();
-
 					});
-
 				});
 
 		$("body").on(
@@ -132,9 +126,7 @@
 						$("#" + id).empty().append("添加关注");
 
 						buildBtn();
-
 					});
-
 				});
 
 		$("body").on("mouseenter", ".followed", function() {
@@ -196,25 +188,24 @@
 							+ "&userId=" + userId, function() {
 
 						showIntro();
-						
+
 						$("#myModal").modal("hide");
 					});
 
 					return false;
 				});
-		
-		function showIntro(){
-			
+
+		function showIntro() {
+
 			var userId = $("#intro_text").attr("userId");
 
-			$.get("${ctp}/userCenter/getIntro?userId="+userId, function(data) {
-				
-				$("#selfIntroduction").empty().append(data);
+			$.get("${ctp}/userCenter/getIntro?userId=" + userId,
+					function(data) {
 
-			});
-			
+						$("#selfIntroduction").empty().append(data);
+
+					});
 		}
-		
 	</script>
 
 </body>

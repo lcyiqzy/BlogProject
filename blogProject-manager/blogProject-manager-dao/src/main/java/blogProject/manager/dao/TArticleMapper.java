@@ -4,6 +4,7 @@ import blogProject.manager.bean.TArticle;
 import blogProject.manager.example.TArticleExample;
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TArticleMapper {

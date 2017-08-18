@@ -27,6 +27,8 @@ public class TArticle {
 
     private Integer articleLabel;
 
+    private String articleSimplecontent;
+
     public Integer getId() {
         return id;
     }
@@ -129,5 +131,13 @@ public class TArticle {
 
     public void setArticleLabel(Integer articleLabel) {
         this.articleLabel = articleLabel;
+    }
+
+    public String getArticleSimplecontent() {
+        return articleSimplecontent;
+    }
+
+    public void setArticleSimplecontent(String articleSimplecontent) {
+        this.articleSimplecontent = articleSimplecontent == null ? null : articleSimplecontent.trim();
     }
 }

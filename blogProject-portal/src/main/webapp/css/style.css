@@ -1994,20 +1994,20 @@ i.glyphicon.glyphicon-comment {
     border: 1px solid #d2d1d1;
 }
 .soci  ul li a.fb{
-    background: url(../images/social.png) no-repeat -48px -7px;
+    background: url(../images/social3.png) no-repeat -48px -7px;
 }
 .soci  ul li a.twit{
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
  /*-- agileits --*/
 .soci  ul li a.goog{
-    background: url(../images/social.png) no-repeat -88px -7px;
+    background: url(../images/social3.png) no-repeat -88px -7px;
 }
 .soci  ul li a.pin{
-    background: url(../images/social.png) no-repeat -130px -7px;
+    background: url(../images/social3.png) no-repeat -130px -7px;
 }
 .soci  ul li a.drib{
-    background: url(../images/social.png) no-repeat -171px -7px;
+    background: url(../images/social3.png) no-repeat -171px -7px;
 }
 /*--technology-left--*/
 /*--technology-right--*/
@@ -2114,7 +2114,7 @@ i.glyphicon.glyphicon-comment {
 }
 /*--footer--*/
 .footer {
-    background: #303030;
+    background: #F2F2F2;
     padding: 3em 0;
     margin-top: 3em;
 }
@@ -2123,11 +2123,11 @@ i.glyphicon.glyphicon-comment {
     background: #fa4b2a;
     padding: 0.5em 1.7em;
     font-weight: 700;
-    color: #fff;
+    color: #000000;
 }
 .footer p {
     font-size: 0.875em;
-    color: #fff;
+    color: #000000;
     margin: 1em 0;
     line-height: 1.8em;
 }
@@ -2140,8 +2140,8 @@ i.glyphicon.glyphicon-comment {
 }
 .footer h4 {
     font-size: 1.7em;
-    color: #fff;
-    border-bottom: 1px solid #fff;
+    color: #000000;
+    border-bottom: 1px solid #000000;
     margin-bottom: 1em;
     padding-bottom: 1em;
 }
@@ -2149,7 +2149,7 @@ i.glyphicon.glyphicon-comment {
     margin-bottom: 1em;
 }
 .footer-right li a {
-    color: #fff;
+    color: #000000;
     font-size: 0.875em;
     line-height: 1.8em;
 }
@@ -2751,6 +2751,8 @@ width:100%;
     font-size: 1em;
     padding: 0.8em 1em;
     border: 1px solid #BBB;
+	
+	
 }
 .contact-grid input[type="email"] {
     margin: 1em 0;
@@ -2759,7 +2761,7 @@ width:100%;
 	width: 94%;
     height: 200px;
     resize: none;
-	margin: 1em 0;
+	margin: 1em 0em;
 }
 .contact-grid input[type="submit"] {
     background: #fa4b2a;
@@ -3466,6 +3468,10 @@ h5.top {
     padding: 2em 2em;
     background: #fff;
 }
+.btn-default{
+	font-size:30px;
+	font-weight: 800;
+}
 .footer-left, .footer-middle, .footer-right {
     float: left;
     width: 100%;
@@ -3850,6 +3856,7 @@ label.on {
     padding: 1em 1em;
     background: #fff;
 }
+.
 .footer-left, .footer-middle, .footer-right {
     padding: 0;
 }
@@ -3941,3 +3948,4 @@ label.icon-search span {
     width: 74%;
 }
 }
+

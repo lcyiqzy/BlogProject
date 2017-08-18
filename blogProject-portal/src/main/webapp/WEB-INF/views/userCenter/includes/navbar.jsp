@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-xs-2">
 						<div id="fh5co-logo">
-							<a href="index.html">轻博客<span>.</span></a>
+							<a href="${ctp }/index.jsp">轻博客<span>.</span></a>
 						</div>
 					</div>
 					<div class="col-xs-10 text-right menu-1">

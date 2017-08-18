@@ -15,6 +15,7 @@
     <result column="author_id" jdbcType="INTEGER" property="authorId" />
     <result column="article_real_url" jdbcType="VARCHAR" property="articleRealUrl" />
     <result column="article_label" jdbcType="INTEGER" property="articleLabel" />
+    <result column="article_simplecontent" jdbcType="VARCHAR" property="articleSimplecontent" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -77,7 +78,7 @@
   <sql id="Base_Column_List">
     id, article_name, article_author, article_url, article_read_num, article_like_num, 
     article_follow_num, article_commit_num, article_date, article_pic_url, author_id, 
-    article_real_url, article_label
+    article_real_url, article_label, article_simplecontent
   </sql>
   <select id="selectByExample" parameterType="blogProject.manager.example.TArticleExample" resultMap="BaseResultMap">
     select
@@ -114,12 +115,12 @@
       article_url, article_read_num, article_like_num, 
       article_follow_num, article_commit_num, article_date, 
       article_pic_url, author_id, article_real_url, 
-      article_label)
+      article_label, article_simplecontent)
     values (#{id,jdbcType=INTEGER}, #{articleName,jdbcType=VARCHAR}, #{articleAuthor,jdbcType=VARCHAR}, 
       #{articleUrl,jdbcType=VARCHAR}, #{articleReadNum,jdbcType=INTEGER}, #{articleLikeNum,jdbcType=INTEGER}, 
       #{articleFollowNum,jdbcType=INTEGER}, #{articleCommitNum,jdbcType=INTEGER}, #{articleDate,jdbcType=VARCHAR}, 
       #{articlePicUrl,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER}, #{articleRealUrl,jdbcType=VARCHAR}, 
-      #{articleLabel,jdbcType=INTEGER})
+      #{articleLabel,jdbcType=INTEGER}, #{articleSimplecontent,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TArticle">
     insert into t_article
@@ -163,6 +164,9 @@
       <if test="articleLabel != null">
         article_label,
       </if>
+      <if test="articleSimplecontent != null">
+        article_simplecontent,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -203,6 +207,9 @@
       </if>
       <if test="articleLabel != null">
         #{articleLabel,jdbcType=INTEGER},
+      </if>
+      <if test="articleSimplecontent != null">
+        #{articleSimplecontent,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -254,6 +261,9 @@
       <if test="record.articleLabel != null">
         article_label = #{record.articleLabel,jdbcType=INTEGER},
       </if>
+      <if test="record.articleSimplecontent != null">
+        article_simplecontent = #{record.articleSimplecontent,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -273,7 +283,8 @@
       article_pic_url = #{record.articlePicUrl,jdbcType=VARCHAR},
       author_id = #{record.authorId,jdbcType=INTEGER},
       article_real_url = #{record.articleRealUrl,jdbcType=VARCHAR},
-      article_label = #{record.articleLabel,jdbcType=INTEGER}
+      article_label = #{record.articleLabel,jdbcType=INTEGER},
+      article_simplecontent = #{record.articleSimplecontent,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -317,6 +328,9 @@
       <if test="articleLabel != null">
         article_label = #{articleLabel,jdbcType=INTEGER},
       </if>
+      <if test="articleSimplecontent != null">
+        article_simplecontent = #{articleSimplecontent,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -333,7 +347,8 @@
       article_pic_url = #{articlePicUrl,jdbcType=VARCHAR},
       author_id = #{authorId,jdbcType=INTEGER},
       article_real_url = #{articleRealUrl,jdbcType=VARCHAR},
-      article_label = #{articleLabel,jdbcType=INTEGER}
+      article_label = #{articleLabel,jdbcType=INTEGER},
+      article_simplecontent = #{articleSimplecontent,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
