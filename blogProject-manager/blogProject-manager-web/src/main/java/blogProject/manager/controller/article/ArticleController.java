@@ -81,6 +81,16 @@ public class ArticleController {
             HttpSession session) {
         System.out.println("保存文章开始。。。");
         TArticle article = new TArticle();
+        System.out.println(upload);
+        
+        String reg = "[^\u4e00-\u9fa5]";
+        String simplecontent = upload.replaceAll(reg, "");
+        int i = simplecontent.length();
+        if (i >= 100) {
+            simplecontent = simplecontent.substring(0, 100);
+        } else {
+            simplecontent = simplecontent.substring(0, i);
+        }
         
         TUser loginUser = (TUser) session.getAttribute("loginUser");
         
@@ -137,7 +147,8 @@ public class ArticleController {
         //文章标签
         article.setArticleLabel(label);
         
-        System.out.println(upload);
+        //文章摘要
+        article.setArticleSimplecontent(simplecontent);
         
         boolean flag = articleService.saveArticle(article);
         

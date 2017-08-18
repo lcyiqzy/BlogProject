@@ -73,7 +73,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/login")
-	public BlogReturn login(TUser user) {
+	public BlogReturn<TUser> login(TUser user) {
 		try {
 			TUser loginUser = userService.login(user);
 			System.out.println("数据库查到的loginUser:" + loginUser);

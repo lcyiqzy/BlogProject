@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="blogProject.manager.bean.TPermission">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, permission
+    id, permission, url
   </sql>
   <select id="selectByExample" parameterType="blogProject.manager.example.TPermissionExample" resultMap="BaseResultMap">
     select
@@ -97,8 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="blogProject.manager.bean.TPermission">
-    insert into t_permission (id, permission)
-    values (#{id,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR})
+    insert into t_permission (id, permission, url
+      )
+    values (#{id,jdbcType=INTEGER}, #{permission,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="blogProject.manager.bean.TPermission">
     insert into t_permission
@@ -109,6 +112,9 @@
       <if test="permission != null">
         permission,
       </if>
+      <if test="url != null">
+        url,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -116,6 +122,9 @@
       </if>
       <if test="permission != null">
         #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,6 +143,9 @@
       <if test="record.permission != null">
         permission = #{record.permission,jdbcType=VARCHAR},
       </if>
+      <if test="record.url != null">
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +154,8 @@
   <update id="updateByExample" parameterType="map">
     update t_permission
     set id = #{record.id,jdbcType=INTEGER},
-      permission = #{record.permission,jdbcType=VARCHAR}
+      permission = #{record.permission,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +166,16 @@
       <if test="permission != null">
         permission = #{permission,jdbcType=VARCHAR},
       </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="blogProject.manager.bean.TPermission">
     update t_permission
-    set permission = #{permission,jdbcType=VARCHAR}
+    set permission = #{permission,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
