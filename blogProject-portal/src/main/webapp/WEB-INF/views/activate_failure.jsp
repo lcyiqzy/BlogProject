@@ -17,8 +17,7 @@
 <body class="login_bj">
 	<div class="zhuce_body">
 		<div class="logo">
-			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a>
-			<h1>轻博客</h1>
+			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
