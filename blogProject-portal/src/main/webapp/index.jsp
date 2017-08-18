@@ -153,9 +153,11 @@
 					</div>
 					
 					<h3><a href="singlepage.jsp">Lorem Ipsum is simply</a></h3>
-					<h6>BY <a href="singlepage.jsp">ADAM ROSE </a>JULY 10 2016.</h6>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<h6>BY <a href="singlepage.jsp">ADAM ROSE</a>JULY 10 2016.</h6>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
+						</p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						<p> 
+</p>
 						<div class="bht1">
 							<a href="singlepage.jsp">Continue Reading</a>
 						</div>
