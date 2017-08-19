@@ -17,36 +17,31 @@
 <body class="login_bj">
 	<div class="zhuce_body">
 		<div class="logo">
-<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
-			<h1><a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a></h1>
+			<%-- 			<a href="${ctp}/#"><img src="${ctp}/images/logo.png" width="114" height="54" border="0"></a> --%>
+			<h1>
+				<a style="text-decoration: none" href="${ctp }/index.jsp">轻博客</a>
+			</h1>
 		</div>
 		<div class="zhuce_kong login_kuang">
 			<div class="zc">
 				<div class="form">
-					<h1>
-						注册
-					</h1>
+					<h1>注册</h1>
 					<form id="regForm" action="${ctp}/user/register" method="post">
 						<input type="email" name="userEmail" class="username"
 							placeholder="邮箱" required autocomplete="off"> 
 						<span class="errorInfo" style="color: red;">${msg }</span> 
-						<input type="password" name="userPassword" class="password" 
-							placeholder="密码" required autocomplete="off"> 
-						<span class="errorInfo" style="color: red;"></span>
+						<input type="password" name="userPassword" class="password"
+							placeholder="密码" required autocomplete="off">
 
 						<button type="submit">注册</button>
-						<br/>
-						<br/>
-						<label style="float: left;"> <a href="${ctp}/forgetpwd.html">忘记密码</a> </label> 
-						<label style="float: right"> <a href="${ctp}/login.jsp">我有帐号</a> </label>
-<!-- 						<div class="error"> -->
-<!-- 							<span>+</span> -->
-<!-- 						</div> -->
+						<br /> <br />
+						
+						<label style="float: inherit;">已有账户？ &nbsp<a
+							href="${ctp}/login.jsp"> 登录</a>
+						</label>
 					</form>
 					<div class="connect">
-						<br/>
-						<br/>
-						<br/>
+						<br /> <br /> <br />
 						<p>GentlyBlog.com&nbsp;&nbsp;&nbsp;&nbsp;欢迎来到轻博客！</p>
 					</div>
 				</div>
@@ -64,46 +59,7 @@
 	<script src="${ctp}/assets/js/login_register.js"></script>
 
 	<script type="text/javascript">
-		//给校验器设置一些策略
-// 		$.validator.setDefaults({
-
-// 			showErrors : function(map, list) {
-
-// 				//每次进来之前都清空状态
-// 				$(".errorInfo").empty();
-// 				$.each(list, function() {
-// 					//当前发生错误的详细信息；
-// 					//element当前错误元素
-// 					//错误信息
-// 					console.log(this);
-// 					$(this.element).next(".errorInfo").text(this.message);
-// 				})
-// 			}
-
-// 		});
-
-// 		$("#regForm").validate({
-// 			rules : {
-// 				userEmail : {
-// 					required:true,
-//                     email:true
-// 				},
-// 				userPassword : {
-// 					required : true
-// 				}
-// 			},
-// 			messages : {
-// 				userEmail : {
-// 					required : "请输入邮箱账号",
-// 					email : "请输入正确的邮箱地址"
-// 				},
-// 				userPassword : {
-// 					required : "请输入密码"
-// 				}
-
-// 			},
-// 		})
- 	</script>
+	</script>
 
 </body>
 </html>

@@ -79,12 +79,14 @@
 									<li><a href="${ctp}/like.html">关注</a></li>
 									<li class="has-dropdown"><a href="${ctp}/blog.html">${loginUser }</a>
 										<ul class="dropdown">
-											<li><a href="${ctp}/#">我的主页</a></li>
-											<li><a href="${ctp}/#">收藏的文章</a></li>
-											<li><a href="${ctp}/#">喜欢的文章</a></li>
-											<li><a href="${ctp}/#">设置</a></li>
-											<li role="separator" class="divider"></li>
-											<li><a href="${ctp}/user/index.html">退出登录</a></li>
+											<c:forEach items="${loginUserPermission }" var="per">
+<%-- 												<li><a href="${ctp}/#">我的主页</a></li> --%>
+<%-- 												<li><a href="${ctp}/#">收藏的文章</a></li> --%>
+<%-- 												<li><a href="${ctp}/#">喜欢的文章</a></li> --%>
+												<li><a href="${ctp}/#">${per.permission }</a></li>
+												<li role="separator" class="divider"></li>
+											</c:forEach>
+												<li><a href="${ctp}/user/index.html">退出登录</a></li>
 										</ul>
 									</li>
 								</c:if>

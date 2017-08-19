@@ -1,12 +1,14 @@
 package blogProject.restapi.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import blogProject.manager.bean.TPermission;
 import blogProject.manager.bean.TUser;
 import blogProject.restapi.bean.BlogReturn;
 import blogProject.restapi.service.UserService;
@@ -25,7 +27,7 @@ public class UserController {
 	public BlogReturn activate(String userEmail, String registCode) {
 		System.out.println("resapi接到的userEmail:" + userEmail);
 		System.out.println("resapi接到的registCode:" + registCode);
-		//根据邮箱账号查找user对象
+		// 根据邮箱账号查找user对象
 		TUser user = userService.find(userEmail);
 		System.out.println("拿到要激活的user: " + user);
 		// 1.验证邮箱是否存在
@@ -40,14 +42,18 @@ public class UserController {
 				if (flag) {
 					// 更新状态成功后,删除激活注册码
 					userService.deleteRegistCode(registCode);
-					return BlogReturn.success("点击这里去<a href='http://localhost:8081/blogProject-portal/login.jsp' style=\"color: red;\">登录</a>", null, null);
+					return BlogReturn.success(
+							"点击这里去<a href='http://localhost:8081/blogProject-portal/login.jsp' style=\"color: red;\">登录</a>",
+							null, null);
 				}
 			} else {
 				return BlogReturn.fail("激活码不正确,请重新激活！", null, null);
 			}
 
-		} 
-		return BlogReturn.fail("该帐号已激活!<a href='http://localhost:8081/blogProject-portal/login.jsp' style=\"color: red;\">登录</a>", null, null);
+		}
+		return BlogReturn.fail(
+				"该帐号已激活!<a href='http://localhost:8081/blogProject-portal/login.jsp' style=\"color: red;\">登录</a>",
+				null, null);
 	}
 
 	@RequestMapping("/regist")
@@ -77,10 +83,19 @@ public class UserController {
 		try {
 			TUser loginUser = userService.login(user);
 			System.out.println("数据库查到的loginUser:" + loginUser);
+			// 说明用户存在
 			if (loginUser != null) {
-				// 说明用户存在
-				if(loginUser.getRegistState() == 1) {
-					return BlogReturn.success("登录成功!", loginUser, null);
+				// 已经激活
+				if (loginUser.getRegistState() == 1) {
+					//查找用户所拥有的权限
+					Map<String, Object> perMap = new HashMap<String, Object>();
+					List<TPermission> permission = userService.findPermission(loginUser.getUserPermission());
+//					System.out.println("该用户所拥有的权限:" );
+//					for (TPermission tPermission : permission) {
+//						System.out.println(tPermission.getPermission());
+//					}
+					perMap.put("permission", permission);
+					return BlogReturn.success("登录成功!", loginUser, perMap);
 				}
 			} else {
 				return BlogReturn.fail("请输入正确的登录帐号!", loginUser, null);

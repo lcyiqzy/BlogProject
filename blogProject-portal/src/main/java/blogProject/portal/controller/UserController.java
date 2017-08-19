@@ -72,7 +72,7 @@ public class UserController {
                 // 激活成功！页面提示点击这里转到登录页面
                 System.out.println(readValue.getMsg());
                 model.addAttribute("msg", readValue.getMsg());
-                return "activate_success";
+                return "redirect:/login.jsp";
             } else {
                 System.out.println(readValue.getMsg());
                 model.addAttribute("msg", readValue.getMsg());
@@ -177,8 +177,11 @@ public class UserController {
             if (readValue.getCode() == 1) {
                 // 将用户放在session中
                 session.setAttribute(Constants.LOGIN_USER, readValue.getContent().getUserEmail());
+                
+                // 将该用户的权限放在session中
+                session.setAttribute(Constants.LOGIN_USER_PERMISSION, readValue.getExt().get("permission"));
+                
                 // 重定向到主页面,导航条改变
-                session.setAttribute("fefe", readValue.getContent().getUserPermission());
                 return "redirect:/index.jsp";
             } else {
                 model.addAttribute("msg", readValue.getMsg());

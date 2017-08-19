@@ -1,5 +1,6 @@
 package blogProject.manager.dao;
 
+import blogProject.manager.bean.TPermission;
 import blogProject.manager.bean.TUser;
 import blogProject.manager.example.TUserExample;
 
@@ -30,4 +31,5 @@ public interface TUserMapper {
     int updateByPrimaryKey(TUser record);
 
     void delRegistCode(String registCode);
+
 }

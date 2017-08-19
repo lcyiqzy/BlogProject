@@ -5,6 +5,18 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="permission" jdbcType="VARCHAR" property="permission" />
   </resultMap>
+  
+  <!-- 	List<TPermission> findPermission(Integer userPermission); -->
+	<select id="findPermission" resultMap="BaseResultMap">
+		SELECT p.*
+			FROM t_permission p
+			LEFT JOIN t_type_permission t_p 
+			ON t_p.`permission` = p.id
+			LEFT JOIN t_type t
+			ON t.`id` = t_p.`type`
+			WHERE t.`id` = #{userPermission}
+	</select>
+  
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

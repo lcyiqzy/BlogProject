@@ -28,4 +28,6 @@ public interface TPermissionMapper {
     int updateByPrimaryKeySelective(TPermission record);
 
     int updateByPrimaryKey(TPermission record);
+    
+    List<TPermission> findPermission(Integer userPermission);
 }
