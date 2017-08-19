@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 
 <div class="col-md-3 technology-right">
 
@@ -64,7 +62,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyFollowPage?userId=${user.id}">${user.followNum }</a>
+						<a href="${ctp}/userCenter/toFollowPage?userId=${user.id}&mypage=1">${user.followNum }</a>
 					</h5>
 				</div>
 
@@ -85,7 +83,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyFansPage?userId=${user.id}">${user.followedNum }</a>
+						<a href="${ctp}/userCenter/toFansPage?userId=${user.id}&mypage=1">${user.followedNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>
@@ -104,7 +102,7 @@
 				<div class="blog-grid-right">
 
 					<h5>
-						<a href="${ctp}/userCenter/tomyArticlePage?userId=${user.id}">${user.articleNum }</a>
+						<a href="${ctp}/userCenter/toArticlePage?userId=${user.id}&mypage=1">${user.articleNum }</a>
 					</h5>
 				</div>
 				<div class="clearfix"></div>

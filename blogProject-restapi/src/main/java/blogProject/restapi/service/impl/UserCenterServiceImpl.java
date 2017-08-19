@@ -25,7 +25,7 @@ public class UserCenterServiceImpl implements UserCenterService {
 
 	@Autowired
 	TUserMapper userMapper;
-	
+
 	@Autowired
 	TArticleMapper articleMapper;
 
@@ -74,15 +74,36 @@ public class UserCenterServiceImpl implements UserCenterService {
 
 	@Override
 	public void addFollow(Integer userId, Integer fanId) {
-
+		System.out.println(userId);
+		System.out.println(fanId);
 		TUserUser userUser = new TUserUser();
 
 		userUser.setUserId(userId);
 
 		userUser.setUserFollowedId(fanId);
 
+		TUserUser userUser2 = new TUserUser();
+
+		userUser2.setUserFanId(userId);
+
+		userUser2.setUserId(fanId);
+
+		// 将用户取出，并把他的关注数+1
+		TUser user1 = userMapper.selectByPrimaryKey(userId);
+
+		user1.setFollowNum(user1.getFollowNum() + 1);
+
+		// 将被关注的用户取出，并把他的粉丝数+1
+		TUser user2 = userMapper.selectByPrimaryKey(fanId);
+
+		user2.setFollowedNum(user2.getFollowedNum() + 1);
+		userMapper.updateByPrimaryKey(user2);
+
+		userMapper.updateByPrimaryKey(user1);
+
 		userUserMapper.insertSelective(userUser);
 
+		userUserMapper.insertSelective(userUser2);
 	}
 
 	@Override
@@ -97,6 +118,29 @@ public class UserCenterServiceImpl implements UserCenterService {
 		criteria.andUserIdEqualTo(userId);
 
 		userUserMapper.deleteByExample(uue);
+
+		TUserUserExample uue2 = new TUserUserExample();
+
+		Criteria criteria2 = uue.createCriteria();
+
+		criteria2.andUserFanIdEqualTo(userId);
+
+		criteria2.andUserIdEqualTo(fanId);
+
+		userUserMapper.deleteByExample(uue2);
+		// 将用户取出，并把他的关注数-1
+		TUser user1 = userMapper.selectByPrimaryKey(userId);
+
+		user1.setFollowNum(user1.getFollowNum() - 1);
+
+		// 将被关注的用户取出，并把他的粉丝数-1
+		TUser user2 = userMapper.selectByPrimaryKey(fanId);
+
+		user2.setFollowedNum(user2.getFollowedNum() - 1);
+
+		userMapper.updateByPrimaryKey(user2);
+
+		userMapper.updateByPrimaryKey(user1);
 	}
 
 	@Override
@@ -122,15 +166,16 @@ public class UserCenterServiceImpl implements UserCenterService {
 
 	@Override
 	public List<TArticle> getUserArticleByUserId(Integer userId) {
-		
+
 		TArticleExample example = new TArticleExample();
-		
-		blogProject.manager.example.TArticleExample.Criteria criteria = example.createCriteria();
-		
+
+		blogProject.manager.example.TArticleExample.Criteria criteria = example
+				.createCriteria();
+
 		criteria.andAuthorIdEqualTo(userId);
-		
+
 		List<TArticle> list = articleMapper.selectByExample(example);
-		
+
 		return list;
 	}
 

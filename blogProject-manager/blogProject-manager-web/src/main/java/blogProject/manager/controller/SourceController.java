@@ -42,12 +42,13 @@ public class SourceController {
      */
     @RequestMapping("/article")
     public String getArticles(@RequestParam(value="pn",defaultValue="1") Integer pn,
-            @RequestParam(value="pn",defaultValue="7") Integer ps,
+            @RequestParam(value="ps",defaultValue="6") Integer ps,
             Model model) {
         PageHelper.startPage(pn, ps);
         List<TArticle> list = articleService.getAllArticles();
         PageInfo<TArticle> info = new PageInfo<>(list, 5);
         model.addAttribute("info", info);
+        System.out.println(info);
         return "sourcemanager/article";
     }
     

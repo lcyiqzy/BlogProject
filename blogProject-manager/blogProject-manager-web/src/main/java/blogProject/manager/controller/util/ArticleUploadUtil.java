@@ -47,4 +47,8 @@ public class ArticleUploadUtil {
         String articleRealContextPath = fileUrl + "&" +request.getContextPath() + "/" + directoryName + fileName;
         return articleRealContextPath;
     }
+    
+    public static void writeFile() {
+        
+    }
 }

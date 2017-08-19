@@ -20,44 +20,52 @@
 
 		<%@include file="/WEB-INF/views/userCenter/includes/navbar.jsp"%>
 
-		<div class="container">
-			<div class="col-md-9 technology-left">
-				<div class="tech-no">
-					<!-- technology-top -->
-					<c:forEach items="${page.items}" var="article">
-						<div class="tc-ch wow fadeInDown" data-wow-duration=".8s"
-							data-wow-delay=".2s">
+		<c:if test="${not empty page}">
 
-						<%-- 	<div class="tch-img">
+			<div class="container">
+				<div class="col-md-9 technology-left">
+					<div class="tech-no">
+						<!-- technology-top -->
+						<c:forEach items="${page.items}" var="article">
+							<div class="tc-ch wow fadeInDown" data-wow-duration=".8s"
+								data-wow-delay=".2s">
+
+								<%-- 	<div class="tch-img">
 								<a href="singlepage.html"><img src="${ctp}/images/t1.jpg"
 									class="img-responsive" alt=""></a>
 							</div> --%>
 
-							<h3>
-								<a href="${ctp }/article_page/articleShow.jsp">${article.articleName }</a>
-							</h3>
-							<h6>
-								BY <a href="#">${user.userName } </a>JULY 10 2016.
-							</h6>
-							<p>${article.articleSimplecontent }</p>
-							
+								<h3>
+									<a href="${ctp }/article_page/articleShow.jsp">${article.articleName }</a>
+								</h3>
+								<h6>
+									BY <a href="#">${user.userName } </a>JULY 10 2016.
+								</h6>
+								<p>${article.articleSimplecontent }<a
+										href="${ctp }/article_page/articleShow.jsp">...</a>
+								</p>
+
 								<a href="${ctp }/article_page/articleShow.jsp">继续阅读</a>
-							
 
+								<div class="clearfix"></div>
+							</div>
 							<div class="clearfix"></div>
-						</div>
-						<div class="clearfix"></div>
-					</c:forEach>
-					<%@include file="/WEB-INF/views/userCenter/includes/page.jsp"%>
+						</c:forEach>
+						<%@include file="/WEB-INF/views/userCenter/includes/page.jsp"%>
+					</div>
 				</div>
-			</div>
-			<!-- technology-right -->
-
-			<!--引入右边栏  -->
-			<%@include file="/WEB-INF/views/userCenter/includes/rightGrid.jsp"%>
-		</div>
-		<div class="clearfix"></div>
+		</c:if>
+		
+		
 		<!-- technology-right -->
+
+		<!--引入右边栏  -->
+		<%@include file="/WEB-INF/views/userCenter/includes/rightGrid.jsp"%>
+	</div>
+
+
+	<div class="clearfix"></div>
+	<!-- technology-right -->
 	</div>
 
 	<%@include file="/WEB-INF/views/userCenter/includes/footer.jsp"%>

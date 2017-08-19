@@ -182,4 +182,21 @@ public class TUser {
     public void setUserWritenum(Integer userWritenum) {
         this.userWritenum = userWritenum;
     }
+
+	@Override
+	public String toString() {
+		return "TUser [id=" + id + ", userLonginacct=" + userLonginacct
+				+ ", userName=" + userName + ", userEmail=" + userEmail
+				+ ", userPhone=" + userPhone + ", userPermission="
+				+ userPermission + ", followNum=" + followNum
+				+ ", followedNum=" + followedNum + ", registState="
+				+ registState + ", registCode=" + registCode
+				+ ", registEmailUrl=" + registEmailUrl + ", userPassword="
+				+ userPassword + ", passwordRetrieveUrl=" + passwordRetrieveUrl
+				+ ", registDate=" + registDate + ", articleNum=" + articleNum
+				+ ", userSelfIntroduction=" + userSelfIntroduction
+				+ ", userGetlike=" + userGetlike + ", userWritenum="
+				+ userWritenum + "]";
+	}
+    
 }

@@ -11,7 +11,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/blogProject" userId="root"
+			connectionURL="jdbc:mysql://localhost:3306/blogproject" userId="root"
 			password="123456">
 		</jdbcConnection>
 
@@ -40,22 +40,26 @@
 
 		<!-- 只要是数据库对应的pojo，我们都以T开头 -->
 		<!-- 指定要逆向的每一张表,用户表 -->
-		
-<!-- 		<table tableName="t_test" domainObjectName="Test"></table> -->
-		<table tableName="t_article" domainObjectName="TArticle"></table>
-<!-- 		<table tableName="t_article_label" domainObjectName="TArticleLable"></table> -->
-<!-- 		<table tableName="t_commit" domainObjectName="TCommit"></table> -->
-<!-- 		<table tableName="t_label" domainObjectName="TLabel"></table> -->
-<!-- 		<table tableName="t_message" domainObjectName="TMessage"></table> -->
-<!-- 		<table tableName="t_user" domainObjectName="TUser"></table> -->
-<!-- 		<table tableName="t_user_article" domainObjectName="TUserArticle"></table> -->
-<!-- 		<table tableName="t_user_article_commit" domainObjectName="TUserArticleCommit"></table> -->
-<!-- 		<table tableName="t_user_user" domainObjectName="TUserUser"></table> -->
-<!-- 		<table tableName="t_type" domainObjectName="TType"></table> -->
-<!-- 		<table tableName="t_permission" domainObjectName="TPermission"></table> -->
-<!-- 		<table tableName="t_type_permission" domainObjectName="TTypePermission"></table> -->
 
-		
-	<!-- 	<table tableName="t_user" domainObjectName="TUser"></table> -->
+		<!-- <table tableName="t_test" domainObjectName="Test"></table> -->
+		<table tableName="t_article" domainObjectName="TArticle"></table>
+		<!-- <table tableName="t_article_label" domainObjectName="TArticleLable"></table> -->
+		<!-- <table tableName="t_commit" domainObjectName="TCommit"></table> -->
+		<!-- <table tableName="t_label" domainObjectName="TLabel"></table> -->
+		<!-- <table tableName="t_message" domainObjectName="TMessage"></table> -->
+		<!-- <table tableName="t_user" domainObjectName="TUser"></table> -->
+		<!-- <table tableName="t_user_article" domainObjectName="TUserArticle"></table> -->
+		<!-- <table tableName="t_user_article_commit" domainObjectName="TUserArticleCommit"></table> -->
+		<!-- <table tableName="t_user_user" domainObjectName="TUserUser"></table> -->
+		<!-- <table tableName="t_type" domainObjectName="TType"></table> -->
+		<table tableName="t_permission" domainObjectName="TPermission"></table>
+		<!-- <table tableName="t_type_permission" domainObjectName="TTypePermission"></table> -->
+
+
+
+		<!-- <table tableName="t_user" domainObjectName="TUser"></table> -->
+
+		<!-- <table tableName="t_user" domainObjectName="TUser"></table> -->
+
 	</context>
 </generatorConfiguration>

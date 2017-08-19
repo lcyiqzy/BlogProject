@@ -23,7 +23,7 @@
 
 <body>
     <%
-        pageContext.setAttribute("url", "usermanager/users");
+        pageContext.setAttribute("url", "source/article");
     %>
 	<!-- WRAPPER -->
 	<div id="wrapper">

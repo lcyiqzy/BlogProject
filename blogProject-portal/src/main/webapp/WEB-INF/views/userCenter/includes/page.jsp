@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<c:if test="${ not emptypage }">
+<c:if test="${ not empty page }">
 
 	<nav aria-label="Page navigation" style="text-align: center">
 		<ul class="pagination pagination-lg">

@@ -150,7 +150,7 @@
 				<div class="modal-body">
 					<div>
 						<!-- 文章 -->
-						<iframe class="articleContent" width="850" height="400"></iframe>
+						<iframe style="border: none" class="articleContent" width="850" height="400"></iframe>
 					</div>
 				</div>
 				<div class="modal-footer">

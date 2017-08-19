@@ -41,7 +41,7 @@ public class Pagination {
 
 		Pager.setItems(items);
 
-		Pager.setUrl(url + "?userId=" + userId);
+		Pager.setUrl(url + "userId=" + userId);
 
 		return Pager;
 
