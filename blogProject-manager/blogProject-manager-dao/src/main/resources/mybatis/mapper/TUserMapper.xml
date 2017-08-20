@@ -28,7 +28,7 @@
 		UPDATE t_user SET regist_code = NULL
 		WHERE regist_code = #{registCode}
 	</update>
-
+	
 	<sql id="Example_Where_Clause">
 		<where>
 			<foreach collection="oredCriteria" item="criteria" separator="or">

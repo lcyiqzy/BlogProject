@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import blogProject.commons.utils.MD5Util;
+import blogProject.manager.bean.TPermission;
 import blogProject.manager.bean.TUser;
+import blogProject.manager.dao.TPermissionMapper;
 import blogProject.manager.dao.TUserMapper;
 import blogProject.manager.example.TUserExample;
 import blogProject.manager.example.TUserExample.Criteria;
@@ -21,7 +23,10 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	TUserMapper userMapper;
-
+	
+	@Autowired
+	TPermissionMapper permissionMapper;
+	
 	public TUser login(TUser user) {
 		System.out.println("接到的user:" + user);
 		String pwdStr = MD5Util.digest(user.getUserPassword());
@@ -64,8 +69,8 @@ public class UserServiceImpl implements UserService {
 		// Calendar c = Calendar.getInstance();
 		// // 现在的时间(单位：毫秒)
 		// Long time = c.getTimeInMillis();
-		
-		//创建加密激活码
+
+		// 创建加密激活码
 		String regCode = MD5Util.digest(user.getUserEmail() + user.getRegistDate());
 		user.setRegistCode(regCode);
 		System.out.println("加密过的激活码：" + regCode);
@@ -140,23 +145,28 @@ public class UserServiceImpl implements UserService {
 		List<TUser> list = userMapper.selectByExample(example);
 		return list.size() == 1 ? list.get(0) : null;
 	}
-	
+
 	/**
 	 * 更新用户状态码
 	 */
 	public boolean updateStatus(TUser user) {
-		//设置状态为1
+		// 设置状态为1
 		user.setRegistState(1);
 		return userMapper.updateByPrimaryKeySelective(user) > 0;
 	}
-	
+
 	/**
 	 * 删除注册激活码
 	 */
 	public void deleteRegistCode(String registCode) {
 		System.out.println("registCode:" + registCode);
-		//int i = userMapper.delRegistCode(registCode);
+		// int i = userMapper.delRegistCode(registCode);
 		userMapper.delRegistCode(registCode);
+	}
+
+	@Override
+	public List<TPermission> findPermission(Integer userPermission) {
+		return permissionMapper.findPermission(userPermission);
 	}
 
 }

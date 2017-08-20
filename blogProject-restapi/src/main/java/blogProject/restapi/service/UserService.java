@@ -1,5 +1,8 @@
 package blogProject.restapi.service;
 
+import java.util.List;
+
+import blogProject.manager.bean.TPermission;
 import blogProject.manager.bean.TUser;
 
 public interface UserService {
@@ -13,4 +16,6 @@ public interface UserService {
 	public boolean updateStatus(TUser user);
 
 	public void deleteRegistCode(String registCode);
+
+	public List<TPermission> findPermission(Integer userPermission);
 }
