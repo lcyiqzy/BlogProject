@@ -35,4 +35,10 @@ public class DispatchController {
         }
         return "blog";
     }
+    
+    @RequestMapping("/backstage")
+    public String toBackstage() {
+        String url = "http://127.0.0.1:8080/blogProject-manager-web/usermanager/manager";
+        return "redirect:" + url;
+    }
 }

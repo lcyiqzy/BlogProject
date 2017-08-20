@@ -46,7 +46,7 @@ public class UserController {
     @RequestMapping("/login")
     public String login(TUser user,HttpSession session) {
         TUser loginUser = userService.getUser(user);
-        if (loginUser != null) {
+        if (loginUser != null && loginUser.getUserPermission() == 3) {
             session.setAttribute("loginUser", loginUser);
             return "redirect:/usermanager/manager";
         }
@@ -57,8 +57,15 @@ public class UserController {
      * 到管理页面
      */
     @RequestMapping("/manager")
-    public String toManager() {
-        return "manager";
+    public String toManager(HttpSession session) {
+        TUser loginUser = (TUser) session.getAttribute("loginUser");
+        System.out.println(loginUser);
+        if (loginUser != null && loginUser.getUserPermission() == 3) {
+            session.setAttribute("loginUser", loginUser);
+            return "manager";
+        }
+        String url = "http://127.0.0.1:8081/blogProject-portal/index.jsp";
+        return "redirect:" + url;
     }
     
     @RequestMapping("/update")
@@ -66,5 +73,20 @@ public class UserController {
         System.out.println(user);
         boolean flag = userService.update(user);
         return "redirect:/usermanager/users";
+    }
+    
+    @RequestMapping("/logout")
+    public String exit(HttpSession session) {
+        session.removeAttribute("loginUser");
+        String url = "http://127.0.0.1:8081/blogProject-portal/index.jsp";
+        return "redirect:" + url;
+    }
+    
+    @RequestMapping("returnblog")
+    public String returnblog(HttpSession session,Model model) {
+        System.out.println(session.getAttribute("loginUser"));
+        model.addAttribute("loginUser",session.getAttribute("loginUser"));
+        String url = "http://127.0.0.1:8081/blogProject-portal/index.jsp";
+        return "redirect:" + url;
     }
 }

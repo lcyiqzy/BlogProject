@@ -48,11 +48,10 @@
 						alt="Avatar"> <span>${loginUser.userName}</span> <i
 						class="icon-submenu lnr lnr-chevron-down"></i></a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><i class="lnr lnr-user"></i> <span>My
-									Profile</span></a></li>
-						<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-						<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-						<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+						<li><a href="#"><i class="lnr lnr-user"></i> <span>个人资料</span></a></li>
+						<li><a href="#"><i class="lnr lnr-envelope"></i> <span>消息</span></a></li>
+						<li><a href="${ctp}/usermanager/returnblog"><i class="lnr lnr-cog"></i> <span>返回</span></a></li>
+						<li><a href="${ctp}/usermanager/logout"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
 					</ul></li>
 			</ul>
 		</div>

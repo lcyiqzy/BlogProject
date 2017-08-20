@@ -24,7 +24,7 @@
 							<li class="has-dropdown"><a href="${ctp}/index.html">${loginUser.userName}</a>
 								<ul class="dropdown">
 									<c:forEach items="${loginUserPermission }" var="per">
-										<li><a href="${ctp}/#">${per.permission }</a></li>
+										<li><a href="${ctp}/${per.url}">${per.permission }</a></li>
 										<li role="separator" class="divider"></li>
 									</c:forEach>
 									<li><a href="${ctp}/user/exit">退出登录</a></li>
