@@ -34,7 +34,6 @@
 							<div class="panel panel-default">
 								<div class="panel-heading" style="font-size: medium;">写博客</div>
 								<div class="panel-body">
-								    
                                     <form id="article" action="${ctp}/article/saveArticle" method="post">
                                         <input autofocus="autofocus" name="articleName" type="text" placeholder="标题" style="border:none; width: 400px;height: 30px"/>
                                         <br/>

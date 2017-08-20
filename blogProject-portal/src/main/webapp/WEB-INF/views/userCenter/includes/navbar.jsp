@@ -13,7 +13,7 @@
 					<ul>
 
 						<li class="active"><a href="${ctp}/index.html">首页</a></li>
-						<li><a href="${ctp}/blog.html">写博客</a></li>
+						<li><a href="${ctp}/topage/blog.html">写博客</a></li>
 						<li><a href="${ctp}/find.html">发现</a></li>
 						<c:if test="${empty loginUser}">
 							<li class="btn-cta"><a href="${ctp}/register.jsp"><span>注册</span></a></li>
@@ -21,7 +21,7 @@
 						</c:if>
 						<c:if test="${not empty loginUser}">
 							<li><a href="${ctp}/like.html">关注</a></li>
-							<li class="has-dropdown"><a href="${ctp}/index.html">${loginUser }</a>
+							<li class="has-dropdown"><a href="${ctp}/index.html">${loginUser.userName}</a>
 								<ul class="dropdown">
 									<li><a href="${ctp}/#">我的主页</a></li>
 									<li><a href="${ctp}/#">收藏的文章</a></li>

@@ -8,7 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <%@ include file="/WEB-INF/includes/common-css.jsp" %>
 <%@ include file="/WEB-INF/includes/common-js.jsp" %>
-
+<style type="text/css">
+body{
+    background-image: url("assets/img/20101001162251-2075887795.jpg")no-repeat;
+}
+</style>
 </head>
 <body class="login_bj">
 	<div class="zhuce_body">

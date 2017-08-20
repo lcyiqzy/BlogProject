@@ -17,7 +17,7 @@
 
 	<!--2、配置事务切面 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* blogProject.portal.service.*.*(..))"
+		<aop:pointcut expression="execution(* blogProject.service.*.*(..))"
 			id="txPoint" />
 		<!--事务增强 -->
 		<aop:advisor advice-ref="myAdvice" pointcut-ref="txPoint" />

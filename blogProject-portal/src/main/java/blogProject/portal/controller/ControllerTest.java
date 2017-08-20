@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class controllerTest {
+public class ControllerTest {
 	
 	@RequestMapping("/hello")
 	public String test1(){

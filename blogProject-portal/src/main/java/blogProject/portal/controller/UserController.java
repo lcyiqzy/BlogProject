@@ -176,7 +176,7 @@ public class UserController {
             // 登录成功,跳转页面
             if (readValue.getCode() == 1) {
                 // 将用户放在session中
-                session.setAttribute(Constants.LOGIN_USER, readValue.getContent().getUserEmail());
+                session.setAttribute(Constants.LOGIN_USER, readValue.getContent());
                 // 重定向到主页面,导航条改变
                 session.setAttribute("fefe", readValue.getContent().getUserPermission());
                 return "redirect:/index.jsp";
