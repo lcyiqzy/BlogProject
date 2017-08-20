@@ -27,46 +27,55 @@
 					<div class="clearfix"></div>
 
 					<table class="table  table-bordered">
-
-						<c:forEach items="${page.items}" var="follow">
-
-							<!-- technology-top -->
-							<div class="wthree">
-								<div class="col-md-3 wthree-left wow fadeInDown"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-									<div class="tch-img">
-										<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
-											class="img-responsive" alt=""></a>
-									</div>
-								</div>
-								<div class="col-md-6 wthree-right wow fadeInDown"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-
-									<div class="info">
-										<a class="" href="#">${follow.userName }</a>
-										<div class="meta">
-											<span>关注 ${follow.followNum }</span><span>粉丝
-												${follow.followedNum}</span><span>文章 ${follow.articleNum }</span>
+						<c:if test="${not empty page}">
+							<c:forEach items="${page.items}" var="follow">
+								<!-- technology-top -->
+								<div class="wthree">
+									<div class="col-md-3 wthree-left wow fadeInDown"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+										<div class="tch-img">
+											<a href="${ctp}/userCenter/toHisPage?userId=${follow.id}"><img src="${ctp}/images/yourpic.jpg"
+												class="img-responsive" alt=""></a>
 										</div>
-										<div class="meta">写了 ${follow.userWritenum }
-											字，获得了${follow.userGetlike }个喜欢</div>
+									</div>
+									<div class="col-md-6 wthree-right wow fadeInDown"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+
+										<div class="info">
+											<a class=""
+												href="${ctp}/userCenter/toHisPage?userId=${follow.id}">${follow.userName }</a>
+											<div class="meta">
+												<span>关注 ${follow.followNum }</span><span>粉丝
+													${follow.followedNum}</span><span>文章 ${follow.articleNum }</span>
+											</div>
+											<div class="meta">写了 ${follow.userWritenum }
+												字，获得了${follow.userGetlike }个喜欢</div>
+										</div>
+										<div class="clearfix"></div>
+
+									</div>
+									<div class="col-md-3 wthree-left wow fadeInDown"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+										</br>
+
+										<button id="${follow.id }_btn" type="button"
+											class="btn btn-default btn-lg" fanId="${follow.id }"
+											userId="${user.id}"></button>
 									</div>
 									<div class="clearfix"></div>
-
 								</div>
-								<div class="col-md-3 wthree-left wow fadeInDown"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-									</br>
 
-									<button id="${follow.id }_btn" type="button"
-										class="btn btn-default btn-lg" fanId="${follow.id }"
-										userId="${user.id}"></button>
-								</div>
+							</c:forEach>
+						</c:if>
+
+						<c:if test="${empty page}">
+							<div class="tc-ch wow fadeInDown" data-wow-duration=".8s"
+								data-wow-delay=".2s">
+								尚未关注任何用户
 								<div class="clearfix"></div>
 							</div>
 
-						</c:forEach>
-
+						</c:if>
 						<%@include file="/WEB-INF/views/userCenter/includes/page.jsp"%>
 
 					</table>

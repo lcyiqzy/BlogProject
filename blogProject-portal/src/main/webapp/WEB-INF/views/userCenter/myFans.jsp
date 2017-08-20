@@ -29,47 +29,59 @@
 
 					<div class="clearfix"></div>
 					<table class="table  table-bordered">
-
-						<c:forEach items="${page.items}" var="fan">
-
-							<!-- technology-top -->
-							<div class="wthree">
-								<div class="col-md-3 wthree-left wow fadeInDown"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-									<div class="tch-img">
-										<a href="singlepage.html"><img src="${ctp}/images/f1.jpg"
-											class="img-responsive" alt=""></a>
-									</div>
-								</div>
-								<div class="col-md-6 wthree-right wow fadeInDown"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-
-									<div class="info">
-										<a class="" href="#">${fan.userName }</a>
-										<div class="meta">
-											<span>关注 ${fan.followNum }</span><span>粉丝
-												${fan.followedNum}</span><span>文章 ${fan.articleNum }</span>
+						<c:if test="${not empty page}">
+							<c:forEach items="${page.items}" var="fan">
+								<!-- technology-top -->
+								<div class="wthree">
+									<div class="col-md-3 wthree-left wow fadeInDown"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+										<div class="tch-img">
+											<a href="${ctp}/userCenter/toHisPage?userId=${fan.id}"><img src="${ctp}/images/mypic.jpg"
+												class="img-responsive" alt=""></a>
 										</div>
-										<div class="meta">写了 ${fan.userWritenum }
-											字，获得了${fan.userGetlike }个喜欢</div>
+									</div>
+									<div class="col-md-6 wthree-right wow fadeInDown"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+
+										<div class="info">
+											<a class=""
+												href="${ctp}/userCenter/toHisPage?userId=${fan.id}">${fan.userName }</a>
+											<div class="meta">
+												<span>关注 ${fan.followNum }</span><span>粉丝
+													${fan.followedNum}</span><span>文章 ${fan.articleNum }</span>
+											</div>
+											<div class="meta">写了 ${fan.userWritenum }
+												字，获得了${fan.userGetlike }个喜欢</div>
+										</div>
+										<div class="clearfix"></div>
+
+									</div>
+									<div i class="col-md-3 wthree-left wow fadeInDown btn_div"
+										data-wow-duration=".8s" data-wow-delay=".2s">
+										</br>
+
+
+										<button id="${fan.id }_btn" type="button"
+											class="btn btn-default btn-lg" fanId="${fan.id }"
+											userId="${user.id}"></button>
+
 									</div>
 									<div class="clearfix"></div>
-
 								</div>
-								<div i class="col-md-3 wthree-left wow fadeInDown btn_div"
-									data-wow-duration=".8s" data-wow-delay=".2s">
-									</br>
 
+							</c:forEach>
 
-									<button id="${fan.id }_btn" type="button"
-										class="btn btn-default btn-lg" fanId="${fan.id }"
-										userId="${user.id}"></button>
+						</c:if>
 
-								</div>
+						<c:if test="${empty page}">
+							<div class="tc-ch wow fadeInDown" data-wow-duration=".8s"
+								data-wow-delay=".2s">
+								没有任何的粉丝！
 								<div class="clearfix"></div>
 							</div>
 
-						</c:forEach>
+						</c:if>
+
 
 						<%@include file="/WEB-INF/views/userCenter/includes/page.jsp"%>
 
@@ -86,13 +98,9 @@
 	</div>
 	<%@include file="/WEB-INF/views/userCenter/includes/footer.jsp"%>
 
-
-
 	<script type="text/javascript">
 		$(function() {
-
 			buildBtn();
-
 		});
 
 		$("body").on(
@@ -111,9 +119,7 @@
 						$("#" + id).empty().append("&nbsp;已关注&nbsp;");
 
 						buildBtn();
-
 					});
-
 				});
 
 		$("body").on(
@@ -132,9 +138,7 @@
 						$("#" + id).empty().append("添加关注");
 
 						buildBtn();
-
 					});
-
 				});
 
 		$("body").on("mouseenter", ".followed", function() {
@@ -196,25 +200,24 @@
 							+ "&userId=" + userId, function() {
 
 						showIntro();
-						
+
 						$("#myModal").modal("hide");
 					});
 
 					return false;
 				});
-		
-		function showIntro(){
-			
+
+		function showIntro() {
+
 			var userId = $("#intro_text").attr("userId");
 
-			$.get("${ctp}/userCenter/getIntro?userId="+userId, function(data) {
-				
-				$("#selfIntroduction").empty().append(data);
+			$.get("${ctp}/userCenter/getIntro?userId=" + userId,
+					function(data) {
 
-			});
-			
+						$("#selfIntroduction").empty().append(data);
+
+					});
 		}
-		
 	</script>
 
 </body>

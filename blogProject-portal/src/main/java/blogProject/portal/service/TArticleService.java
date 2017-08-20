@@ -8,4 +8,8 @@ public interface TArticleService {
 
     boolean saveArticle(TArticle article);
 
+	TArticle getArticleById(Integer id);
+    
+    
+
 }
