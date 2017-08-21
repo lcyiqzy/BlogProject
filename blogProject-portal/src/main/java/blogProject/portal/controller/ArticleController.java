@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -75,7 +76,7 @@ public class ArticleController {
     @RequestMapping(value = "/saveArticle", produces = "text/html;charset=utf-8")
     public String saveArticle(@RequestParam(value = "upload") String upload,
             @RequestParam("articleName") String articleName, @RequestParam("label") Integer label,
-            HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+            HttpServletRequest request, HttpServletResponse response, HttpSession session,Model model) {
         System.out.println("保存文章开始。。。");
         TArticle article = new TArticle();
         System.out.println(upload);
@@ -115,7 +116,7 @@ public class ArticleController {
         article.setArticleName(articleName);
 
         // 文章作者
-        article.setArticleAuthor(loginUser.getUserLonginacct());
+        article.setArticleAuthor(loginUser.getUserName());
 
         // 文章作者id
         article.setAuthorId(loginUser.getId());
@@ -156,7 +157,20 @@ public class ArticleController {
         }
 
         session.removeAttribute("pictureRealPaths");
+        
+        model.addAttribute("article", article);
 
-        return "redirect:/topage/blog.html";
+        return "article_page/articleShow";
     }
+    
+    @RequestMapping("/getArticle")
+    public String getArticle( @RequestParam("id") Integer id,Model model){
+    	
+    	TArticle article=articleService.getArticleById(id);
+    	
+    	model.addAttribute("article", article);
+    	
+    	return "article_page/articleShow";
+    }
+    
 }

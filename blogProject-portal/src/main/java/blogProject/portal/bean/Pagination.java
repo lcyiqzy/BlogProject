@@ -3,15 +3,14 @@ package blogProject.portal.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import blogProject.manager.bean.TUser;
 
 public class Pagination {
 
-	public Page<TUser> paging(List<TUser> followUser, Integer pageSize,
+	public <T>Page<T> paging(List<T> followUser, Integer pageSize,
 			Integer pageNo, Integer userId, String url) {
 
 		// 创建分页模型
-		Page<TUser> Pager = new Page<>();
+		Page<T> Pager = new Page<>();
 		// 设置每行显示的记录数
 		Pager.setPageSize(pageSize);
 		// 查询并设置总记录数
@@ -32,7 +31,7 @@ public class Pagination {
 		int begin = (Pager.getPageNo() - 1) * Pager.getPageSize();
 		int size = Pager.getPageSize();
 
-		List<TUser> items = new ArrayList<>();
+		List<T> items = new ArrayList<>();
 
 		for (int i = begin; i < (begin + size); i++) {
 			if (followUser.size() > i) {
@@ -42,7 +41,7 @@ public class Pagination {
 
 		Pager.setItems(items);
 
-		Pager.setUrl(url + "?userId=" + userId);
+		Pager.setUrl(url + "userId=" + userId);
 
 		return Pager;
 

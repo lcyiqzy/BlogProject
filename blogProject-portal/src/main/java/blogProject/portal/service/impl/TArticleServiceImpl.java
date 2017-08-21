@@ -33,4 +33,13 @@ public class TArticleServiceImpl implements TArticleService {
         return false;
     }
 
+	@Override
+	public TArticle getArticleById(Integer id) {
+	
+		
+		TArticle article = articleMapper.selectByPrimaryKey(id);
+		
+		return article;
+	}
+
 }
